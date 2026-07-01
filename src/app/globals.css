@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  background: #05070d;
+  --background: #05070d;
+  --foreground: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(71, 85, 255, 0.22), transparent 30rem),
+    radial-gradient(circle at 80% 15%, rgba(168, 85, 247, 0.18), transparent 28rem),
+    linear-gradient(135deg, #02040a 0%, #07101d 42%, #030712 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.section-shell { @apply mx-auto w-full max-w-7xl px-6 py-20 sm:px-8 lg:px-10; }
+.glass-card { @apply border border-white/10 bg-white/[0.055] shadow-2xl shadow-black/30 backdrop-blur-xl; }
+.gradient-text { @apply bg-gradient-to-r from-white via-slate-200 to-blue-200 bg-clip-text text-transparent; }
