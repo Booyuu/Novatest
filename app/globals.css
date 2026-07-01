@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  --background: #03050a;
-  --foreground: #f8fafc;
+  color-scheme: light;
+  --background: #f6f9ff;
+  --foreground: #071427;
 }
 
 * {
@@ -35,15 +35,15 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: linear-gradient(to bottom, black, transparent 78%);
-  opacity: 0.72;
+  background-image: linear-gradient(rgba(37,99,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+  opacity: 0.9;
 }
 
 ::selection {
-  background: rgba(96, 165, 250, 0.36);
-  color: #ffffff;
+  background: rgba(37, 99, 235, 0.18);
+  color: #061528;
 }
 
 @layer components {
@@ -52,14 +52,14 @@ body::before {
   }
 
   .glass-card {
-    @apply border border-white/10 bg-white/[0.055] shadow-panel backdrop-blur-xl;
+    @apply border border-blue-100/80 bg-white/80 shadow-panel backdrop-blur-xl;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-white via-slate-200 to-blue-200 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-slate-950 via-blue-800 to-cyan-600 bg-clip-text text-transparent;
   }
 
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.32em] text-blue-200;
+    @apply text-xs font-semibold uppercase tracking-[0.32em] text-blue-700;
   }
 }
