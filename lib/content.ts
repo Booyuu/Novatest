@@ -1,12 +1,13 @@
 export const navItems = [
-  { label: 'Products', href: '#products' },
-  { label: 'Solutions', href: '#solutions' },
+  { label: 'Products', href: '/products' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Cases', href: '/cases' },
   { label: 'NovaOS', href: 'modal' },
-  { label: 'Marketplace', href: 'modal' },
-  { label: 'Academy', href: 'modal' },
-  { label: 'Resources', href: '#resources' },
-  { label: 'Company', href: '#company' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Marketplace', href: '/marketplace' },
+  { label: 'Academy', href: '/academy' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Company', href: '/company' },
+  { label: 'Contact', href: '/contact' },
 ] as const;
 
 export const trustSignals = [
@@ -150,6 +151,7 @@ export const whyNovaStudio = [
 export const footerLinks = [
   'Products',
   'Solutions',
+  'Cases',
   'NovaOS',
   'Marketplace',
   'Academy',
