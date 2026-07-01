@@ -14,15 +14,15 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#03050a]/80 backdrop-blur-2xl">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#03050a]/82 backdrop-blur-2xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
         {/* Replace this text logo with the official NovaStudio logo asset later. */}
-        <a href="#top" className="group flex items-center gap-3" aria-label="NovaStudio home">
+        <a href="/" className="group flex items-center gap-3" aria-label="NovaStudio home">
           <span className="flex h-9 w-9 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-sm font-semibold shadow-glow">N</span>
           <span className="text-lg font-semibold tracking-tight text-white">Nova<span className="text-slate-300">Studio</span></span>
         </a>
 
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-5 xl:gap-6 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -38,7 +38,7 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
           ))}
         </div>
 
-        <a href="#contact" className="hidden rounded-full border border-white/15 bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-200 lg:inline-flex">
+        <a href="/contact" className="hidden rounded-full border border-white/15 bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-200 lg:inline-flex">
           Book a Strategy Call
         </a>
 
@@ -69,7 +69,7 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
                 {item.label}
               </a>
             ))}
-            <a href="#contact" onClick={() => setIsOpen(false)} className="mt-2 rounded-full bg-white px-5 py-3 text-center font-semibold text-slate-950">
+            <a href="/contact" onClick={() => setIsOpen(false)} className="mt-2 rounded-full bg-white px-5 py-3 text-center font-semibold text-slate-950">
               Book a Strategy Call
             </a>
           </div>
