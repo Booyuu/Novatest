@@ -8,7 +8,6 @@ const pagePaths: Record<string, string> = {
   Products: '/products',
   Solutions: '/solutions',
   Cases: '/cases',
-  Marketplace: '/marketplace',
   Academy: '/academy',
   Resources: '/resources',
   Company: '/company',
@@ -19,7 +18,6 @@ const navKey: Record<string, keyof ReturnType<typeof useLanguage>['t']['nav']> =
   Solutions: 'solutions',
   Cases: 'cases',
   NovaOS: 'novaos',
-  Marketplace: 'marketplace',
   Academy: 'academy',
   Resources: 'resources',
   Company: 'company',
@@ -41,24 +39,14 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
             const isModal = modalLabels.includes(label);
             const href = isModal ? '#' : pagePaths[label] ?? '#';
             return (
-              <a
-                key={label}
-                href={href}
-                onClick={(event) => {
-                  if (isModal) {
-                    event.preventDefault();
-                    onOpenModal();
-                  }
-                }}
-                className="text-sm font-medium text-slate-500 transition hover:text-blue-700"
-              >
+              <a key={label} href={href} onClick={(event) => { if (isModal) { event.preventDefault(); onOpenModal(); } }} className="text-sm font-medium text-slate-500 transition hover:text-blue-700">
                 {navKey[label] ? t.nav[navKey[label]] : label}
               </a>
             );
           })}
         </div>
       </div>
-      <p className="mx-auto mt-10 max-w-[1500px] text-xs text-slate-400">© 2026 NovaStudio. Placeholder social links and AI assistant API can be replaced later.</p>
+      <p className="mx-auto mt-10 max-w-[1500px] text-xs text-slate-400">© 2026 NovaStudio. AI assistant and customer data interface reserved for future integration.</p>
     </footer>
   );
 }
