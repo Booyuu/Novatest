@@ -39,19 +39,21 @@ const footerCopy = {
 } as const;
 
 const socials = [
-  { label: 'X', href: '#', icon: 'x' },
+  { label: 'Facebook', href: '#', icon: 'facebook' },
   { label: 'LinkedIn', href: '#', icon: 'linkedin' },
   { label: 'Instagram', href: '#', icon: 'instagram' },
-  { label: 'Telegram', href: '#', icon: 'telegram' },
+  { label: 'X', href: '#', icon: 'x' },
   { label: 'YouTube', href: '#', icon: 'youtube' },
+  { label: 'TikTok', href: '#', icon: 'tiktok' },
 ] as const;
 
 function SocialIcon({ icon }: { icon: (typeof socials)[number]['icon'] }) {
-  if (icon === 'x') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.8l-5.3-6.9L5.3 22H2l7.8-8.9L1.5 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.8L7.5 3.9h-2L17.7 20Z" /></svg>;
+  if (icon === 'facebook') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-3.4 0-5.3 2-5.3 5.3V11H6v4h2.7v7H13v-7h3.2l.7-4H13V9.6c0-1.1.4-1.6 1-1.6Z" /></svg>;
   if (icon === 'linkedin') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.2 0H13v1.7h.1c.5-1 1.9-2 3.9-2 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21h-4V9Z" /></svg>;
-  if (icon === 'instagram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.8A4.2 4.2 0 1 1 12 16.2 4.2 4.2 0 0 1 12 7.8Zm5.5-1.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z" /></svg>;
-  if (icon === 'telegram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M21.8 4.6 18.6 20c-.2 1-.8 1.2-1.6.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.4-.1-.6-.6-.2L6.6 13.8 1.9 12.3c-1-.3-1-1 .2-1.5L20.5 3.7c.9-.3 1.6.2 1.3.9Z" /></svg>;
-  return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31.6 31.6 0 0 0 .5 12 31.6 31.6 0 0 0 1 16.9 3 3 0 0 0 3.1 19C5 19.5 12 19.5 12 19.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.6 31.6 0 0 0 .5-4.9 31.6 31.6 0 0 0-.5-4.9ZM9.8 15.2V8.8l5.8 3.2-5.8 3.2Z" /></svg>;
+  if (icon === 'instagram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8A4.2 4.2 0 1 1 12 16.2 4.2 4.2 0 0 1 12 7.8Zm0 2A2.2 2.2 0 1 0 12 14.2 2.2 2.2 0 0 0 12 9.8Zm5.5-3.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z" /></svg>;
+  if (icon === 'x') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.8l-5.3-6.9L5.3 22H2l7.8-8.9L1.5 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.8L7.5 3.9h-2L17.7 20Z" /></svg>;
+  if (icon === 'youtube') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31.6 31.6 0 0 0 .5 12 31.6 31.6 0 0 0 1 16.9 3 3 0 0 0 3.1 19C5 19.5 12 19.5 12 19.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.6 31.6 0 0 0 .5-4.9 31.6 31.6 0 0 0-.5-4.9ZM9.8 15.2V8.8l5.8 3.2-5.8 3.2Z" /></svg>;
+  return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M17 3c.3 2.2 1.7 4 4 4.6v3.5a7.1 7.1 0 0 1-4-1.2v5.9A6.1 6.1 0 1 1 10.9 9.7c.4 0 .8 0 1.1.1v3.7a2.5 2.5 0 1 0 1.6 2.3V3h3.4Z" /></svg>;
 }
 
 function QrCodeVisual() {
@@ -124,8 +126,8 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
                 <p className="mt-4 text-sm leading-6 text-slate-500">{c.qrText}</p>
               </div>
               <p className="mt-7 text-sm font-semibold text-slate-950">{c.socialText}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {socials.map((item) => <a key={item.label} href={item.href} aria-label={item.label} className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700"><SocialIcon icon={item.icon} /></a>)}
+              <div className="mt-4 flex flex-wrap gap-3">
+                {socials.map((item) => <a key={item.label} href={item.href} aria-label={item.label} className="flex h-11 w-11 items-center justify-center rounded-full border border-blue-100 bg-slate-950 text-white shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:bg-blue-700"><SocialIcon icon={item.icon} /></a>)}
               </div>
             </div>
           </div>
