@@ -34,8 +34,8 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
           {navItems.map((item) => {
             const hasMenu = Boolean(menus[item.label]);
             return (
-              <a key={item.label} href={item.href === 'modal' ? '#' : item.href} onMouseEnter={() => setActiveMenu(hasMenu ? item.label : null)} onClick={(event) => { if (item.href === 'modal') event.preventDefault(); handleClick(item.href); }} className="text-sm font-medium text-slate-700 transition hover:text-blue-700">
-                {t.nav[navKey[item.label]] ?? item.label}{hasMenu ? ' v' : ''}
+              <a key={item.label} href={item.href === 'modal' ? '#' : item.href} onMouseEnter={() => setActiveMenu(hasMenu ? item.label : null)} onClick={(event) => { if (item.href === 'modal') event.preventDefault(); handleClick(item.href); }} className="inline-flex items-center gap-1 text-sm font-medium text-slate-700 transition hover:text-blue-700">
+                <span>{t.nav[navKey[item.label]] ?? item.label}</span>{hasMenu ? <span className="text-xs leading-none text-slate-400">⌄</span> : null}
               </a>
             );
           })}
