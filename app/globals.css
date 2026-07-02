@@ -25,7 +25,11 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(37, 99, 235, 0.12), transparent 26rem),
+    radial-gradient(circle at 88% 4%, rgba(125, 92, 255, 0.12), transparent 28rem),
+    radial-gradient(circle at 50% 52%, rgba(34, 211, 238, 0.07), transparent 32rem),
+    linear-gradient(180deg, #ffffff 0%, #f6f9ff 38%, #eef4ff 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -39,6 +43,18 @@ body::before {
   background-size: 64px 64px;
   mask-image: linear-gradient(to bottom, black, transparent 72%);
   opacity: 0.9;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: auto -12rem -18rem auto;
+  width: 34rem;
+  height: 34rem;
+  pointer-events: none;
+  border-radius: 9999px;
+  background: rgba(37, 99, 235, 0.08);
+  filter: blur(90px);
 }
 
 ::selection {
