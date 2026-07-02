@@ -10,7 +10,7 @@ const footerCopy = {
     ctaTitle: 'Ready to build your AI marketing operating layer?',
     ctaBody: 'Use NovaStudio as the front door and NovaOS as the system behind campaigns, content, leads, marketplace assets and customer growth workflows.',
     ctaPrimary: 'Enter NovaOS', ctaSecondary: 'Contact NovaStudio',
-    qrText: 'WhatsApp contact card', socialText: 'Social',
+    qrTitle: 'WhatsApp Consultation', qrText: 'Scan to contact NovaStudio on WhatsApp', socialText: 'Social channels',
     groups: [
       { title: 'Products', links: ['NovaOS Core', 'AI Campaign Builder', 'Brand Brain', 'Content Engine', 'Lead Capture Kit', 'GEO / AEO Engine', 'Compliance Copy Checker', 'Growth Dashboard'] },
       { title: 'Solutions', links: ['Fintech & Payments', 'Web3 & Crypto', 'AI & B2B SaaS', 'SMEs', 'Education', 'Clinics & Local Services', 'Retail & Consumer', 'Professional Services'] },
@@ -25,7 +25,7 @@ const footerCopy = {
     ctaTitle: '准备搭建你的 AI 营销操作层了吗？',
     ctaBody: '用 NovaStudio 做企业级前门，用 NovaOS 承载活动、内容、线索、市场资产和客户增长工作流。',
     ctaPrimary: '进入 NovaOS', ctaSecondary: '联系 NovaStudio',
-    qrText: 'WhatsApp 联系卡', socialText: '社媒',
+    qrTitle: 'WhatsApp 咨询', qrText: '扫码通过 WhatsApp 联系 NovaStudio', socialText: '社媒渠道',
     groups: [
       { title: '产品', links: ['NovaOS 核心', 'AI 活动构建器', '品牌大脑', '内容引擎', '线索获取工具包', 'GEO / AEO 引擎', '合规文案检查', '增长仪表盘'] },
       { title: '解决方案', links: ['金融科技与支付', 'Web3 与加密', 'AI 与 B2B SaaS', '中小企业', '教育培训', '诊所与本地服务', '零售与消费', '专业服务'] },
@@ -38,21 +38,27 @@ const footerCopy = {
   ko: null,
 } as const;
 
-const socials = ['X', 'in', 'IG', 'TG', 'YT'] as const;
+const socials = [
+  { label: 'X', href: '#', icon: 'x' },
+  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
+  { label: 'Instagram', href: '#', icon: 'instagram' },
+  { label: 'Telegram', href: '#', icon: 'telegram' },
+  { label: 'YouTube', href: '#', icon: 'youtube' },
+] as const;
 
-function WhatsAppCard({ label }: { label: string }) {
+function SocialIcon({ icon }: { icon: (typeof socials)[number]['icon'] }) {
+  if (icon === 'x') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.8l-5.3-6.9L5.3 22H2l7.8-8.9L1.5 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.8L7.5 3.9h-2L17.7 20Z" /></svg>;
+  if (icon === 'linkedin') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.2 0H13v1.7h.1c.5-1 1.9-2 3.9-2 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21h-4V9Z" /></svg>;
+  if (icon === 'instagram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.8A4.2 4.2 0 1 1 12 16.2 4.2 4.2 0 0 1 12 7.8Zm5.5-1.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z" /></svg>;
+  if (icon === 'telegram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M21.8 4.6 18.6 20c-.2 1-.8 1.2-1.6.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.4-.1-.6-.6-.2L6.6 13.8 1.9 12.3c-1-.3-1-1 .2-1.5L20.5 3.7c.9-.3 1.6.2 1.3.9Z" /></svg>;
+  return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31.6 31.6 0 0 0 .5 12 31.6 31.6 0 0 0 1 16.9 3 3 0 0 0 3.1 19C5 19.5 12 19.5 12 19.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.6 31.6 0 0 0 .5-4.9 31.6 31.6 0 0 0-.5-4.9ZM9.8 15.2V8.8l5.8 3.2-5.8 3.2Z" /></svg>;
+}
+
+function QrCodeVisual() {
+  const active = new Set([0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 20, 22, 24, 26, 28, 30, 32, 34, 36, 42, 43, 44, 45, 46, 47, 48, 56, 57, 61, 63, 64, 70, 72, 74, 75, 77, 80, 84, 86, 88, 91, 95, 96, 98, 100, 104, 105, 109, 112, 114, 116, 117, 119, 121, 123, 126, 128, 130, 132, 134, 135, 136, 140, 142, 144, 146, 147, 150, 154, 156, 158, 160, 162, 168, 169, 170, 171, 172, 173, 174, 176, 180, 182, 184, 188, 190, 192, 194, 195, 196, 198, 202, 204, 205, 207, 210, 212, 216, 217, 219, 220, 222, 224]);
   return (
-    <div className="rounded-[1.6rem] border border-blue-100 bg-white/90 p-4 shadow-sm shadow-blue-900/5 backdrop-blur-xl">
-      <div className="grid grid-cols-[3.6rem_1fr] items-center gap-4">
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-lg font-bold text-emerald-600">WA</div>
-        <div>
-          <p className="text-sm font-semibold text-slate-950">{label}</p>
-          <p className="mt-1 text-xs leading-5 text-slate-500">hello@novastudio.world</p>
-        </div>
-      </div>
-      <div className="mt-4 grid grid-cols-7 gap-1 rounded-2xl bg-[#f3fff8] p-3">
-        {Array.from({ length: 35 }).map((_, index) => <span key={index} className={`h-2 rounded-sm ${index % 3 === 0 || index % 7 === 0 ? 'bg-emerald-500' : 'bg-emerald-100'}`} />)}
-      </div>
+    <div className="mx-auto grid h-36 w-36 grid-cols-[repeat(15,1fr)] gap-0.5 rounded-2xl bg-white p-2 shadow-inner">
+      {Array.from({ length: 225 }).map((_, index) => <span key={index} className={`rounded-[2px] ${active.has(index) ? 'bg-slate-950' : 'bg-transparent'}`} />)}
     </div>
   );
 }
@@ -84,8 +90,8 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
           </div>
         </div>
 
-        <div className="rounded-[2.5rem] border border-blue-100 bg-white/82 p-6 shadow-2xl shadow-blue-900/8 backdrop-blur-xl lg:p-8">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_2fr_0.75fr]">
+        <div className="rounded-[2.5rem] border border-blue-100 bg-white/82 p-6 shadow-2xl shadow-blue-900/10 backdrop-blur-xl lg:p-8">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_2fr_0.9fr]">
             <div>
               <BrandLogo />
               <p className="mt-6 max-w-sm text-base leading-7 text-slate-600">{c.body}</p>
@@ -112,10 +118,14 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
             </div>
 
             <div>
-              <h3 className="text-base font-semibold text-slate-950">{c.follow}</h3>
-              <div className="mt-5"><WhatsAppCard label={c.qrText} /></div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {socials.map((item) => <a key={item} href="#" aria-label={item} className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-sm font-semibold text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700">{item}</a>)}
+              <h3 className="text-base font-semibold text-slate-950">{c.qrTitle}</h3>
+              <div className="mt-5 rounded-[1.7rem] border border-blue-100 bg-white p-5 text-center shadow-sm shadow-blue-900/5">
+                <QrCodeVisual />
+                <p className="mt-4 text-sm leading-6 text-slate-500">{c.qrText}</p>
+              </div>
+              <p className="mt-7 text-sm font-semibold text-slate-950">{c.socialText}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {socials.map((item) => <a key={item.label} href={item.href} aria-label={item.label} className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700"><SocialIcon icon={item.icon} /></a>)}
               </div>
             </div>
           </div>
