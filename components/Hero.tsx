@@ -2,10 +2,17 @@
 
 import { AIAssistantBar } from '@/components/AIAssistantBar';
 import { useLanguage } from '@/components/LanguageProvider';
-import { dashboardModules } from '@/lib/content';
+
+const orbitModules = {
+  en: ['Brand Brain', 'Campaign Builder', 'Content Engine', 'Lead Capture Kit', 'Growth Dashboard', 'Marketplace', 'Academy'],
+  zh: ['品牌大脑', '活动构建器', '内容引擎', '线索捕获', '增长看板', '市场资产', '学院'],
+  ja: ['ブランドブレイン', 'キャンペーン', 'コンテンツ', 'リード獲得', '成長ダッシュボード', 'マーケット', 'アカデミー'],
+  ko: ['브랜드 브레인', '캠페인 빌더', '콘텐츠 엔진', '리드 캡처', '성장 대시보드', '마켓', '아카데미'],
+} as const;
 
 export function Hero({ onOpenModal }: { onOpenModal: () => void }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const modules = orbitModules[lang];
 
   return (
     <>
@@ -18,12 +25,8 @@ export function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-semibold text-white">NovaStudio</span>
               <span>{t.hero.badge}</span>
             </div>
-            <h1 className="max-w-5xl text-5xl font-semibold tracking-[-0.065em] text-slate-950 sm:text-7xl lg:text-8xl">
-              {t.hero.title}
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600">
-              {t.hero.subtitle}
-            </p>
+            <h1 className="max-w-5xl text-5xl font-semibold tracking-[-0.065em] text-slate-950 sm:text-7xl lg:text-8xl">{t.hero.title}</h1>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600">{t.hero.subtitle}</p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a href="/contact" className="rounded-md bg-blue-700 px-8 py-4 text-center font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:-translate-y-1 hover:bg-blue-800">{t.hero.demo}</a>
               <a href="/solutions" className="rounded-md border border-blue-200 bg-white px-8 py-4 text-center font-semibold text-blue-700 shadow-sm transition hover:-translate-y-1 hover:border-blue-400">{t.hero.consult}</a>
@@ -34,8 +37,8 @@ export function Hero({ onOpenModal }: { onOpenModal: () => void }) {
           <div className="relative min-h-[560px]">
             <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-200/70" />
             <div className="absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/80" />
-            <div className="absolute left-1/2 top-1/2 flex h-60 w-60 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 via-cyan-400 to-violet-400 text-7xl shadow-2xl shadow-blue-900/20">🤖</div>
-            {dashboardModules.map((module, index) => {
+            <div className="absolute left-1/2 top-1/2 flex h-60 w-60 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 via-cyan-400 to-violet-400 text-7xl shadow-2xl shadow-blue-900/20">AI</div>
+            {modules.map((module, index) => {
               const positions = ['left-10 top-16', 'left-56 top-2', 'right-24 top-20', 'right-8 top-56', 'right-36 bottom-16', 'left-40 bottom-8', 'left-0 bottom-36'];
               return (
                 <div key={module} className={`absolute ${positions[index]} rounded-2xl border border-blue-100 bg-white px-5 py-4 text-center shadow-xl shadow-blue-900/10`}>
