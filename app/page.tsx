@@ -13,7 +13,7 @@ export default function Home() {
   const openModal = () => setModalOpen(true);
 
   return (
-    <main className="overflow-hidden bg-white text-slate-950">
+    <main className="bg-white text-slate-950">
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
       <HomeDeepSections onOpenModal={openModal} />
