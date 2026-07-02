@@ -45,6 +45,7 @@ const socials = [
   { label: 'X', href: '#', icon: 'x' },
   { label: 'YouTube', href: '#', icon: 'youtube' },
   { label: 'TikTok', href: '#', icon: 'tiktok' },
+  { label: 'WeChat', href: '#', icon: 'wechat' },
 ] as const;
 
 function SocialIcon({ icon }: { icon: (typeof socials)[number]['icon'] }) {
@@ -53,13 +54,14 @@ function SocialIcon({ icon }: { icon: (typeof socials)[number]['icon'] }) {
   if (icon === 'instagram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8A4.2 4.2 0 1 1 12 16.2 4.2 4.2 0 0 1 12 7.8Zm0 2A2.2 2.2 0 1 0 12 14.2 2.2 2.2 0 0 0 12 9.8Zm5.5-3.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z" /></svg>;
   if (icon === 'x') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.8l-5.3-6.9L5.3 22H2l7.8-8.9L1.5 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.8L7.5 3.9h-2L17.7 20Z" /></svg>;
   if (icon === 'youtube') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31.6 31.6 0 0 0 .5 12 31.6 31.6 0 0 0 1 16.9 3 3 0 0 0 3.1 19C5 19.5 12 19.5 12 19.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.6 31.6 0 0 0 .5-4.9 31.6 31.6 0 0 0-.5-4.9ZM9.8 15.2V8.8l5.8 3.2-5.8 3.2Z" /></svg>;
-  return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M17 3c.3 2.2 1.7 4 4 4.6v3.5a7.1 7.1 0 0 1-4-1.2v5.9A6.1 6.1 0 1 1 10.9 9.7c.4 0 .8 0 1.1.1v3.7a2.5 2.5 0 1 0 1.6 2.3V3h3.4Z" /></svg>;
+  if (icon === 'tiktok') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M17 3c.3 2.2 1.7 4 4 4.6v3.5a7.1 7.1 0 0 1-4-1.2v5.9A6.1 6.1 0 1 1 10.9 9.7c.4 0 .8 0 1.1.1v3.7a2.5 2.5 0 1 0 1.6 2.3V3h3.4Z" /></svg>;
+  return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M9.2 4C5.2 4 2 6.7 2 10c0 1.9 1.1 3.6 2.8 4.7L4 17.5l3.1-1.6c.7.1 1.4.2 2.1.2 4 0 7.2-2.7 7.2-6S13.2 4 9.2 4Zm-2.5 5.1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm4.7 1.8c3.2.2 5.6 2.4 5.6 5.1 0 1.5-.8 2.9-2.1 3.8l.6 2.2-2.5-1.3c-.6.1-1.2.2-1.8.2-3.5 0-6.3-2.3-6.3-5.1v-.1c3.7-.2 6.6-2.6 6.6-5.6v-.2Z" /></svg>;
 }
 
 function QrCodeVisual() {
   const active = new Set([0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 20, 22, 24, 26, 28, 30, 32, 34, 36, 42, 43, 44, 45, 46, 47, 48, 56, 57, 61, 63, 64, 70, 72, 74, 75, 77, 80, 84, 86, 88, 91, 95, 96, 98, 100, 104, 105, 109, 112, 114, 116, 117, 119, 121, 123, 126, 128, 130, 132, 134, 135, 136, 140, 142, 144, 146, 147, 150, 154, 156, 158, 160, 162, 168, 169, 170, 171, 172, 173, 174, 176, 180, 182, 184, 188, 190, 192, 194, 195, 196, 198, 202, 204, 205, 207, 210, 212, 216, 217, 219, 220, 222, 224]);
   return (
-    <div className="mx-auto grid h-36 w-36 grid-cols-[repeat(15,1fr)] gap-0.5 rounded-2xl bg-white p-2 shadow-inner">
+    <div className="mx-auto grid h-28 w-28 grid-cols-[repeat(15,1fr)] gap-0.5 rounded-xl bg-white p-2 shadow-inner">
       {Array.from({ length: 225 }).map((_, index) => <span key={index} className={`rounded-[2px] ${active.has(index) ? 'bg-slate-950' : 'bg-transparent'}`} />)}
     </div>
   );
@@ -121,13 +123,13 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
 
             <div>
               <h3 className="text-base font-semibold text-slate-950">{c.qrTitle}</h3>
-              <div className="mt-5 rounded-[1.7rem] border border-blue-100 bg-white p-5 text-center shadow-sm shadow-blue-900/5">
+              <div className="mt-5 rounded-[1.5rem] border border-blue-100 bg-white p-4 text-center shadow-sm shadow-blue-900/5">
                 <QrCodeVisual />
-                <p className="mt-4 text-sm leading-6 text-slate-500">{c.qrText}</p>
+                <p className="mx-auto mt-3 max-w-48 text-xs leading-5 text-slate-500">{c.qrText}</p>
               </div>
               <p className="mt-7 text-sm font-semibold text-slate-950">{c.socialText}</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {socials.map((item) => <a key={item.label} href={item.href} aria-label={item.label} className="flex h-11 w-11 items-center justify-center rounded-full border border-blue-100 bg-slate-950 text-white shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:bg-blue-700"><SocialIcon icon={item.icon} /></a>)}
+              <div className="mt-4 flex flex-nowrap items-center gap-2 overflow-x-auto pb-1">
+                {socials.map((item) => <a key={item.label} href={item.href} aria-label={item.label} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-slate-950 text-white shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:bg-blue-700"><SocialIcon icon={item.icon} /></a>)}
               </div>
             </div>
           </div>
