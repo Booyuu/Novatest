@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import './globals.css';
 
@@ -35,7 +36,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <body><LanguageProvider>{children}</LanguageProvider></body>
+      <body>
+        <LanguageProvider>
+          {children}
+          <FloatingWhatsApp />
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
