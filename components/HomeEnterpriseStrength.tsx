@@ -7,6 +7,7 @@ const strengthCopy = {
     eyebrow: 'Enterprise strength',
     title: 'AI-native capability for multi-industry growth.',
     body: 'NovaStudio is building a global AI marketing operating layer. Instead of only serving one narrow industry, the system can adapt content, campaigns, GEO, lead capture and customer operation workflows to many business categories.',
+    badge: '20+ industries',
     metrics: [
       ['8+', 'Core NovaOS modules'],
       ['30+', 'Marketing workflow templates'],
@@ -23,6 +24,7 @@ const strengthCopy = {
     eyebrow: '企业实力',
     title: 'AI 原生能力，覆盖多行业增长场景。',
     body: 'NovaStudio 正在构建面向全球增长型企业的 AI 营销操作层。它不是只服务某一个单一行业，而是可以把内容、活动、GEO、线索捕获和客户运营工作流适配到不同业务类型。',
+    badge: '20+ 行业场景',
     metrics: [
       ['8+', '核心 NovaOS 模块'],
       ['30+', '营销工作流模板'],
@@ -39,6 +41,7 @@ const strengthCopy = {
     eyebrow: '企業力',
     title: '多業界の成長に対応する AI ネイティブ能力。',
     body: 'NovaStudio はグローバル企業向けの AI マーケティング運用レイヤーを構築しています。コンテンツ、キャンペーン、GEO、リード獲得、顧客運用を多様な業界に適応できます。',
+    badge: '20+ 業界',
     metrics: [['8+', 'コアモジュール'], ['30+', 'ワークフロー'], ['4', '対応言語'], ['20+', '業界シナリオ'], ['24/7', 'AI アシスタント'], ['Global', 'APAC と国際展開']],
     matrixTitle: '業界ソリューションマトリクス',
     matrixBody: '業界ごとに獲得メッセージ、信頼形成、LP 構造、顧客導線は異なります。NovaStudio は同じ AI 基盤を各市場に合わせて調整できます。',
@@ -48,6 +51,7 @@ const strengthCopy = {
     eyebrow: '기업 역량',
     title: '다양한 산업 성장을 위한 AI 네이티브 역량.',
     body: 'NovaStudio는 글로벌 성장 기업을 위한 AI 마케팅 운영 레이어를 구축하고 있습니다. 콘텐츠, 캠페인, GEO, 리드 확보, 고객 운영을 여러 산업에 맞게 적용할 수 있습니다.',
+    badge: '20+ 산업',
     metrics: [['8+', '핵심 모듈'], ['30+', '워크플로'], ['4', '지원 언어'], ['20+', '산업 시나리오'], ['24/7', 'AI 어시스턴트'], ['Global', 'APAC 및 글로벌 제공']],
     matrixTitle: '산업 솔루션 매트릭스',
     matrixBody: '산업마다 고객 확보 언어, 신뢰 신호, 랜딩 구조, 고객 여정이 다릅니다. NovaStudio는 같은 AI 기반을 각 시장에 맞게 조정할 수 있습니다.',
@@ -70,7 +74,7 @@ export function HomeEnterpriseStrength() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-3 lg:grid-cols-6">
           {c.metrics.map(([value, label]) => (
-            <div key={label} className="rounded-3xl bg-white p-7 text-center shadow-sm shadow-blue-900/5 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/8">
+            <div key={label} className="rounded-3xl bg-white p-7 text-center shadow-sm shadow-blue-900/5 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10">
               <p className="text-4xl font-semibold tracking-tight text-indigo-500">{value}</p>
               <p className="mt-3 text-sm leading-6 text-slate-500">{label}</p>
             </div>
@@ -83,7 +87,7 @@ export function HomeEnterpriseStrength() {
               <h3 className="text-4xl font-semibold tracking-tight text-slate-950">{c.matrixTitle}</h3>
               <p className="mt-4 max-w-3xl leading-8 text-slate-600">{c.matrixBody}</p>
             </div>
-            <span className="rounded-full bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-700">20+ industries</span>
+            <span className="rounded-full bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-700">{c.badge}</span>
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {c.industries.map((industry) => (
