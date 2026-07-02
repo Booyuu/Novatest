@@ -49,14 +49,14 @@ export function DeepPageTemplate({ copy, onOpenModal }: { copy: DeepPageCopy; on
             <div className="rounded-[2rem] bg-slate-950 p-6 text-white">
               <div className="mb-6 flex gap-2"><span className="h-3 w-3 rounded-full bg-red-400" /><span className="h-3 w-3 rounded-full bg-yellow-400" /><span className="h-3 w-3 rounded-full bg-green-400" /></div>
               <div className="grid gap-4">
-                {copy.metrics.slice(0, 4).map(([value, label]) => <div key={label} className="rounded-2xl bg-white/8 p-4"><p className="text-3xl font-semibold text-blue-200">{value}</p><p className="mt-1 text-sm text-slate-300">{label}</p></div>)}
+                {copy.metrics.slice(0, 4).map(([value, label]) => <div key={label} className="rounded-2xl bg-white/10 p-4"><p className="text-3xl font-semibold text-blue-200">{value}</p><p className="mt-1 text-sm text-slate-300">{label}</p></div>)}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-5 py-18 sm:px-8 lg:px-10">
+      <section className="px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-[1500px] gap-5 md:grid-cols-3 lg:grid-cols-6">
           {copy.metrics.map(([value, label]) => <div key={label} className="rounded-3xl border border-blue-100 bg-white p-6 text-center shadow-sm shadow-blue-900/5 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10"><p className="text-4xl font-semibold text-indigo-500">{value}</p><p className="mt-2 text-sm leading-6 text-slate-500">{label}</p></div>)}
         </div>
