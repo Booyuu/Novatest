@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { BrandLogo } from '@/components/BrandLogo';
 import { useLanguage, type Lang } from '@/components/LanguageProvider';
 import { navItems } from '@/lib/content';
 
@@ -28,10 +29,7 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
   return (
     <header onMouseLeave={() => setActiveMenu(null)} className="fixed inset-x-0 top-0 z-40 border-b border-blue-100/80 bg-white/95 shadow-sm backdrop-blur-2xl">
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-8 py-5">
-        <a href="/" className="flex items-center gap-3" aria-label="NovaStudio home">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-700 to-cyan-500 text-sm font-semibold text-white shadow-lg">N</span>
-          <span className="text-xl font-semibold tracking-tight text-slate-950">Nova<span className="text-blue-700">Studio</span></span>
-        </a>
+        <a href="/" aria-label="NovaStudio home"><BrandLogo /></a>
         <div className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => {
             const hasMenu = Boolean(menus[item.label]);
