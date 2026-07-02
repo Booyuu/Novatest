@@ -13,6 +13,7 @@ const assistantPrompts = {
 export function AIAssistantBar() {
   const { t, lang } = useLanguage();
   const [query, setQuery] = useState('');
+  const [showPrompts, setShowPrompts] = useState(false);
   const prompts = assistantPrompts[lang];
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -32,17 +33,21 @@ export function AIAssistantBar() {
         </div>
         <div>
           <p className="mb-3 text-xl font-semibold">{t.hero.ask}</p>
-          <form onSubmit={handleSubmit} className="flex overflow-hidden rounded-lg bg-white shadow-xl shadow-blue-950/10">
-            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t.ai.input} className="min-w-0 flex-1 px-5 py-4 text-slate-700 outline-none" />
-            <button className="bg-blue-700 px-6 font-semibold text-white transition hover:bg-blue-800" type="submit">{t.ai.send}</button>
-          </form>
-          <div className="mt-5 overflow-hidden rounded-2xl border border-white/45 bg-white text-slate-700 shadow-xl shadow-blue-950/10">
-            {prompts.map((item) => (
-              <button key={item} type="button" onClick={() => setQuery(item)} className="flex w-full items-center gap-4 border-b border-slate-100 px-5 py-4 text-left text-base transition last:border-b-0 hover:bg-blue-50">
-                <span className="text-xl text-slate-400">✦</span>
-                <span>{item}</span>
-              </button>
-            ))}
+          <div className="relative" onMouseEnter={() => setShowPrompts(true)} onMouseLeave={() => setShowPrompts(false)}>
+            <form onSubmit={handleSubmit} className="flex overflow-hidden rounded-lg bg-white shadow-xl shadow-blue-950/10">
+              <input value={query} onFocus={() => setShowPrompts(true)} onChange={(event) => setQuery(event.target.value)} placeholder={t.ai.input} className="min-w-0 flex-1 px-5 py-4 text-slate-700 outline-none" />
+              <button className="bg-blue-700 px-6 font-semibold text-white transition hover:bg-blue-800" type="submit">{t.ai.send}</button>
+            </form>
+            {showPrompts ? (
+              <div className="absolute left-0 right-0 top-[calc(100%+10px)] z-30 overflow-hidden rounded-2xl border border-blue-100 bg-white text-slate-700 shadow-2xl shadow-blue-950/18">
+                {prompts.map((item) => (
+                  <button key={item} type="button" onClick={() => { setQuery(item); setShowPrompts(false); }} className="flex w-full items-center gap-4 border-b border-slate-100 px-5 py-4 text-left text-base transition last:border-b-0 hover:bg-blue-50">
+                    <span className="text-xl text-slate-400">✦</span>
+                    <span>{item}</span>
+                  </button>
+                ))}
+              </div>
+            ) : null}
           </div>
           <p className="mt-3 text-xs text-white/70">Reserved for future API, database and customer record integration.</p>
         </div>
