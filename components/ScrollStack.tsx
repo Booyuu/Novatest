@@ -44,7 +44,7 @@ export function ScrollStack({ items, onOpenModal }: { items: readonly StackItem[
     return (
       <div className="mx-auto mt-12 grid max-w-[1200px] gap-6">
         {items.map((item, index) => (
-          <article key={item.no} className={`rounded-[2rem] p-7 shadow-xl shadow-slate-900/8 ${item.color}`}>
+          <article key={item.no} className={`rounded-[2rem] p-7 shadow-xl shadow-slate-900/10 ${item.color}`}>
             <p className="text-3xl font-semibold text-slate-500/40">{item.no}</p>
             <h3 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950">{item.title}</h3>
             <ul className="mt-6 grid gap-3 text-slate-700">
@@ -60,18 +60,18 @@ export function ScrollStack({ items, onOpenModal }: { items: readonly StackItem[
   const activeFloat = progress * Math.max(items.length - 1, 1);
 
   return (
-    <div ref={sectionRef} className="relative mx-auto mt-16 max-w-[1200px]" style={{ height: `calc(100vh + ${(items.length - 1) * 300}px)` }}>
-      <div className="sticky top-24 h-[660px]">
+    <div ref={sectionRef} className="relative mx-auto mt-16 max-w-[1200px]" style={{ height: `calc(100vh + ${(items.length - 1) * 320}px + 120px)` }}>
+      <div className="sticky top-24 h-[860px] overflow-hidden">
         {items.map((item, index) => {
           const distance = index - activeFloat;
           const collapse = Math.min(1, Math.max(0, -distance));
           const isPast = distance < 0;
           const isCurrent = distance > -1 && distance <= 1;
-          const headerY = index * 56;
-          const incomingY = 118 + index * 18 + Math.max(0, distance) * 380;
-          const currentY = headerY + Math.max(0, distance) * 250;
+          const headerY = index * 52;
+          const incomingY = 118 + index * 16 + Math.max(0, distance) * 380;
+          const currentY = headerY + Math.max(0, distance) * 240;
           const y = isPast ? headerY : isCurrent ? currentY : incomingY;
-          const height = isPast ? 86 + (1 - collapse) * 474 : 560;
+          const height = isPast ? 86 + (1 - collapse) * 474 : 540;
           const scale = isPast ? 1 - collapse * 0.016 : 1;
           const opacity = isPast ? 0.7 + (1 - collapse) * 0.25 : 1;
           const hideBody = collapse > 0.28;
