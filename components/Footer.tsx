@@ -55,13 +55,22 @@ const footerCopy = {
 } as const;
 
 const socialLinks = [
-  { label: 'X', href: '#' },
-  { label: 'in', href: '#' },
-  { label: 'IG', href: '#' },
-  { label: 'TG', href: '#' },
-  { label: 'YT', href: '#' },
-  { label: 'VM', href: '#' },
-];
+  { label: 'X', href: '#', icon: 'x' },
+  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
+  { label: 'Instagram', href: '#', icon: 'instagram' },
+  { label: 'Telegram', href: '#', icon: 'telegram' },
+  { label: 'YouTube', href: '#', icon: 'youtube' },
+  { label: 'Vimeo', href: '#', icon: 'vimeo' },
+] as const;
+
+function SocialIcon({ icon }: { icon: (typeof socialLinks)[number]['icon'] }) {
+  if (icon === 'x') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.8l-5.3-6.9L5.3 22H2l7.8-8.9L1.5 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.8L7.5 3.9h-2L17.7 20Z" /></svg>;
+  if (icon === 'linkedin') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.2 0H13v1.7h.1c.5-1 1.9-2 3.9-2 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21h-4V9Z" /></svg>;
+  if (icon === 'instagram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8A4.2 4.2 0 1 1 12 16.2 4.2 4.2 0 0 1 12 7.8Zm0 2A2.2 2.2 0 1 0 12 14.2 2.2 2.2 0 0 0 12 9.8ZM17.5 6.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z" /></svg>;
+  if (icon === 'telegram') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M21.8 4.6 18.6 20c-.2 1-.8 1.2-1.6.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.4-.1-.6-.6-.2L6.6 13.8 1.9 12.3c-1-.3-1-1 .2-1.5L20.5 3.7c.9-.3 1.6.2 1.3.9Z" /></svg>;
+  if (icon === 'youtube') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31.6 31.6 0 0 0 .5 12 31.6 31.6 0 0 0 1 16.9 3 3 0 0 0 3.1 19C5 19.5 12 19.5 12 19.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.6 31.6 0 0 0 .5-4.9 31.6 31.6 0 0 0-.5-4.9ZM9.8 15.2V8.8l5.8 3.2-5.8 3.2Z" /></svg>;
+  return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M22.4 7.2c-.1 3-2.2 7.1-6.4 12.1-2.2 2.7-4.1 4-5.6 4-1 0-1.8-.9-2.4-2.7L6.6 15.5 5.2 10.4c-.5-1.8-1-2.7-1.6-2.7-.1 0-.6.3-1.5.9L1 7.2c1.1-1 2.2-1.9 3.3-2.9 1.5-1.3 2.6-2 3.4-2.1 1.8-.2 2.9 1.1 3.3 3.8.5 2.9.8 4.7 1 5.4.5 2.4 1.1 3.6 1.8 3.6.5 0 1.3-.8 2.3-2.5 1-1.6 1.6-2.9 1.7-3.8.2-1.5-.4-2.2-1.7-2.2-.6 0-1.2.1-1.8.4 1.2-3.9 3.5-5.8 6.8-5.7 2.5.1 3.6 1.7 3.3 4Z" /></svg>;
+}
 
 function WhatsAppQr({ label }: { label: string }) {
   return (
@@ -87,7 +96,7 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
         <div className="grid gap-4 border-b border-blue-100 py-10 lg:grid-cols-[0.14fr_0.86fr]"><p className="font-semibold text-slate-800">{c.more}</p><div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-500">{c.recommended.map((item) => <a key={item} href="/products" className="hover:text-blue-700">{item}</a>)}</div></div>
         <div className="flex flex-col gap-5 pt-8 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between">
           <p>{c.copyright}</p>
-          <div className="flex flex-wrap items-center gap-5"><span>{c.socialText}</span>{socialLinks.map((item) => <a key={item.label} href={item.href} className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white font-semibold text-slate-500 transition hover:border-blue-300 hover:text-blue-700">{item.label}</a>)}<a href="#" className="hover:text-blue-700">{c.privacy}</a><a href="#" className="hover:text-blue-700">{c.legal}</a></div>
+          <div className="flex flex-wrap items-center gap-4"><span>{c.socialText}</span>{socialLinks.map((item) => <a key={item.label} href={item.href} aria-label={item.label} className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-blue-300 hover:text-blue-700"><SocialIcon icon={item.icon} /></a>)}<a href="#" className="hover:text-blue-700">{c.privacy}</a><a href="#" className="hover:text-blue-700">{c.legal}</a></div>
         </div>
       </div>
     </footer>
