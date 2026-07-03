@@ -1,0 +1,14 @@
+const whatsappQrDataUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEZAQAAAABkqQeEAAAD4UlEQVR42u2aT47jRBjFf58dxpFASiQ2s0CyjzBLJJDsowwncQVYsOYCzBW4gcOKY9ir6aVbAmEPTj0Wjrt7km6XGXpYjFybxM5zlevVV9+fVzERbBHPg6E6f+46IJc8perEQ1mff0mea6xPFbO5uD5toMnefzQilSTVYHIwmFyddiYgkSS1rDxfsNle2mraAWW9k4e8BchrQKqTAUjb1VYXY/pY7rjH5I4ZppWfj+QTkpOR//rl3wZpLaP8buVnMYexgAYQ1W4QpFNUigUVRPdUGxQAZA87KVaew5jGzMwy+ohDcbuB8pD1sYDezMz2K4ehpql1JpdLHvI60cO2cvgMmGPWm3Ew+9wDtxuTqvTWDJotMtfYduUwlPOnk0l6yNvYU46pFYBJWvOoJT5zAzS2Hbf/RRFwsD1RXuMBGADwHvIak1wqeWDXRQvG+zQ4fBmsm0jePuFXIW2BstpJUnWum/6rrb5agNkuwLxYgDEXwPSWNUUAcwO8mccoC8597x+35+3JoEklObI/xgXxyKXSySzbdRfrVbTxUId4rr8iC2Bc9Zo++37ONoyDD87r0fj6/r3Ib4KYzbBdUOPvIal/udJSEnnGSt8lbS6pLruxPpXkJi3F7qyrLX5aYKsuhNlThm2+Obuh2bG8h3TeVqvw/srGy982H5Lz9wY0lvwV3c0qAoPd6TP/oJ+yZoByelnznN3EI2NtoheXhcGH+TFbwCH+OdYUyF0IM5BdqSTXWsr+zc/U1znAAIyBKP9BbeLK42CSamJJ9e4ypHm+6F0efTP/ztF9vHsCU2DXN6/XwlHMzz2F1/DjfD+Ol1d743qsJIZu1mcCg9+2V7FpmJIml7SlpC4dw9UkVF3004ZtbOzxJgvNC+oibM/V7F7eWO/QYZ6fevuGd1HA93LDzWbeZ1b0RrogVl4FDNXEolSLSXI7QC0mSp3zqCvf/6oivmT74n2S6sS3AT//NfHbl4E9WDyW23ysPOrdAoyKBWP9/lhtlWsAmnQAuN325o55B9CYxXLpQ416WOuCWR1AkqpEkiqSMTbFY+YfzaSY25XDpzAeHnhp1cmA3HhuxU6Syx/GuHTVW/6VZiW18fgdKKfAtuoAz6JZmZ1lVDgUIHPHLPFAsx3zhG7lMIS5Oz8FjumfsaxotjblWnC76n5h3e+clt5nrZzPWKac6L6f2FOqjT2Qdv7ugVSrrS7G9BEH25/MHCQnk0s7ZDqu5ynPjDGp2nUm6WgRlDWxZHmz+oQwZpKm/Dk2WZHKj4KlTMd03e9BzHR+erqDHzOAQzYVlI/UTeUkpCXdyuESjP2P/4v7B4U59NIXKLaEAAAAAElFTkSuQmCC';
+
+export function WhatsAppQrImage() {
+  return (
+    <img
+      src={whatsappQrDataUri}
+      alt="NovaStudio WhatsApp QR code"
+      width={280}
+      height={281}
+      className="h-28 w-28 rounded-xl object-contain"
+      loading="lazy"
+    />
+  );
+}
