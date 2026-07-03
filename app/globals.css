@@ -79,6 +79,39 @@ body::after {
   animation: nova-shake 0.45s ease-in-out;
 }
 
+header [class*="from-blue-50"][class*="to-cyan-50"] > div.mb-6.flex.h-14.w-14 {
+  width: auto;
+  height: auto;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(147, 197, 253, 0.75);
+  background: rgba(255, 255, 255, 0.78);
+  color: transparent;
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+header [class*="from-blue-50"][class*="to-cyan-50"] > div.mb-6.flex.h-14.w-14::after {
+  content: 'Module Brief';
+  color: #1d4ed8;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+html[data-lang="zh"] header [class*="from-blue-50"][class*="to-cyan-50"] > div.mb-6.flex.h-14.w-14::after {
+  content: '功能介绍';
+}
+
+html[data-lang="ja"] header [class*="from-blue-50"][class*="to-cyan-50"] > div.mb-6.flex.h-14.w-14::after {
+  content: '機能紹介';
+}
+
+html[data-lang="ko"] header [class*="from-blue-50"][class*="to-cyan-50"] > div.mb-6.flex.h-14.w-14::after {
+  content: '기능 소개';
+}
+
 @layer components {
   .section-shell {
     @apply mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:px-10;
