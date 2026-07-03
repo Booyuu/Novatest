@@ -1,40 +1,70 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { FormEvent, useEffect, useRef } from 'react';
 import { useLanguage } from '@/components/LanguageProvider';
 
 const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 const modalCopy = {
   en: {
-    eyebrow: 'NovaOS entry',
-    title: 'NovaOS is being updated.',
-    body: 'NovaOS is the AI Marketing OS behind Brand Brain, Campaign Builder, Content Engine, Lead Capture Kit, GEO/AEO, Marketplace, Academy and customer growth workflows. The public interface is currently being updated. Please check back soon.',
-    button: 'Back to NovaStudio',
+    eyebrow: 'NovaOS access',
+    title: 'Sign in to NovaOS',
+    body: 'Use NovaOS to run GEO audits, generate content, build AI video workflows, publish campaigns, capture leads and manage customer growth.',
+    google: 'Continue with Google',
+    apple: 'Continue with Apple',
+    phone: 'Phone number',
+    country: 'Country / region',
+    code: 'Verification code',
+    sendCode: 'Send code',
+    submit: 'Enter NovaOS',
+    terms: 'By continuing, you agree to NovaStudio access terms. This front-end login is ready for a real auth provider integration.',
     close: 'Close',
   },
   zh: {
     eyebrow: 'NovaOS 入口',
-    title: 'NovaOS 正在更新中。',
-    body: 'NovaOS 是承载品牌大脑、活动构建器、内容引擎、线索获取、GEO/AEO、市场资产、学院和客户增长工作流的 AI Marketing OS。当前公开入口正在更新，请稍后再进入。',
-    button: '返回 NovaStudio',
+    title: '登录 / 注册 NovaOS',
+    body: '进入 NovaOS，完成 GEO 诊断、内容生成、AI 视频工作流、内容发布、线索获取和客户增长管理。',
+    google: '使用 Google 登录',
+    apple: '使用 Apple 登录',
+    phone: '手机号',
+    country: '国家 / 地区',
+    code: '验证码',
+    sendCode: '发送验证码',
+    submit: '进入 NovaOS',
+    terms: '继续即代表同意 NovaStudio 访问条款。当前登录界面已按真实鉴权接入方式预留。',
     close: '关闭',
   },
   ja: {
-    eyebrow: 'NovaOS 入口',
-    title: 'NovaOS は更新中です。',
-    body: 'NovaOS は Brand Brain、Campaign Builder、Content Engine、Lead Capture Kit、GEO/AEO、Marketplace、Academy を支える AI Marketing OS です。現在、公開インターフェースを更新中です。',
-    button: 'NovaStudio に戻る',
+    eyebrow: 'NovaOS access',
+    title: 'NovaOS にログイン',
+    body: 'NovaOS で GEO 診断、コンテンツ生成、AI 動画ワークフロー、配信、リード獲得を管理します。',
+    google: 'Google で続行',
+    apple: 'Apple で続行',
+    phone: '電話番号',
+    country: '国 / 地域',
+    code: '認証コード',
+    sendCode: 'コードを送信',
+    submit: 'NovaOS に入る',
+    terms: '続行すると NovaStudio のアクセス条件に同意したものとみなされます。',
     close: '閉じる',
   },
   ko: {
-    eyebrow: 'NovaOS entry',
-    title: 'NovaOS가 업데이트 중입니다.',
-    body: 'NovaOS는 Brand Brain, Campaign Builder, Content Engine, Lead Capture Kit, GEO/AEO, Marketplace, Academy 및 고객 성장 워크플로를 연결하는 AI Marketing OS입니다. 현재 공개 인터페이스를 업데이트 중입니다.',
-    button: 'NovaStudio로 돌아가기',
+    eyebrow: 'NovaOS access',
+    title: 'NovaOS 로그인',
+    body: 'NovaOS에서 GEO 진단, 콘텐츠 생성, AI 영상 워크플로, 게시, 리드 확보를 관리합니다.',
+    google: 'Google로 계속',
+    apple: 'Apple로 계속',
+    phone: '전화번호',
+    country: '국가 / 지역',
+    code: '인증 코드',
+    sendCode: '코드 보내기',
+    submit: 'NovaOS 보기',
+    terms: '계속하면 NovaStudio 접근 약관에 동의하는 것입니다.',
     close: '닫기',
   },
 } as const;
+
+const countries = ['+65 Singapore', '+86 China', '+852 Hong Kong', '+886 Taiwan', '+81 Japan', '+82 Korea', '+1 United States', '+44 United Kingdom', '+61 Australia', '+971 UAE'];
 
 export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement | null>(null);
@@ -88,10 +118,15 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
     };
   }, [open, onClose]);
 
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    window.alert('NovaOS auth provider placeholder. Connect Google, Apple and SMS verification provider here.');
+  }
+
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 backdrop-blur-md" role="presentation" onMouseDown={(event) => {
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-md" role="presentation" onMouseDown={(event) => {
       if (event.target === event.currentTarget) onClose();
     }}>
       <div
@@ -99,20 +134,70 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
-        aria-labelledby="maintenance-title"
-        aria-describedby="maintenance-description"
-        className="relative w-full max-w-lg overflow-hidden rounded-[2rem] border border-white/15 bg-[#080b13]/95 p-8 shadow-glow outline-none"
+        aria-labelledby="novaos-login-title"
+        aria-describedby="novaos-login-description"
+        className="relative grid w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/15 bg-white shadow-2xl shadow-blue-950/25 outline-none lg:grid-cols-[0.95fr_1.05fr]"
       >
-        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-slate-200" />
-        <button type="button" onClick={onClose} className="absolute right-5 top-5 rounded-full border border-white/10 px-3 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white" aria-label={copy.close}>
+        <button type="button" onClick={onClose} className="absolute right-5 top-5 z-10 rounded-full border border-slate-200 bg-white/85 px-3 py-2 text-sm font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-950" aria-label={copy.close}>
           {copy.close}
         </button>
-        <p className="eyebrow mb-4">{copy.eyebrow}</p>
-        <h2 id="maintenance-title" className="pr-16 text-3xl font-semibold tracking-tight text-white">{copy.title}</h2>
-        <p id="maintenance-description" className="mt-5 text-base leading-7 text-slate-300">{copy.body}</p>
-        <button type="button" onClick={onClose} className="mt-8 w-full rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-slate-200">
-          {copy.button}
-        </button>
+
+        <div className="relative overflow-hidden bg-slate-950 p-8 text-white lg:p-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(37,99,235,0.55),transparent_22rem),radial-gradient(circle_at_80%_76%,rgba(14,165,233,0.35),transparent_24rem)]" />
+          <div className="relative">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-200">{copy.eyebrow}</p>
+            <h2 id="novaos-login-title" className="mt-5 text-4xl font-semibold tracking-[-0.055em]">{copy.title}</h2>
+            <p id="novaos-login-description" className="mt-5 leading-8 text-slate-300">{copy.body}</p>
+            <div className="mt-10 grid gap-3 text-sm text-slate-200">
+              {['GEO / AEO audit', 'Content engine', 'AI video workflow', 'Publishing hub', 'Lead capture CRM'].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/8 px-4 py-3 backdrop-blur-xl">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-8 lg:p-10">
+          <div className="grid gap-3">
+            <button type="button" className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-3.5 font-semibold text-slate-900 transition hover:bg-slate-50">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-lg shadow-sm">G</span>
+              {copy.google}
+            </button>
+            <button type="button" className="flex items-center justify-center gap-3 rounded-2xl bg-slate-950 px-5 py-3.5 font-semibold text-white transition hover:bg-blue-700">
+              <span className="text-xl"></span>
+              {copy.apple}
+            </button>
+          </div>
+
+          <div className="my-7 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400"><span className="h-px flex-1 bg-slate-200" />SMS<span className="h-px flex-1 bg-slate-200" /></div>
+
+          <div className="grid gap-4">
+            <label className="grid gap-2 text-sm font-semibold text-slate-700">
+              {copy.country}
+              <select className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100">
+                {countries.map((country) => <option key={country}>{country}</option>)}
+              </select>
+            </label>
+            <label className="grid gap-2 text-sm font-semibold text-slate-700">
+              {copy.phone}
+              <input type="tel" inputMode="tel" placeholder="8123 4567" className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-700 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100" />
+            </label>
+            <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+              <label className="grid gap-2 text-sm font-semibold text-slate-700">
+                {copy.code}
+                <input inputMode="numeric" placeholder="000000" className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-700 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100" />
+              </label>
+              <button type="button" className="self-end rounded-2xl border border-blue-100 bg-blue-50 px-5 py-3 font-semibold text-blue-700 transition hover:bg-blue-100">{copy.sendCode}</button>
+            </div>
+          </div>
+
+          <button type="submit" className="mt-6 w-full rounded-2xl bg-blue-700 px-6 py-4 font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800">
+            {copy.submit}
+          </button>
+          <p className="mt-4 text-center text-xs leading-5 text-slate-500">{copy.terms}</p>
+        </form>
       </div>
     </div>
   );
