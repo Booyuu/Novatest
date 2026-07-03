@@ -4,10 +4,10 @@ import { FormEvent, useState } from 'react';
 import { useLanguage } from '@/components/LanguageProvider';
 
 const assistantPrompts = {
-  en: ['Give me a sales contact method', 'Give me a trial account', 'How can NovaStudio help my business grow?', 'What should my first AI marketing system include?'],
-  zh: ['给我一个销售的联系方式', '给我一个试用账号', 'NovaStudio 如何帮我的业务增长？', '我的第一个 AI 营销系统应该包含什么？'],
-  ja: ['営業担当の連絡先を教えて', '試用アカウントをください', 'NovaStudio は事業成長にどう役立ちますか？', '最初の AI マーケティングシステムには何が必要ですか？'],
-  ko: ['영업 담당 연락처를 알려주세요', '체험 계정을 주세요', 'NovaStudio가 비즈니스 성장에 어떻게 도움이 되나요?', '첫 AI 마케팅 시스템에는 무엇이 필요할까요?'],
+  en: ['Contact sales', 'Request NovaOS access', 'Run a GEO audit', 'Build an AI video workflow'],
+  zh: ['联系销售', '申请 NovaOS 试用', '做一次 GEO 诊断', '创建 AI 视频工作流'],
+  ja: ['営業に相談', 'NovaOS アクセスを申請', 'GEO 診断を行う', 'AI 動画ワークフローを作る'],
+  ko: ['영업 문의', 'NovaOS 접근 신청', 'GEO 진단 실행', 'AI 영상 워크플로 만들기'],
 } as const;
 
 export function AIAssistantBar() {
@@ -18,7 +18,7 @@ export function AIAssistantBar() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    window.alert('AI assistant API placeholder: ' + (query || t.ai.input));
+    window.alert('Nova AI assistant: ' + (query || t.ai.input));
   }
 
   return (
@@ -49,7 +49,7 @@ export function AIAssistantBar() {
               </div>
             ) : null}
           </div>
-          <p className="mt-3 text-xs text-white/70">Reserved for future API, database and customer record integration.</p>
+          <p className="mt-3 text-xs text-white/70">{t.ai.note}</p>
         </div>
       </div>
     </section>
