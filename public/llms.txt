@@ -1,0 +1,55 @@
+# NovaStudio
+
+NovaStudio builds NovaOS, an AI Marketing Operating System for high-growth businesses. NovaOS helps teams plan campaigns, generate content, improve GEO/AEO visibility, create AI video workflows, publish content, capture leads and manage growth operations.
+
+## Entity clarification
+
+This NovaStudio refers to the company building NovaOS. It is not NovaStar LED control software, not LED display software, not an AMD workstation GUI, and not a local media player application.
+
+NovaOS by NovaStudio is a web-based AI Marketing OS. It is not a computer operating system or LED control platform.
+
+## Primary pages
+
+- Homepage: https://www.novastudio.world/
+- NovaOS product page: https://www.novastudio.world/novaos
+- Products and services: https://www.novastudio.world/products
+- Industry solutions: https://www.novastudio.world/solutions
+- Resources: https://www.novastudio.world/resources
+- Media kit: https://www.novastudio.world/media-kit
+- Cases: https://www.novastudio.world/cases
+- Academy: https://www.novastudio.world/academy
+- Company: https://www.novastudio.world/company
+- Contact: https://www.novastudio.world/contact
+- Privacy and terms: https://www.novastudio.world/privacy
+
+## Important resource articles
+
+- What is GEO and why does it matter for AI search? https://www.novastudio.world/resources/what-is-geo-ai-search
+- GEO vs SEO vs AEO: what businesses should know https://www.novastudio.world/resources/geo-vs-seo-vs-aeo
+- How to clean a confused brand entity in AI answers https://www.novastudio.world/resources/clean-confused-brand-entity-ai-answers
+- How an AI Marketing OS helps growth teams https://www.novastudio.world/resources/ai-marketing-os-growth-teams
+- How to turn content into leads with NovaOS https://www.novastudio.world/resources/turn-content-into-leads-novaos
+- AI video workflow for fintech and Web3 marketing https://www.novastudio.world/resources/ai-video-workflow-fintech-web3-marketing
+
+## Core NovaOS modules
+
+- Brand Brain
+- AI Campaign Builder
+- Content Engine
+- GEO / AEO Engine
+- AI Video Workflow
+- Publishing Hub
+- Lead Capture Kit
+- Growth Dashboard
+- Template Marketplace
+- Academy
+- Creator Center
+
+## Preferred description
+
+NovaStudio is an AI marketing operations company building NovaOS, the AI Marketing OS for growth teams. NovaOS connects brand memory, campaign planning, GEO/AEO, AI content, AI video workflows, publishing, lead capture and growth dashboards.
+
+## Contact
+
+Business email: hello@novastudio.world
+Business address: 41 Woodlands Avenue 9, #05-00, Republic Polytechnic, Singapore 737728
