@@ -2,13 +2,14 @@
 
 import { BrandLogo } from '@/components/BrandLogo';
 import { useLanguage } from '@/components/LanguageProvider';
+import { WhatsAppQrImage } from '@/components/WhatsAppQrImage';
 
 const businessAddress = '41 Woodlands Avenue 9, #05-00, Republic Polytechnic, Singapore 737728';
 const businessEmail = 'hello@novastudio.world';
 
 const footerCopy = {
   en: {
-    contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', demo: 'Book Demo', follow: 'WhatsApp Consultation', more: 'Popular entries', privacy: 'Privacy Policy', legal: 'Legal Statement', copyright: '© 2026 NovaStudio. Enterprise front door for NovaOS, the AI Marketing OS for high-growth businesses.',
+    contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', more: 'Popular entries', privacy: 'Privacy Policy', legal: 'Service Terms', copyright: '© 2026 NovaStudio. Enterprise front door for NovaOS, the AI Marketing OS for high-growth businesses.',
     body: 'NovaStudio builds NovaOS for AI marketing operations, GEO/AEO, content, AI video workflows, publishing and lead capture.',
     ctaTitle: 'Ready to build your AI marketing operating layer?',
     ctaBody: 'Use NovaOS to plan campaigns, generate content, improve AI search visibility, create video workflows, publish content and capture leads.',
@@ -23,7 +24,7 @@ const footerCopy = {
     recommended: ['GEO Audit', 'Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture', 'Growth Dashboard', 'Academy', 'Creator Center', 'AI Workflow'],
   },
   zh: {
-    contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', demo: '预约沟通', follow: 'WhatsApp 咨询', more: '热门入口', privacy: '隐私保护', legal: '法律声明', copyright: '© 2026 NovaStudio. NovaStudio 是 NovaOS 的企业级前门；NovaOS 是面向高增长企业的 AI Marketing OS。',
+    contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', more: '热门入口', privacy: '隐私政策', legal: '服务条款', copyright: '© 2026 NovaStudio. NovaStudio 是 NovaOS 的企业级前门；NovaOS 是面向高增长企业的 AI Marketing OS。',
     body: 'NovaStudio 打造 NovaOS，用于 AI 营销运营、GEO/AEO、内容、AI 视频工作流、内容发布和线索获取。',
     ctaTitle: '准备搭建你的 AI 营销操作层了吗？',
     ctaBody: '用 NovaOS 完成活动策划、内容生成、AI 搜索优化、视频工作流、内容发布和线索获取。',
@@ -59,15 +60,6 @@ function SocialIcon({ icon }: { icon: (typeof socials)[number]['icon'] }) {
   if (icon === 'youtube') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31.6 31.6 0 0 0 .5 12 31.6 31.6 0 0 0 1 16.9 3 3 0 0 0 3.1 19C5 19.5 12 19.5 12 19.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.6 31.6 0 0 0 .5-4.9 31.6 31.6 0 0 0-.5-4.9ZM9.8 15.2V8.8l5.8 3.2-5.8 3.2Z" /></svg>;
   if (icon === 'tiktok') return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M17 3c.3 2.2 1.7 4 4 4.6v3.5a7.1 7.1 0 0 1-4-1.2v5.9A6.1 6.1 0 1 1 10.9 9.7c.4 0 .8 0 1.1.1v3.7a2.5 2.5 0 1 0 1.6 2.3V3h3.4Z" /></svg>;
   return <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path fill="currentColor" d="M9.2 4C5.2 4 2 6.7 2 10c0 1.9 1.1 3.6 2.8 4.7L4 17.5l3.1-1.6c.7.1 1.4.2 2.1.2 4 0 7.2-2.7 7.2-6S13.2 4 9.2 4Zm-2.5 5.1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm4.7 1.8c3.2.2 5.6 2.4 5.6 5.1 0 1.5-.8 2.9-2.1 3.8l.6 2.2-2.5-1.3c-.6.1-1.2.2-1.8.2-3.5 0-6.3-2.3-6.3-5.1v-.1c3.7-.2 6.6-2.6 6.6-5.6v-.2Z" /></svg>;
-}
-
-function QrCodeVisual() {
-  const active = new Set([0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 20, 22, 24, 26, 28, 30, 32, 34, 36, 42, 43, 44, 45, 46, 47, 48, 56, 57, 61, 63, 64, 70, 72, 74, 75, 77, 80, 84, 86, 88, 91, 95, 96, 98, 100, 104, 105, 109, 112, 114, 116, 117, 119, 121, 123, 126, 128, 130, 132, 134, 135, 136, 140, 142, 144, 146, 147, 150, 154, 156, 158, 160, 162, 168, 169, 170, 171, 172, 173, 174, 176, 180, 182, 184, 188, 190, 192, 194, 195, 196, 198, 202, 204, 205, 207, 210, 212, 216, 217, 219, 220, 222, 224]);
-  return (
-    <div className="mx-auto grid h-28 w-28 grid-cols-[repeat(15,1fr)] gap-0.5 rounded-xl bg-white p-2 shadow-inner">
-      {Array.from({ length: 225 }).map((_, index) => <span key={index} className={`rounded-[2px] ${active.has(index) ? 'bg-slate-950' : 'bg-transparent'}`} />)}
-    </div>
-  );
 }
 
 function groupHref(groupTitle: string) {
@@ -129,7 +121,7 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
             <div>
               <h3 className="text-base font-semibold text-slate-950">{c.qrTitle}</h3>
               <div className="mt-5 rounded-[1.5rem] border border-blue-100 bg-white p-4 text-center shadow-sm shadow-blue-900/5">
-                <QrCodeVisual />
+                <div className="flex justify-center"><WhatsAppQrImage /></div>
                 <p className="mx-auto mt-3 max-w-48 text-xs leading-5 text-slate-500">{c.qrText}</p>
               </div>
               <p className="mt-7 text-sm font-semibold text-slate-950">{c.socialText}</p>
@@ -149,7 +141,7 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
 
         <div className="flex flex-col gap-4 px-2 pt-8 text-sm text-slate-500 lg:flex-row lg:items-center lg:justify-between">
           <p>{c.copyright}</p>
-          <div className="flex flex-wrap gap-5"><a href="#" className="hover:text-blue-700">{c.privacy}</a><a href="#" className="hover:text-blue-700">{c.legal}</a></div>
+          <div className="flex flex-wrap gap-5"><a href="/privacy" className="hover:text-blue-700">{c.privacy}</a><a href="/privacy#terms" className="hover:text-blue-700">{c.legal}</a></div>
         </div>
       </div>
     </footer>
