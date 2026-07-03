@@ -6,6 +6,9 @@ import './globals.css';
 
 const siteUrl = 'https://www.novastudio.world';
 const faviconUrl = `${siteUrl}/favicon.png`;
+const businessEmail = 'hello@novastudio.world';
+const streetAddress = '41 Woodlands Avenue 9, #05-00, Republic Polytechnic';
+const postalCode = '737728';
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -15,6 +18,23 @@ const organizationSchema = {
   alternateName: ['NovaStudio AI Marketing OS', 'NovaStudio by NovaOS', 'NovaStudio AI Marketing Operations'],
   url: siteUrl,
   logo: faviconUrl,
+  email: businessEmail,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress,
+    addressLocality: 'Singapore',
+    postalCode,
+    addressCountry: 'SG',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: businessEmail,
+      areaServed: ['SG', 'APAC', 'Global'],
+      availableLanguage: ['English', 'Chinese', 'Japanese', 'Korean'],
+    },
+  ],
   description: 'NovaStudio is the enterprise front door for NovaOS, an AI Marketing Operating System for campaigns, content, GEO/AEO, lead capture and customer growth workflows.',
   disambiguatingDescription: 'This NovaStudio is an AI marketing operations company connected to NovaOS by NovaStudio. It is not NovaStar LED control software, not an LED display media player, not an AMD workstation GUI, and not a general local workstation application.',
   foundingLocation: {
