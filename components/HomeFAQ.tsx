@@ -71,10 +71,10 @@ export function HomeFAQ() {
 
   return (
     <section className="px-5 py-20 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-[1100px]">
+      <div className="mx-auto max-w-[1180px]">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">{copy.eyebrow}</p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-5xl">{copy.title}</h2>
+          <h2 className="mx-auto mt-4 text-4xl font-semibold tracking-[-0.05em] text-slate-950 lg:whitespace-nowrap lg:text-[3.1rem]">{copy.title}</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">{copy.subtitle}</p>
         </div>
         <div className="mt-10 overflow-hidden rounded-[2rem] border border-blue-100 bg-white shadow-xl shadow-blue-900/8">
