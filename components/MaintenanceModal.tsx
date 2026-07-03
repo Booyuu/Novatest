@@ -12,7 +12,7 @@ const modalCopy = {
     body: 'Use NovaOS to run GEO audits, generate content, build AI video workflows, publish campaigns, capture leads and manage customer growth.',
     google: 'Continue with Google', apple: 'Continue with Apple', phone: 'Phone number', country: 'Country / region', code: 'Verification code', sendCode: 'Send code', submit: 'Enter NovaOS', close: 'Close',
     terms: 'By continuing, you agree to NovaStudio access terms. This front-end login is ready for a real auth provider integration.',
-    progress: 'Access setup', mascotReady: 'Ready when you are', mascotTyping: 'I am following your input', mascotCheck: 'Code looks short', sms: 'SMS verification',
+    progress: 'Access setup', mascotReady: 'Ready when you are', mascotTyping: 'I am watching the input', mascotCover: 'I will look away for the code', mascotCheck: 'Code looks short', sms: 'SMS verification',
     features: ['GEO / AEO audit', 'Content engine', 'AI video workflow', 'Publishing hub', 'Lead capture CRM'],
   },
   zh: {
@@ -21,7 +21,7 @@ const modalCopy = {
     body: '进入 NovaOS，完成 GEO 诊断、内容生成、AI 视频工作流、内容发布、线索获取和客户增长管理。',
     google: '使用 Google 登录', apple: '使用 Apple 登录', phone: '手机号', country: '国家 / 地区', code: '验证码', sendCode: '发送验证码', submit: '进入 NovaOS', close: '关闭',
     terms: '继续即代表同意 NovaStudio 访问条款。当前登录界面已按真实鉴权接入方式预留。',
-    progress: '访问进度', mascotReady: '准备好了，开始吧', mascotTyping: '我在跟着你的输入看', mascotCheck: '验证码好像还不完整', sms: '短信验证',
+    progress: '访问进度', mascotReady: '准备好了，开始吧', mascotTyping: '我在跟着你的输入看', mascotCover: '验证码我先不偷看', mascotCheck: '验证码好像还不完整', sms: '短信验证',
     features: ['GEO / AEO 诊断', '内容引擎', 'AI 视频工作流', '内容发布中心', '线索获取 CRM'],
   },
   ja: {
@@ -30,7 +30,7 @@ const modalCopy = {
     body: 'NovaOS で GEO 診断、コンテンツ生成、AI 動画ワークフロー、配信、リード獲得を管理します。',
     google: 'Google で続行', apple: 'Apple で続行', phone: '電話番号', country: '国 / 地域', code: '認証コード', sendCode: 'コードを送信', submit: 'NovaOS に入る', close: '閉じる',
     terms: '続行すると NovaStudio のアクセス条件に同意したものとみなされます。',
-    progress: 'Access setup', mascotReady: 'Ready when you are', mascotTyping: 'I am following your input', mascotCheck: 'Code looks short', sms: 'SMS verification',
+    progress: 'Access setup', mascotReady: 'Ready when you are', mascotTyping: 'I am watching the input', mascotCover: 'I will look away for the code', mascotCheck: 'Code looks short', sms: 'SMS verification',
     features: ['GEO / AEO audit', 'Content engine', 'AI video workflow', 'Publishing hub', 'Lead capture CRM'],
   },
   ko: {
@@ -39,27 +39,36 @@ const modalCopy = {
     body: 'NovaOS에서 GEO 진단, 콘텐츠 생성, AI 영상 워크플로, 게시, 리드 확보를 관리합니다.',
     google: 'Google로 계속', apple: 'Apple로 계속', phone: '전화번호', country: '국가 / 지역', code: '인증 코드', sendCode: '코드 보내기', submit: 'NovaOS 보기', close: '닫기',
     terms: '계속하면 NovaStudio 접근 약관에 동의하는 것입니다.',
-    progress: 'Access setup', mascotReady: 'Ready when you are', mascotTyping: 'I am following your input', mascotCheck: 'Code looks short', sms: 'SMS verification',
+    progress: 'Access setup', mascotReady: 'Ready when you are', mascotTyping: 'I am watching the input', mascotCover: 'I will look away for the code', mascotCheck: 'Code looks short', sms: 'SMS verification',
     features: ['GEO / AEO audit', 'Content engine', 'AI video workflow', 'Publishing hub', 'Lead capture CRM'],
   },
 } as const;
+
+type ModalCopy = (typeof modalCopy)[keyof typeof modalCopy];
 
 const countries = ['+65 Singapore', '+86 China', '+852 Hong Kong', '+886 Taiwan', '+81 Japan', '+82 Korea', '+1 United States', '+44 United Kingdom', '+61 Australia', '+971 UAE'];
 
 type ActiveField = 'idle' | 'phone' | 'code';
 
-function AuthMascot({ activeField, progress, codeShort, copy }: { activeField: ActiveField; progress: number; codeShort: boolean; copy: (typeof modalCopy)['en'] }) {
-  const eyeShift = activeField === 'phone' ? Math.min(6, progress / 9) : activeField === 'code' ? -4 : 0;
-  const label = codeShort ? copy.mascotCheck : activeField === 'idle' ? copy.mascotReady : copy.mascotTyping;
+function AuthMascot({ activeField, progress, codeShort, copy }: { activeField: ActiveField; progress: number; codeShort: boolean; copy: ModalCopy }) {
+  const isPhone = activeField === 'phone';
+  const isCode = activeField === 'code';
+  const eyeShift = isPhone ? Math.min(7, progress / 8) : isCode ? -5 : 0;
+  const label = codeShort ? copy.mascotCheck : isCode ? copy.mascotCover : activeField === 'idle' ? copy.mascotReady : copy.mascotTyping;
 
   return (
-    <div className={`rounded-[1.6rem] border border-white/10 bg-white/8 p-4 backdrop-blur-xl ${codeShort ? 'nova-shake' : ''}`}>
+    <div key={`${activeField}-${codeShort ? 'short' : 'ok'}-${progress}`} className={`rounded-[1.75rem] border border-white/10 bg-white/10 p-4 backdrop-blur-xl ${codeShort ? 'nova-shake' : ''}`}>
       <div className="flex items-center gap-4">
-        <div className="relative h-20 w-20 rounded-[1.6rem] bg-gradient-to-br from-blue-300 via-white to-cyan-200 shadow-2xl shadow-blue-900/20">
-          <div className="absolute left-4 top-5 h-4 w-4 rounded-full bg-slate-950 transition-transform duration-300" style={{ transform: `translateX(${eyeShift}px)` }} />
-          <div className="absolute right-4 top-5 h-4 w-4 rounded-full bg-slate-950 transition-transform duration-300" style={{ transform: `translateX(${eyeShift}px)` }} />
-          <div className="absolute left-1/2 top-12 h-2 w-8 -translate-x-1/2 rounded-full bg-slate-950/80" />
-          <div className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white">OS</div>
+        <div className="relative h-24 w-24 shrink-0 rounded-[2rem] bg-gradient-to-br from-blue-300 via-white to-cyan-200 shadow-2xl shadow-blue-950/20">
+          <div className="absolute -left-2 top-8 h-8 w-5 rounded-full bg-blue-200" />
+          <div className="absolute -right-2 top-8 h-8 w-5 rounded-full bg-cyan-200" />
+          <div className="absolute left-1/2 top-3 h-3 w-9 -translate-x-1/2 rounded-full bg-white/70" />
+          <div className="absolute left-5 top-8 h-4 w-4 rounded-full bg-slate-950 transition-transform duration-300" style={{ transform: `translateX(${eyeShift}px)` }} />
+          <div className="absolute right-5 top-8 h-4 w-4 rounded-full bg-slate-950 transition-transform duration-300" style={{ transform: `translateX(${eyeShift}px)` }} />
+          <div className="absolute left-1/2 top-14 h-2 w-8 -translate-x-1/2 rounded-full bg-slate-950/80" />
+          <div className={`absolute left-1 top-7 h-8 w-8 rounded-full bg-blue-500/95 shadow-lg transition-all duration-300 ${isCode ? 'translate-x-6 translate-y-1 rotate-12 opacity-100' : '-translate-x-5 translate-y-4 -rotate-45 opacity-45'}`} />
+          <div className={`absolute right-1 top-7 h-8 w-8 rounded-full bg-violet-500/95 shadow-lg transition-all duration-300 ${isCode ? '-translate-x-6 translate-y-1 -rotate-12 opacity-100' : 'translate-x-5 translate-y-4 rotate-45 opacity-45'}`} />
+          <div className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-[10px] font-bold text-white shadow-lg shadow-blue-900/25">OS</div>
         </div>
         <div className="min-w-0 flex-1">
           <p className="text-sm font-semibold text-white">{label}</p>
@@ -165,7 +174,7 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
             <div className="mt-8"><AuthMascot activeField={activeField} progress={progress} codeShort={codeShort} copy={copy} /></div>
             <div className="mt-7 grid gap-3 text-sm text-slate-200">
               {copy.features.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/8 px-4 py-3 backdrop-blur-xl">
+                <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-xl">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white">✓</span>
                   <span>{item}</span>
                 </div>
