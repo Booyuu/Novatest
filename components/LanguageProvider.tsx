@@ -1,9 +1,11 @@
 'use client';
 
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 
 export type Lang = 'en' | 'zh' | 'ja' | 'ko';
+
+const storageKey = 'novastudio-language';
 
 const labels: Record<Lang, string> = {
   en: 'EN',
@@ -11,6 +13,16 @@ const labels: Record<Lang, string> = {
   ja: '日本語',
   ko: '한국어',
 };
+
+function isLang(value: string | null): value is Lang {
+  return value === 'en' || value === 'zh' || value === 'ja' || value === 'ko';
+}
+
+function getInitialLanguage(): Lang {
+  if (typeof window === 'undefined') return 'en';
+  const stored = window.localStorage.getItem(storageKey);
+  return isLang(stored) ? stored : 'en';
+}
 
 export const copy = {
   en: {
@@ -58,7 +70,21 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('en');
+  const [lang, setLangState] = useState<Lang>(getInitialLanguage);
+
+  const setLang = (nextLang: Lang) => {
+    setLangState(nextLang);
+    window.localStorage.setItem(storageKey, nextLang);
+    document.documentElement.lang = nextLang;
+    document.documentElement.dataset.lang = nextLang;
+  };
+
+  useEffect(() => {
+    window.localStorage.setItem(storageKey, lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+  }, [lang]);
+
   const value = useMemo(() => ({ lang, setLang, label: labels[lang], t: copy[lang], labels }), [lang]);
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
