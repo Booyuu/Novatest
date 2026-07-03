@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 
 export type Lang = 'en' | 'zh' | 'ja' | 'ko';
 
@@ -13,6 +14,60 @@ const labels: Record<Lang, string> = {
   ja: '日本語',
   ko: '한국어',
 };
+
+const documentTitles: Record<Lang, Record<string, string>> = {
+  en: {
+    home: 'NovaStudio',
+    products: 'NovaOS Products: GEO, Content, AI Video and Lead Capture | NovaStudio',
+    solutions: 'Industry Solutions for AI Marketing Operations | NovaStudio',
+    cases: 'NovaStudio Cases and AI Marketing Workflows | NovaStudio',
+    academy: 'NovaOS Academy and Creator Center | NovaStudio',
+    resources: 'AI Marketing, GEO and AEO Resources | NovaStudio',
+    company: 'About NovaStudio and NovaOS | NovaStudio',
+    contact: 'Contact NovaStudio Sales | NovaStudio',
+  },
+  zh: {
+    home: 'NovaStudio',
+    products: 'NovaOS 产品：GEO、内容、AI 视频与线索获取 | NovaStudio',
+    solutions: 'AI 营销运营行业解决方案 | NovaStudio',
+    cases: 'NovaStudio 案例与 AI 营销工作流 | NovaStudio',
+    academy: 'NovaOS 学院与创作者中心 | NovaStudio',
+    resources: 'AI 营销、GEO 与 AEO 资源 | NovaStudio',
+    company: '了解 NovaStudio 与 NovaOS | NovaStudio',
+    contact: '联系 NovaStudio 销售 | NovaStudio',
+  },
+  ja: {
+    home: 'NovaStudio',
+    products: 'NovaOS 製品：GEO、コンテンツ、AI動画、リード獲得 | NovaStudio',
+    solutions: 'AIマーケティング運用の業界ソリューション | NovaStudio',
+    cases: 'NovaStudio 事例とAIマーケティングワークフロー | NovaStudio',
+    academy: 'NovaOS アカデミーとクリエイターセンター | NovaStudio',
+    resources: 'AIマーケティング、GEO、AEO リソース | NovaStudio',
+    company: 'NovaStudio と NovaOS について | NovaStudio',
+    contact: 'NovaStudio 営業へのお問い合わせ | NovaStudio',
+  },
+  ko: {
+    home: 'NovaStudio',
+    products: 'NovaOS 제품: GEO, 콘텐츠, AI 영상, 리드 확보 | NovaStudio',
+    solutions: 'AI 마케팅 운영 산업 솔루션 | NovaStudio',
+    cases: 'NovaStudio 사례와 AI 마케팅 워크플로 | NovaStudio',
+    academy: 'NovaOS 아카데미와 크리에이터 센터 | NovaStudio',
+    resources: 'AI 마케팅, GEO, AEO 리소스 | NovaStudio',
+    company: 'NovaStudio와 NovaOS 소개 | NovaStudio',
+    contact: 'NovaStudio 영업 문의 | NovaStudio',
+  },
+};
+
+function pageKey(pathname: string) {
+  if (pathname.startsWith('/products')) return 'products';
+  if (pathname.startsWith('/solutions')) return 'solutions';
+  if (pathname.startsWith('/cases')) return 'cases';
+  if (pathname.startsWith('/academy')) return 'academy';
+  if (pathname.startsWith('/resources')) return 'resources';
+  if (pathname.startsWith('/company')) return 'company';
+  if (pathname.startsWith('/contact')) return 'contact';
+  return 'home';
+}
 
 function isLang(value: string | null): value is Lang {
   return value === 'en' || value === 'zh' || value === 'ja' || value === 'ko';
@@ -133,6 +188,7 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>('en');
+  const pathname = usePathname();
 
   const setLang = (nextLang: Lang) => {
     setLangState(nextLang);
@@ -157,7 +213,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem(storageKey, lang);
     document.documentElement.lang = lang;
     document.documentElement.dataset.lang = lang;
-  }, [lang]);
+    document.title = documentTitles[lang][pageKey(pathname)] ?? 'NovaStudio';
+  }, [lang, pathname]);
 
   const value = useMemo(() => ({ lang, setLang, label: labels[lang], labels, t: copy[lang] }), [lang]);
 
