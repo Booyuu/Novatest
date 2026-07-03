@@ -11,6 +11,7 @@ const routes = [
   '/resources',
   '/company',
   '/contact',
+  '/privacy',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
