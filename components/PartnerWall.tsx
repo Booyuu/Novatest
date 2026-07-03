@@ -64,7 +64,7 @@ export function PartnerWall() {
             {partners.map((partner) => (
               <div key={partner.name} className="group flex min-h-28 flex-col items-center justify-center rounded-3xl border border-blue-100 bg-gradient-to-br from-white to-blue-50/70 p-4 text-center shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/10">
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-xs font-bold text-white shadow-md shadow-slate-900/15">{partner.name.slice(0, 1)}</div>
-                <p className="text-sm font-semibold text-slate-850">{partner.name}</p>
+                <p className="text-sm font-semibold text-slate-800">{partner.name}</p>
                 <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-500">{partner.tag}</p>
               </div>
             ))}
