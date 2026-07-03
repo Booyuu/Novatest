@@ -9,7 +9,7 @@ const businessEmail = 'hello@novastudio.world';
 
 const footerCopy = {
   en: {
-    contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', more: 'Popular entries', privacy: 'Privacy Policy', legal: 'Service Terms', copyright: '© 2026 NovaStudio. Enterprise front door for NovaOS, the AI Marketing OS for high-growth businesses.',
+    contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', more: 'Popular entries', privacy: 'Privacy Policy', legal: 'Service Terms', copyright: '© 2026 NovaStudio. NovaOS is the AI Marketing OS for high-growth businesses.',
     body: 'NovaStudio builds NovaOS for AI marketing operations, GEO/AEO, content, AI video workflows, publishing and lead capture.',
     ctaTitle: 'Ready to build your AI marketing operating layer?',
     ctaBody: 'Use NovaOS to plan campaigns, generate content, improve AI search visibility, create video workflows, publish content and capture leads.',
@@ -24,7 +24,7 @@ const footerCopy = {
     recommended: ['GEO Audit', 'Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture', 'Growth Dashboard', 'Academy', 'Creator Center', 'AI Workflow'],
   },
   zh: {
-    contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', more: '热门入口', privacy: '隐私政策', legal: '服务条款', copyright: '© 2026 NovaStudio. NovaStudio 是 NovaOS 的企业级前门；NovaOS 是面向高增长企业的 AI Marketing OS。',
+    contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', more: '热门入口', privacy: '隐私政策', legal: '服务条款', copyright: '© 2026 NovaStudio. NovaOS 是面向高增长企业的 AI Marketing OS。',
     body: 'NovaStudio 打造 NovaOS，用于 AI 营销运营、GEO/AEO、内容、AI 视频工作流、内容发布和线索获取。',
     ctaTitle: '准备搭建你的 AI 营销操作层了吗？',
     ctaBody: '用 NovaOS 完成活动策划、内容生成、AI 搜索优化、视频工作流、内容发布和线索获取。',
