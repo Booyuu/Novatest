@@ -9,64 +9,44 @@ type AuthMode = 'login' | 'register';
 
 const modalCopy = {
   en: {
-    eyebrow: 'NovaOS access', close: 'Close', illustrationTitle: 'NovaOS',
+    eyebrow: 'NovaOS access', close: 'Close',
     loginTitle: 'Welcome back!', loginSubtitle: 'Sign in with your account and password', loginSubmit: 'Sign in to NovaOS',
     registerTitle: 'Create NovaOS access', registerSubtitle: 'Set up your workspace in a few steps', registerSubmit: 'Create account',
-    loginLeftTitle: 'NovaOS Growth Workspace',
-    loginLeftBody: 'Return to your campaigns, content queue, GEO audits, publishing plans, lead inbox and growth dashboard.',
-    registerLeftTitle: 'Build your AI marketing system',
-    registerLeftBody: 'Create a workspace for brand memory, AI search visibility, content planning, video workflow and lead capture.',
-    previewTitle: 'Workspace preview', previewBody: 'Marketing operations in one place',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Sign in with Google', apple: 'Sign in with Apple', phone: 'Phone number', country: 'Country / region', code: 'Verification code', sendCode: 'Send code',
-    noAccount: 'No account yet?', haveAccount: 'Already have an account?', register: 'Create access', login: 'Sign in', remember: 'Remember me', forgot: 'Forgot password?', privacy: 'Privacy', termsLink: 'Terms', contact: 'Contact',
+    noAccount: 'No account yet?', haveAccount: 'Already have an account?', register: 'Create access', login: 'Sign in', remember: 'Remember me', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
-    loginModules: ['Resume GEO audit', 'Review content queue', 'Open lead inbox', 'Check growth dashboard'],
-    registerModules: ['Create brand memory', 'Run first GEO audit', 'Build content plan', 'Launch lead capture'],
+    loginVisualAlt: 'NovaOS login visual', registerVisualAlt: 'NovaOS register visual',
   },
   zh: {
-    eyebrow: 'NovaOS 入口', close: '关闭', illustrationTitle: 'NovaOS',
+    eyebrow: 'NovaOS 入口', close: '关闭',
     loginTitle: '欢迎回来！', loginSubtitle: '使用账号和密码登录', loginSubmit: '进入 NovaOS',
     registerTitle: '创建 NovaOS 账号', registerSubtitle: '几步完成你的工作台设置', registerSubmit: '创建账号',
-    loginLeftTitle: 'NovaOS 增长工作台',
-    loginLeftBody: '回到你的营销活动、内容队列、AI 搜索诊断、发布计划、线索收件箱和增长看板。',
-    registerLeftTitle: '搭建你的 AI 营销系统',
-    registerLeftBody: '创建一个工作台，用于品牌资料、AI 搜索可见度、内容计划、视频流程和线索获取。',
-    previewTitle: '工作台预览', previewBody: '把营销运营集中到一个地方',
     account: '邮箱或手机号', password: '密码', confirmPassword: '确认密码',
     google: '使用 Google 登录', apple: '使用 Apple 登录', phone: '手机号', country: '国家 / 地区', code: '验证码', sendCode: '发送验证码',
-    noAccount: '还没有账号？', haveAccount: '已经有账号？', register: '立即注册', login: '去登录', remember: '记住 30 天', forgot: '忘记密码？', privacy: '隐私政策', termsLink: '服务条款', contact: '联系',
+    noAccount: '还没有账号？', haveAccount: '已经有账号？', register: '立即注册', login: '去登录', remember: '记住 30 天', forgot: '忘记密码？',
     agreePrefix: '我已阅读并同意', agreeAnd: '和', privacyPolicy: 'NovaStudio 隐私政策', serviceTerms: '服务条款', or: 'OR', showPassword: '显示密码', hidePassword: '隐藏密码',
-    loginModules: ['继续 AI 搜索诊断', '查看内容队列', '打开线索收件箱', '检查增长看板'],
-    registerModules: ['创建品牌资料', '完成首次诊断', '生成内容计划', '启动线索获取'],
+    loginVisualAlt: 'NovaOS 登录视觉图', registerVisualAlt: 'NovaOS 注册视觉图',
   },
   ja: {
-    eyebrow: 'NovaOS access', close: '閉じる', illustrationTitle: 'NovaOS',
+    eyebrow: 'NovaOS access', close: '閉じる',
     loginTitle: 'おかえりなさい', loginSubtitle: 'アカウントとパスワードでログイン', loginSubmit: 'NovaOS に入る',
     registerTitle: 'NovaOS access を作成', registerSubtitle: '数ステップでワークスペースを設定', registerSubmit: 'アカウント作成',
-    loginLeftTitle: 'NovaOS Growth Workspace', loginLeftBody: 'Return to your campaigns, content queue, GEO audits, publishing plans, lead inbox and growth dashboard.',
-    registerLeftTitle: 'Build your AI marketing system', registerLeftBody: 'Create a workspace for brand memory, AI search visibility, content planning, video workflow and lead capture.',
-    previewTitle: 'Workspace preview', previewBody: 'Marketing operations in one place',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Google でログイン', apple: 'Apple でログイン', phone: '電話番号', country: '国 / 地域', code: '認証コード', sendCode: 'コードを送信',
-    noAccount: 'アカウントがありませんか？', haveAccount: 'Already have an account?', register: 'アクセス作成', login: 'Sign in', remember: '30日間記憶', forgot: 'Forgot password?', privacy: 'Privacy', termsLink: 'Terms', contact: 'Contact',
+    noAccount: 'アカウントがありませんか？', haveAccount: 'Already have an account?', register: 'アクセス作成', login: 'Sign in', remember: '30日間記憶', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
-    loginModules: ['Resume GEO audit', 'Review content queue', 'Open lead inbox', 'Check growth dashboard'],
-    registerModules: ['Create brand memory', 'Run first GEO audit', 'Build content plan', 'Launch lead capture'],
+    loginVisualAlt: 'NovaOS login visual', registerVisualAlt: 'NovaOS register visual',
   },
   ko: {
-    eyebrow: 'NovaOS access', close: '닫기', illustrationTitle: 'NovaOS',
+    eyebrow: 'NovaOS access', close: '닫기',
     loginTitle: '다시 오신 것을 환영합니다', loginSubtitle: '계정과 비밀번호로 로그인하세요', loginSubmit: 'NovaOS 보기',
     registerTitle: 'NovaOS 접근 만들기', registerSubtitle: '몇 단계로 워크스페이스를 설정하세요', registerSubmit: '계정 만들기',
-    loginLeftTitle: 'NovaOS Growth Workspace', loginLeftBody: 'Return to your campaigns, content queue, GEO audits, publishing plans, lead inbox and growth dashboard.',
-    registerLeftTitle: 'Build your AI marketing system', registerLeftBody: 'Create a workspace for brand memory, AI search visibility, content planning, video workflow and lead capture.',
-    previewTitle: 'Workspace preview', previewBody: 'Marketing operations in one place',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Google로 로그인', apple: 'Apple로 로그인', phone: '전화번호', country: '국가 / 지역', code: '인증 코드', sendCode: '코드 보내기',
-    noAccount: '계정이 없나요?', haveAccount: 'Already have an account?', register: '접근 만들기', login: 'Sign in', remember: '30일 기억', forgot: 'Forgot password?', privacy: 'Privacy', termsLink: 'Terms', contact: 'Contact',
+    noAccount: '계정이 없나요?', haveAccount: 'Already have an account?', register: '접근 만들기', login: 'Sign in', remember: '30일 기억', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
-    loginModules: ['Resume GEO audit', 'Review content queue', 'Open lead inbox', 'Check growth dashboard'],
-    registerModules: ['Create brand memory', 'Run first GEO audit', 'Build content plan', 'Launch lead capture'],
+    loginVisualAlt: 'NovaOS login visual', registerVisualAlt: 'NovaOS register visual',
   },
 } as const;
 
@@ -89,49 +69,14 @@ function EyeIcon({ hidden }: { hidden: boolean }) {
 }
 
 function NovaOsIntroPanel({ copy, mode }: { copy: ModalCopy; mode: AuthMode }) {
-  const title = mode === 'login' ? copy.loginLeftTitle : copy.registerLeftTitle;
-  const body = mode === 'login' ? copy.loginLeftBody : copy.registerLeftBody;
-  const modules = mode === 'login' ? copy.loginModules : copy.registerModules;
-
   return (
-    <div className="relative hidden min-h-[650px] overflow-hidden bg-[radial-gradient(circle_at_24%_14%,rgba(37,99,235,0.20),transparent_20rem),radial-gradient(circle_at_82%_82%,rgba(125,92,255,0.14),transparent_22rem),linear-gradient(135deg,#f3f7ff_0%,#eef2fb_54%,#f9fbff_100%)] p-9 lg:block">
-      <div className="absolute inset-0 bg-grid-lines bg-[length:64px_64px] opacity-25" />
-      <div className="relative flex h-full flex-col justify-between">
-        <div>
-          <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/70 text-blue-700 shadow-sm backdrop-blur-xl">✦</span>
-            <span>{copy.illustrationTitle}</span>
-          </div>
-          <h3 className="mt-12 max-w-lg text-4xl font-semibold leading-[1.08] tracking-[-0.05em] text-slate-950 lg:text-5xl">{title}</h3>
-          <p className="mt-5 max-w-lg text-base leading-8 text-slate-600">{body}</p>
-        </div>
-
-        <div className="mx-auto my-8 w-full max-w-[29rem] rounded-[2rem] border border-white/80 bg-white/75 p-5 shadow-2xl shadow-blue-900/10 backdrop-blur-xl">
-          <div className="rounded-[1.35rem] bg-slate-950 p-5 text-white shadow-xl shadow-slate-950/15">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">{copy.previewTitle}</p>
-                <p className="mt-2 text-sm text-slate-300">{copy.previewBody}</p>
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 font-bold">OS</div>
-            </div>
-            <div className="mt-6 grid gap-3">
-              {modules.map((item, index) => (
-                <div key={item} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/8 px-4 py-3">
-                  <span className="text-sm text-slate-200">{item}</span>
-                  <span className="rounded-full bg-blue-500/20 px-2.5 py-1 text-xs font-semibold text-blue-200">0{index + 1}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="flex gap-8 text-sm font-medium text-slate-500">
-          <a href="/privacy">{copy.privacy}</a>
-          <a href="/privacy#terms">{copy.termsLink}</a>
-          <a href="/contact">{copy.contact}</a>
-        </div>
-      </div>
+    <div className="relative hidden min-h-[650px] overflow-hidden bg-[#eef3ff] lg:block">
+      <img
+        src={mode === 'login' ? '/novaos-auth-login.webp' : '/novaos-auth-register.webp'}
+        alt={mode === 'login' ? copy.loginVisualAlt : copy.registerVisualAlt}
+        className={`h-full w-full ${mode === 'login' ? 'object-cover object-center' : 'object-cover object-top'}`}
+        draggable={false}
+      />
     </div>
   );
 }
