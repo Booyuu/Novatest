@@ -4,28 +4,28 @@ import { useLanguage } from '@/components/LanguageProvider';
 
 const copy = {
   en: {
-    eyebrow: 'Partner ecosystem',
-    title: 'Built for teams that need marketing operations to scale.',
-    body: 'Use this section as the homepage trust wall. Replace the placeholder logos with real client, partner, creator, media or ecosystem logos when they are ready.',
-    note: 'Placeholder logos. Replace later with approved partner assets.',
+    eyebrow: 'Brand wall',
+    title: 'A brand wall for the markets NovaOS is built to support.',
+    body: 'Showcase the industries, customer types and ecosystem brands that NovaStudio can serve. Replace these placeholders with approved customer, partner, creator or media logos when ready.',
+    note: 'Use this area for trusted brands, ecosystem partners and media references.',
   },
   zh: {
-    eyebrow: '合作伙伴生态',
-    title: '面向需要规模化营销运营的团队。',
-    body: '这一块作为首页信任墙。现在先用占位 logo，后面可以换成真实客户、合作伙伴、创作者、媒体或生态合作方 logo。',
-    note: '当前为占位 logo，后续替换为已授权合作方资产。',
+    eyebrow: '品牌墙',
+    title: '展示 NovaOS 可以服务的品牌与行业场景。',
+    body: '这里用于展示 NovaStudio 可服务的行业、客户类型和生态品牌。后续可以替换成真实客户、合作伙伴、创作者或媒体 logo。',
+    note: '适合放客户品牌、生态合作方和媒体引用。',
   },
   ja: {
-    eyebrow: 'パートナーエコシステム',
-    title: 'マーケティング運用を拡大したいチームのために。',
-    body: 'このセクションは信頼を示すロゴウォールです。後で正式なパートナーや顧客ロゴに差し替えられます。',
-    note: 'Placeholder logos. Replace later with approved assets.',
+    eyebrow: 'ブランドウォール',
+    title: 'NovaOS が支援できる市場とブランド領域。',
+    body: 'NovaStudio が支援できる業界、顧客タイプ、エコシステムブランドを示すエリアです。後で正式なロゴに差し替えられます。',
+    note: '顧客ブランド、パートナー、メディア掲載に使えます。',
   },
   ko: {
-    eyebrow: '파트너 생태계',
-    title: '마케팅 운영 확장이 필요한 팀을 위해.',
-    body: '이 섹션은 홈페이지 신뢰 로고 월입니다. 이후 실제 고객, 파트너, 크리에이터, 미디어 로고로 교체할 수 있습니다.',
-    note: 'Placeholder logos. Replace later with approved assets.',
+    eyebrow: '브랜드 월',
+    title: 'NovaOS가 지원할 수 있는 시장과 브랜드 영역.',
+    body: 'NovaStudio가 지원할 수 있는 산업, 고객 유형, 생태계 브랜드를 보여주는 영역입니다. 이후 승인된 실제 로고로 교체할 수 있습니다.',
+    note: '고객 브랜드, 파트너, 미디어 레퍼런스에 적합합니다.',
   },
 } as const;
 
@@ -52,13 +52,13 @@ export function PartnerWall() {
   return (
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-10">
       <div className="absolute inset-x-0 top-1/2 h-72 -translate-y-1/2 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.10),transparent_34rem)]" />
-      <div className="relative mx-auto max-w-[1500px] rounded-[2.5rem] border border-blue-100 bg-white/82 p-8 shadow-2xl shadow-blue-900/8 backdrop-blur-xl lg:p-10">
-        <div className="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:items-center">
+      <div className="relative mx-auto max-w-[1500px] rounded-[2.5rem] border border-blue-100 bg-white/90 p-8 shadow-2xl shadow-blue-900/8 backdrop-blur-xl lg:p-10">
+        <div className="grid gap-8 lg:grid-cols-[0.36fr_0.64fr] lg:items-center">
           <div>
             <p className="eyebrow">{c.eyebrow}</p>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.055em] text-slate-950 lg:text-5xl">{c.title}</h2>
             <p className="mt-5 text-base leading-8 text-slate-600">{c.body}</p>
-            <p className="mt-5 rounded-2xl bg-blue-50 px-4 py-3 text-sm text-blue-700">{c.note}</p>
+            <p className="mt-5 rounded-2xl bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700">{c.note}</p>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-5">
             {partners.map((partner) => (
