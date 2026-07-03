@@ -1,13 +1,21 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { BrandLogo } from '@/components/BrandLogo';
 import { useLanguage, type Lang } from '@/components/LanguageProvider';
 import { navItems } from '@/lib/content';
 
 const navKey: Record<string, keyof ReturnType<typeof useLanguage>['t']['nav']> = {
-  Products: 'products', Solutions: 'solutions', Cases: 'cases', NovaOS: 'novaos', Academy: 'academy', Resources: 'resources', Company: 'company', Contact: 'contact',
+  Products: 'products', Solutions: 'solutions', Cases: 'cases', Academy: 'academy', Resources: 'resources', Company: 'company', Contact: 'contact',
 };
+
+const novaButtonCopy = {
+  en: 'Enter NovaOS',
+  zh: '进入 NovaOS',
+  ja: 'NovaOS に入る',
+  ko: 'NovaOS 보기',
+} as const;
 
 const menuCopy = {
   en: {
@@ -49,6 +57,7 @@ type MenuName = 'Products' | 'Solutions' | 'Company';
 export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<MenuName | null>(null);
+  const pathname = usePathname();
   const { lang, setLang, labels, t } = useLanguage();
   const menu = menuCopy[lang];
 
@@ -57,24 +66,28 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
     setIsOpen(false);
   }
 
+  function isActivePath(href: string) {
+    if (href === '/') return pathname === '/';
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
+
   return (
     <header onMouseLeave={() => setActiveMenu(null)} className="fixed inset-x-0 top-0 z-40 border-b border-blue-100/80 bg-white/95 shadow-sm backdrop-blur-2xl">
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-8 py-5">
         <a href="/" aria-label="NovaStudio home"><BrandLogo /></a>
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           {navItems.map((item) => {
-            if (item.label === 'NovaOS') {
-              return (
-                <button key={item.label} type="button" onClick={onOpenModal} onMouseEnter={() => setActiveMenu(null)} className="relative rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white shadow-xl shadow-blue-900/15 transition hover:-translate-y-0.5 hover:bg-blue-700">
-                  <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-blue-400 shadow-[0_0_14px_rgba(96,165,250,0.9)]" />
-                  {t.nav.novaos}
-                </button>
-              );
-            }
             const hasMenu = item.label === 'Products' || item.label === 'Solutions' || item.label === 'Company';
+            const active = isActivePath(item.href);
             return (
-              <a key={item.label} href={item.href === 'modal' ? '#' : item.href} onMouseEnter={() => setActiveMenu(hasMenu ? item.label as MenuName : null)} onClick={(event) => { if (item.href === 'modal') event.preventDefault(); handleClick(item.href); }} className="inline-flex items-center gap-1 text-sm font-medium text-slate-700 transition hover:text-blue-700">
-                <span>{t.nav[navKey[item.label]] ?? item.label}</span>{hasMenu ? <span className="text-xs leading-none text-slate-400">⌄</span> : null}
+              <a
+                key={item.label}
+                href={item.href}
+                onMouseEnter={() => setActiveMenu(hasMenu ? item.label as MenuName : null)}
+                onClick={() => handleClick(item.href)}
+                className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm transition ${active ? 'bg-blue-50 font-semibold text-blue-700 shadow-sm ring-1 ring-blue-100' : 'font-medium text-slate-700 hover:bg-blue-50/70 hover:text-blue-700'}`}
+              >
+                <span>{t.nav[navKey[item.label]] ?? item.label}</span>{hasMenu ? <span className={`text-xs leading-none ${active ? 'text-blue-500' : 'text-slate-400'}`}>⌄</span> : null}
               </a>
             );
           })}
@@ -83,6 +96,10 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
           <select value={lang} onChange={(event) => setLang(event.target.value as Lang)} className="rounded-full border border-blue-100 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none">
             {(Object.keys(labels) as Lang[]).map((key) => <option key={key} value={key}>{labels[key]}</option>)}
           </select>
+          <button type="button" onClick={onOpenModal} onMouseEnter={() => setActiveMenu(null)} className="relative rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white shadow-xl shadow-blue-900/15 transition hover:-translate-y-0.5 hover:bg-blue-700">
+            <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-blue-400 shadow-[0_0_14px_rgba(96,165,250,0.9)]" />
+            {novaButtonCopy[lang]}
+          </button>
           <a href="/contact" className="rounded-full bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-700/20">{t.nav.cta}</a>
         </div>
         <button type="button" className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-800 lg:hidden" onClick={() => setIsOpen((value) => !value)}>{isOpen ? 'Close' : 'Menu'}</button>
@@ -109,7 +126,7 @@ export function Navbar({ onOpenModal }: { onOpenModal: () => void }) {
         </div>
       ) : null}
 
-      {isOpen ? <div id="mobile-menu" className="border-t border-blue-100 bg-white px-5 py-5 lg:hidden"><div className="grid gap-2"><select value={lang} onChange={(event) => setLang(event.target.value as Lang)} className="mb-2 rounded-2xl border border-blue-100 bg-white px-4 py-3 text-slate-700">{(Object.keys(labels) as Lang[]).map((key) => <option key={key} value={key}>{labels[key]}</option>)}</select>{navItems.map((item) => item.label === 'NovaOS' ? <button key={item.label} type="button" onClick={() => handleClick('modal')} className="rounded-2xl bg-slate-950 px-4 py-3 text-left font-semibold text-white">{t.nav.novaos}</button> : <a key={item.label} href={item.href === 'modal' ? '#' : item.href} onClick={(event) => { if (item.href === 'modal') event.preventDefault(); handleClick(item.href); }} className="rounded-2xl px-4 py-3 text-slate-700 transition hover:bg-blue-50 hover:text-blue-700">{t.nav[navKey[item.label]] ?? item.label}</a>)}<a href="/contact" onClick={() => setIsOpen(false)} className="mt-2 rounded-full bg-blue-700 px-5 py-3 text-center font-semibold text-white">{t.nav.cta}</a></div></div> : null}
+      {isOpen ? <div id="mobile-menu" className="border-t border-blue-100 bg-white px-5 py-5 lg:hidden"><div className="grid gap-2"><select value={lang} onChange={(event) => setLang(event.target.value as Lang)} className="mb-2 rounded-2xl border border-blue-100 bg-white px-4 py-3 text-slate-700">{(Object.keys(labels) as Lang[]).map((key) => <option key={key} value={key}>{labels[key]}</option>)}</select><button type="button" onClick={() => handleClick('modal')} className="rounded-2xl bg-slate-950 px-4 py-3 text-left font-semibold text-white">{novaButtonCopy[lang]}</button>{navItems.map((item) => <a key={item.label} href={item.href} onClick={() => handleClick(item.href)} className={`rounded-2xl px-4 py-3 transition ${isActivePath(item.href) ? 'bg-blue-50 font-semibold text-blue-700' : 'text-slate-700 hover:bg-blue-50 hover:text-blue-700'}`}>{t.nav[navKey[item.label]] ?? item.label}</a>)}<a href="/contact" onClick={() => setIsOpen(false)} className="mt-2 rounded-full bg-blue-700 px-5 py-3 text-center font-semibold text-white">{t.nav.cta}</a></div></div> : null}
     </header>
   );
 }
