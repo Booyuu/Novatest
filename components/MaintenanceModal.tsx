@@ -12,41 +12,53 @@ const modalCopy = {
     eyebrow: 'NovaOS access', close: 'Close',
     loginTitle: 'Welcome back!', loginSubtitle: 'Sign in with your account and password', loginSubmit: 'Sign in to NovaOS',
     registerTitle: 'Create NovaOS access', registerSubtitle: 'Set up your workspace in a few steps', registerSubmit: 'Create account',
+    loginVisualTitle: 'Your growth workspace is ready', loginVisualBody: 'Continue campaigns, content queues, AI search visibility, leads and reporting from one NovaOS command center.',
+    registerVisualTitle: 'Build your AI marketing system', registerVisualBody: 'Create a workspace for brand memory, GEO/AEO, content planning, video workflow, publishing and lead capture.',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Sign in with Google', apple: 'Sign in with Apple', phone: 'Phone number', country: 'Country / region', code: 'Verification code', sendCode: 'Send code',
     noAccount: 'No account yet?', haveAccount: 'Already have an account?', register: 'Create access', login: 'Sign in', remember: 'Remember me', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
-    loginVisualAlt: 'NovaOS login visual', registerVisualAlt: 'NovaOS register visual',
+    loginModules: ['GEO visibility', 'Content queue', 'Lead inbox', 'Growth report'],
+    registerModules: ['Brand memory', 'First GEO audit', 'Content plan', 'Lead capture'],
   },
   zh: {
     eyebrow: 'NovaOS 入口', close: '关闭',
     loginTitle: '欢迎回来！', loginSubtitle: '使用账号和密码登录', loginSubmit: '进入 NovaOS',
     registerTitle: '创建 NovaOS 账号', registerSubtitle: '几步完成你的工作台设置', registerSubmit: '创建账号',
+    loginVisualTitle: '你的增长工作台已准备好', loginVisualBody: '继续管理营销活动、内容队列、AI 搜索可见度、线索和增长报告。',
+    registerVisualTitle: '搭建你的 AI 营销系统', registerVisualBody: '创建一个工作台，用于品牌资料、AI 搜索诊断、内容计划、视频流程、内容发布和线索获取。',
     account: '邮箱或手机号', password: '密码', confirmPassword: '确认密码',
     google: '使用 Google 登录', apple: '使用 Apple 登录', phone: '手机号', country: '国家 / 地区', code: '验证码', sendCode: '发送验证码',
     noAccount: '还没有账号？', haveAccount: '已经有账号？', register: '立即注册', login: '去登录', remember: '记住 30 天', forgot: '忘记密码？',
     agreePrefix: '我已阅读并同意', agreeAnd: '和', privacyPolicy: 'NovaStudio 隐私政策', serviceTerms: '服务条款', or: 'OR', showPassword: '显示密码', hidePassword: '隐藏密码',
-    loginVisualAlt: 'NovaOS 登录视觉图', registerVisualAlt: 'NovaOS 注册视觉图',
+    loginModules: ['AI 搜索可见度', '内容队列', '线索收件箱', '增长报告'],
+    registerModules: ['品牌资料', '首次诊断', '内容计划', '线索获取'],
   },
   ja: {
     eyebrow: 'NovaOS access', close: '閉じる',
     loginTitle: 'おかえりなさい', loginSubtitle: 'アカウントとパスワードでログイン', loginSubmit: 'NovaOS に入る',
     registerTitle: 'NovaOS access を作成', registerSubtitle: '数ステップでワークスペースを設定', registerSubmit: 'アカウント作成',
+    loginVisualTitle: 'Your growth workspace is ready', loginVisualBody: 'Continue campaigns, content queues, AI search visibility, leads and reporting from one NovaOS command center.',
+    registerVisualTitle: 'Build your AI marketing system', registerVisualBody: 'Create a workspace for brand memory, GEO/AEO, content planning, video workflow, publishing and lead capture.',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Google でログイン', apple: 'Apple でログイン', phone: '電話番号', country: '国 / 地域', code: '認証コード', sendCode: 'コードを送信',
     noAccount: 'アカウントがありませんか？', haveAccount: 'Already have an account?', register: 'アクセス作成', login: 'Sign in', remember: '30日間記憶', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
-    loginVisualAlt: 'NovaOS login visual', registerVisualAlt: 'NovaOS register visual',
+    loginModules: ['GEO visibility', 'Content queue', 'Lead inbox', 'Growth report'],
+    registerModules: ['Brand memory', 'First GEO audit', 'Content plan', 'Lead capture'],
   },
   ko: {
     eyebrow: 'NovaOS access', close: '닫기',
     loginTitle: '다시 오신 것을 환영합니다', loginSubtitle: '계정과 비밀번호로 로그인하세요', loginSubmit: 'NovaOS 보기',
     registerTitle: 'NovaOS 접근 만들기', registerSubtitle: '몇 단계로 워크스페이스를 설정하세요', registerSubmit: '계정 만들기',
+    loginVisualTitle: 'Your growth workspace is ready', loginVisualBody: 'Continue campaigns, content queues, AI search visibility, leads and reporting from one NovaOS command center.',
+    registerVisualTitle: 'Build your AI marketing system', registerVisualBody: 'Create a workspace for brand memory, GEO/AEO, content planning, video workflow, publishing and lead capture.',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Google로 로그인', apple: 'Apple로 로그인', phone: '전화번호', country: '국가 / 지역', code: '인증 코드', sendCode: '코드 보내기',
     noAccount: '계정이 없나요?', haveAccount: 'Already have an account?', register: '접근 만들기', login: 'Sign in', remember: '30일 기억', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
-    loginVisualAlt: 'NovaOS login visual', registerVisualAlt: 'NovaOS register visual',
+    loginModules: ['GEO visibility', 'Content queue', 'Lead inbox', 'Growth report'],
+    registerModules: ['Brand memory', 'First GEO audit', 'Content plan', 'Lead capture'],
   },
 } as const;
 
@@ -69,14 +81,94 @@ function EyeIcon({ hidden }: { hidden: boolean }) {
 }
 
 function NovaOsIntroPanel({ copy, mode }: { copy: ModalCopy; mode: AuthMode }) {
+  const modules = mode === 'login' ? copy.loginModules : copy.registerModules;
+  const title = mode === 'login' ? copy.loginVisualTitle : copy.registerVisualTitle;
+  const body = mode === 'login' ? copy.loginVisualBody : copy.registerVisualBody;
+
   return (
-    <div className="relative hidden min-h-[650px] overflow-hidden bg-[#eef3ff] lg:block">
-      <img
-        src={mode === 'login' ? '/novaos-auth-login.webp' : '/novaos-auth-register.webp'}
-        alt={mode === 'login' ? copy.loginVisualAlt : copy.registerVisualAlt}
-        className={`h-full w-full ${mode === 'login' ? 'object-cover object-center' : 'object-cover object-top'}`}
-        draggable={false}
-      />
+    <div className="relative hidden min-h-[650px] overflow-hidden bg-[radial-gradient(circle_at_18%_14%,rgba(37,99,235,0.22),transparent_20rem),radial-gradient(circle_at_82%_78%,rgba(124,58,237,0.16),transparent_24rem),linear-gradient(135deg,#f5f8ff_0%,#eaf0ff_56%,#fbfdff_100%)] p-10 lg:block">
+      <div className="absolute inset-0 bg-grid-lines bg-[length:64px_64px] opacity-25" />
+      <div className="absolute -right-24 top-16 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
+      <div className="absolute bottom-10 left-10 h-72 w-72 rounded-full bg-violet-300/14 blur-3xl" />
+      <div className="relative flex h-full flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/80 bg-white/70 text-blue-700 shadow-sm backdrop-blur-xl">✦</span>
+            <span>NovaOS</span>
+          </div>
+          <h3 className="mt-10 max-w-lg text-4xl font-semibold leading-[1.08] tracking-[-0.055em] text-slate-950 lg:text-5xl">{title}</h3>
+          <p className="mt-5 max-w-md text-base leading-8 text-slate-600">{body}</p>
+        </div>
+
+        <div className="relative mx-auto my-8 w-full max-w-[30rem]">
+          {mode === 'login' ? (
+            <div className="rounded-[2.2rem] border border-white/80 bg-white/75 p-5 shadow-2xl shadow-blue-900/12 backdrop-blur-xl">
+              <div className="rounded-[1.6rem] bg-slate-950 p-5 text-white shadow-xl shadow-slate-950/15">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-300">Command center</p>
+                    <p className="mt-2 text-sm text-slate-300">Live marketing operations</p>
+                  </div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 font-bold">OS</div>
+                </div>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {modules.map((item, index) => (
+                    <div key={item} className="rounded-2xl border border-white/10 bg-white/8 p-4">
+                      <div className="mb-4 flex items-center justify-between">
+                        <span className="h-2 w-2 rounded-full bg-blue-300" />
+                        <span className="text-xs font-semibold text-slate-400">0{index + 1}</span>
+                      </div>
+                      <p className="text-sm font-semibold text-slate-100">{item}</p>
+                      <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10"><span className="block h-full rounded-full bg-blue-400" style={{ width: `${58 + index * 9}%` }} /></div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-5 rounded-2xl border border-blue-300/20 bg-blue-500/10 p-4">
+                  <div className="flex items-end gap-2">
+                    {[42, 62, 48, 78, 70, 88, 95].map((height, index) => <span key={index} className="w-full rounded-t-md bg-blue-300/80" style={{ height: `${height}px` }} />)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="rounded-[2.2rem] border border-white/80 bg-white/78 p-5 shadow-2xl shadow-blue-900/12 backdrop-blur-xl">
+              <div className="rounded-[1.6rem] bg-white p-5 shadow-xl shadow-blue-900/8">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Workspace setup</p>
+                    <p className="mt-2 text-sm text-slate-500">Create your operating layer</p>
+                  </div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 font-bold text-white">OS</div>
+                </div>
+                <div className="mt-7 grid gap-4">
+                  {modules.map((item, index) => (
+                    <div key={item} className="relative rounded-2xl border border-blue-100 bg-[#f8fbff] p-4">
+                      {index < modules.length - 1 ? <span className="absolute -bottom-4 left-7 h-4 w-px bg-blue-100" /> : null}
+                      <div className="flex items-center gap-4">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-700 text-sm font-bold text-white">{index + 1}</span>
+                        <div>
+                          <p className="text-sm font-semibold text-slate-950">{item}</p>
+                          <p className="mt-1 text-xs text-slate-500">NovaOS onboarding step</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  {['Brand', 'GEO', 'Leads'].map((item) => <div key={item} className="rounded-2xl bg-slate-950 px-3 py-4 text-center text-xs font-semibold text-white">{item}</div>)}
+                </div>
+              </div>
+            </div>
+          )}
+          <div className="absolute -bottom-6 -right-5 rounded-2xl border border-blue-100 bg-white px-4 py-3 text-sm font-semibold text-blue-700 shadow-xl shadow-blue-900/10">GEO · Content · Leads</div>
+        </div>
+
+        <div className="flex gap-8 text-sm font-medium text-slate-500">
+          <a href="/privacy">Privacy</a>
+          <a href="/privacy#terms">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
     </div>
   );
 }
