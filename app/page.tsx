@@ -8,6 +8,7 @@ import { HomeDeepSections } from '@/components/HomeDeepSections';
 import { HomeEnterpriseStrength } from '@/components/HomeEnterpriseStrength';
 import { MaintenanceModal } from '@/components/MaintenanceModal';
 import { Navbar } from '@/components/Navbar';
+import { PartnerWall } from '@/components/PartnerWall';
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero onOpenModal={openModal} />
       <HomeDeepSections onOpenModal={openModal} />
       <HomeEnterpriseStrength />
+      <PartnerWall />
       <CTA onOpenModal={openModal} />
       <Footer onOpenModal={openModal} />
       <MaintenanceModal open={modalOpen} onClose={() => setModalOpen(false)} />
