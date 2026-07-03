@@ -14,12 +14,14 @@ const modalCopy = {
     registerTitle: 'Create NovaOS access', registerSubtitle: 'Set up your workspace in a few steps', registerSubmit: 'Create account',
     loginVisualTitle: 'Your growth workspace is ready', loginVisualBody: 'Continue campaigns, content queues, AI search visibility, leads and reporting from one NovaOS command center.',
     registerVisualTitle: 'Build your AI marketing system', registerVisualBody: 'Create a workspace for brand memory, GEO/AEO, content planning, video workflow, publishing and lead capture.',
+    commandTitle: 'Command center', commandSubtitle: 'Live marketing operations', setupTitle: 'Workspace setup', setupSubtitle: 'Create your operating layer', stepCaption: 'NovaOS onboarding step', visualBadge: 'GEO · Content · Leads', footerPrivacy: 'Privacy', footerTerms: 'Terms', footerContact: 'Contact',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Sign in with Google', apple: 'Sign in with Apple', phone: 'Phone number', country: 'Country / region', code: 'Verification code', sendCode: 'Send code',
     noAccount: 'No account yet?', haveAccount: 'Already have an account?', register: 'Create access', login: 'Sign in', remember: 'Remember me', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
     loginModules: ['GEO visibility', 'Content queue', 'Lead inbox', 'Growth report'],
     registerModules: ['Brand memory', 'First GEO audit', 'Content plan', 'Lead capture'],
+    visualTags: ['Brand', 'GEO', 'Leads'],
   },
   zh: {
     eyebrow: 'NovaOS 入口', close: '关闭',
@@ -27,38 +29,44 @@ const modalCopy = {
     registerTitle: '创建 NovaOS 账号', registerSubtitle: '几步完成你的工作台设置', registerSubmit: '创建账号',
     loginVisualTitle: '你的增长工作台已准备好', loginVisualBody: '继续管理营销活动、内容队列、AI 搜索可见度、线索和增长报告。',
     registerVisualTitle: '搭建你的 AI 营销系统', registerVisualBody: '创建一个工作台，用于品牌资料、AI 搜索诊断、内容计划、视频流程、内容发布和线索获取。',
+    commandTitle: '指挥中心', commandSubtitle: '实时营销运营', setupTitle: '工作台设置', setupSubtitle: '创建你的运营系统', stepCaption: 'NovaOS 设置步骤', visualBadge: '诊断 · 内容 · 线索', footerPrivacy: '隐私政策', footerTerms: '服务条款', footerContact: '联系',
     account: '邮箱或手机号', password: '密码', confirmPassword: '确认密码',
     google: '使用 Google 登录', apple: '使用 Apple 登录', phone: '手机号', country: '国家 / 地区', code: '验证码', sendCode: '发送验证码',
     noAccount: '还没有账号？', haveAccount: '已经有账号？', register: '立即注册', login: '去登录', remember: '记住 30 天', forgot: '忘记密码？',
     agreePrefix: '我已阅读并同意', agreeAnd: '和', privacyPolicy: 'NovaStudio 隐私政策', serviceTerms: '服务条款', or: 'OR', showPassword: '显示密码', hidePassword: '隐藏密码',
     loginModules: ['AI 搜索可见度', '内容队列', '线索收件箱', '增长报告'],
     registerModules: ['品牌资料', '首次诊断', '内容计划', '线索获取'],
+    visualTags: ['品牌', '诊断', '线索'],
   },
   ja: {
     eyebrow: 'NovaOS access', close: '閉じる',
     loginTitle: 'おかえりなさい', loginSubtitle: 'アカウントとパスワードでログイン', loginSubmit: 'NovaOS に入る',
     registerTitle: 'NovaOS access を作成', registerSubtitle: '数ステップでワークスペースを設定', registerSubmit: 'アカウント作成',
-    loginVisualTitle: 'Your growth workspace is ready', loginVisualBody: 'Continue campaigns, content queues, AI search visibility, leads and reporting from one NovaOS command center.',
-    registerVisualTitle: 'Build your AI marketing system', registerVisualBody: 'Create a workspace for brand memory, GEO/AEO, content planning, video workflow, publishing and lead capture.',
+    loginVisualTitle: '成長ワークスペースの準備ができています', loginVisualBody: 'キャンペーン、コンテンツキュー、AI検索可視性、リード、レポートを一つの NovaOS で管理します。',
+    registerVisualTitle: 'AIマーケティングシステムを構築', registerVisualBody: 'ブランド情報、GEO/AEO、コンテンツ計画、動画ワークフロー、配信、リード獲得のためのワークスペースを作成します。',
+    commandTitle: 'コマンドセンター', commandSubtitle: 'リアルタイム運用', setupTitle: 'ワークスペース設定', setupSubtitle: '運用レイヤーを作成', stepCaption: 'NovaOS 初期設定', visualBadge: 'GEO · コンテンツ · リード', footerPrivacy: 'プライバシー', footerTerms: '利用規約', footerContact: 'お問い合わせ',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Google でログイン', apple: 'Apple でログイン', phone: '電話番号', country: '国 / 地域', code: '認証コード', sendCode: 'コードを送信',
     noAccount: 'アカウントがありませんか？', haveAccount: 'Already have an account?', register: 'アクセス作成', login: 'Sign in', remember: '30日間記憶', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
     loginModules: ['GEO visibility', 'Content queue', 'Lead inbox', 'Growth report'],
     registerModules: ['Brand memory', 'First GEO audit', 'Content plan', 'Lead capture'],
+    visualTags: ['Brand', 'GEO', 'Leads'],
   },
   ko: {
     eyebrow: 'NovaOS access', close: '닫기',
     loginTitle: '다시 오신 것을 환영합니다', loginSubtitle: '계정과 비밀번호로 로그인하세요', loginSubmit: 'NovaOS 보기',
     registerTitle: 'NovaOS 접근 만들기', registerSubtitle: '몇 단계로 워크스페이스를 설정하세요', registerSubmit: '계정 만들기',
-    loginVisualTitle: 'Your growth workspace is ready', loginVisualBody: 'Continue campaigns, content queues, AI search visibility, leads and reporting from one NovaOS command center.',
-    registerVisualTitle: 'Build your AI marketing system', registerVisualBody: 'Create a workspace for brand memory, GEO/AEO, content planning, video workflow, publishing and lead capture.',
+    loginVisualTitle: '성장 워크스페이스가 준비되었습니다', loginVisualBody: '캠페인, 콘텐츠 큐, AI 검색 가시성, 리드, 리포트를 하나의 NovaOS에서 관리합니다.',
+    registerVisualTitle: 'AI 마케팅 시스템 구축', registerVisualBody: '브랜드 메모리, GEO/AEO, 콘텐츠 계획, 영상 워크플로, 게시, 리드 확보를 위한 워크스페이스를 만듭니다.',
+    commandTitle: '커맨드 센터', commandSubtitle: '실시간 마케팅 운영', setupTitle: '워크스페이스 설정', setupSubtitle: '운영 레이어 만들기', stepCaption: 'NovaOS 온보딩 단계', visualBadge: 'GEO · 콘텐츠 · 리드', footerPrivacy: '개인정보', footerTerms: '이용약관', footerContact: '문의',
     account: 'Email or phone number', password: 'Password', confirmPassword: 'Confirm password',
     google: 'Google로 로그인', apple: 'Apple로 로그인', phone: '전화번호', country: '국가 / 지역', code: '인증 코드', sendCode: '코드 보내기',
     noAccount: '계정이 없나요?', haveAccount: 'Already have an account?', register: '접근 만들기', login: 'Sign in', remember: '30일 기억', forgot: 'Forgot password?',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms', or: 'OR', showPassword: 'Show password', hidePassword: 'Hide password',
     loginModules: ['GEO visibility', 'Content queue', 'Lead inbox', 'Growth report'],
     registerModules: ['Brand memory', 'First GEO audit', 'Content plan', 'Lead capture'],
+    visualTags: ['Brand', 'GEO', 'Leads'],
   },
 } as const;
 
@@ -96,8 +104,8 @@ function NovaOsIntroPanel({ copy, mode }: { copy: ModalCopy; mode: AuthMode }) {
             <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/80 bg-white/70 text-blue-700 shadow-sm backdrop-blur-xl">✦</span>
             <span>NovaOS</span>
           </div>
-          <h3 className="mt-10 max-w-lg text-4xl font-semibold leading-[1.08] tracking-[-0.055em] text-slate-950 lg:text-5xl">{title}</h3>
-          <p className="mt-5 max-w-md text-base leading-8 text-slate-600">{body}</p>
+          <h3 className="mt-10 max-w-lg text-4xl font-semibold leading-[1.08] tracking-[-0.055em] text-slate-950 lg:text-[2.7rem]">{title}</h3>
+          <p className="mt-5 max-w-lg text-[1.05rem] leading-8 text-slate-600">{body}</p>
         </div>
 
         <div className="relative mx-auto my-8 w-full max-w-[30rem]">
@@ -106,8 +114,8 @@ function NovaOsIntroPanel({ copy, mode }: { copy: ModalCopy; mode: AuthMode }) {
               <div className="rounded-[1.6rem] bg-slate-950 p-5 text-white shadow-xl shadow-slate-950/15">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-300">Command center</p>
-                    <p className="mt-2 text-sm text-slate-300">Live marketing operations</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-300">{copy.commandTitle}</p>
+                    <p className="mt-2 text-sm text-slate-300">{copy.commandSubtitle}</p>
                   </div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 font-bold">OS</div>
                 </div>
@@ -135,8 +143,8 @@ function NovaOsIntroPanel({ copy, mode }: { copy: ModalCopy; mode: AuthMode }) {
               <div className="rounded-[1.6rem] bg-white p-5 shadow-xl shadow-blue-900/8">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Workspace setup</p>
-                    <p className="mt-2 text-sm text-slate-500">Create your operating layer</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">{copy.setupTitle}</p>
+                    <p className="mt-2 text-sm text-slate-500">{copy.setupSubtitle}</p>
                   </div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 font-bold text-white">OS</div>
                 </div>
@@ -148,25 +156,25 @@ function NovaOsIntroPanel({ copy, mode }: { copy: ModalCopy; mode: AuthMode }) {
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-700 text-sm font-bold text-white">{index + 1}</span>
                         <div>
                           <p className="text-sm font-semibold text-slate-950">{item}</p>
-                          <p className="mt-1 text-xs text-slate-500">NovaOS onboarding step</p>
+                          <p className="mt-1 text-xs text-slate-500">{copy.stepCaption}</p>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-3">
-                  {['Brand', 'GEO', 'Leads'].map((item) => <div key={item} className="rounded-2xl bg-slate-950 px-3 py-4 text-center text-xs font-semibold text-white">{item}</div>)}
+                  {copy.visualTags.map((item) => <div key={item} className="rounded-2xl bg-slate-950 px-3 py-4 text-center text-xs font-semibold text-white">{item}</div>)}
                 </div>
               </div>
             </div>
           )}
-          <div className="absolute -bottom-6 -right-5 rounded-2xl border border-blue-100 bg-white px-4 py-3 text-sm font-semibold text-blue-700 shadow-xl shadow-blue-900/10">GEO · Content · Leads</div>
+          <div className="absolute -bottom-6 -right-5 rounded-2xl border border-blue-100 bg-white px-4 py-3 text-sm font-semibold text-blue-700 shadow-xl shadow-blue-900/10">{copy.visualBadge}</div>
         </div>
 
         <div className="flex gap-8 text-sm font-medium text-slate-500">
-          <a href="/privacy">Privacy</a>
-          <a href="/privacy#terms">Terms</a>
-          <a href="/contact">Contact</a>
+          <a href="/privacy">{copy.footerPrivacy}</a>
+          <a href="/privacy#terms">{copy.footerTerms}</a>
+          <a href="/contact">{copy.footerContact}</a>
         </div>
       </div>
     </div>
