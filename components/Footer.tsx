@@ -12,36 +12,36 @@ const footerCopy = {
     contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', privacy: 'Privacy Policy', legal: 'Service Terms', copyright: '© 2026 NovaStudio. NovaOS is the AI Marketing OS for high-growth businesses.',
     body: 'NovaStudio builds NovaOS for AI marketing operations, GEO/AEO, content, AI video workflows, publishing and lead capture.', ctaTitle: 'Ready to build your AI marketing operating layer?', ctaBody: 'Use NovaOS to plan campaigns, generate content, improve AI search visibility, create video workflows, publish content and capture leads.', ctaPrimary: 'Enter NovaOS', ctaSecondary: 'Contact Sales', qrTitle: 'WhatsApp Consultation', qrText: 'Scan to contact NovaStudio on WhatsApp', socialText: 'Social channels',
     groups: [
-      { title: 'Product', links: [{ label: 'NovaOS', href: '/novaos' }, { label: 'Products & Services', href: '/products' }, { label: 'Solutions', href: '/solutions' }] },
-      { title: 'Resources', links: [{ label: 'Resource Hub', href: '/resources' }, { label: 'Media Kit', href: '/media-kit' }, { label: 'Academy', href: '/academy' }] },
-      { title: 'Enterprise', links: [{ label: 'About', href: '/company' }, { label: 'Cases', href: '/cases' }, { label: 'Contact', href: '/contact' }] },
+      { title: 'Product', links: [{ label: 'NovaOS', href: '/novaos' }, { label: 'Products & Services', href: '/products' }, { label: 'Solutions', href: '/solutions' }, { label: 'AI Video Workflow', href: '/products' }] },
+      { title: 'Resources', links: [{ label: 'Resource Hub', href: '/resources' }, { label: 'Media Kit', href: '/media-kit' }, { label: 'Academy', href: '/academy' }, { label: 'GEO Articles', href: '/resources' }] },
+      { title: 'Enterprise', links: [{ label: 'About', href: '/company' }, { label: 'Cases', href: '/cases' }, { label: 'Contact', href: '/contact' }, { label: 'Privacy & Terms', href: '/privacy' }] },
     ],
   },
   zh: {
     contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', privacy: '隐私政策', legal: '服务条款', copyright: '© 2026 NovaStudio. NovaOS 是面向高增长企业的 AI Marketing OS。',
     body: 'NovaStudio 打造 NovaOS，用于 AI 营销运营、GEO/AEO、内容、AI 视频工作流、内容发布和线索获取。', ctaTitle: '准备搭建你的 AI 营销操作层了吗？', ctaBody: '用 NovaOS 完成活动策划、内容生成、AI 搜索优化、视频工作流、内容发布和线索获取。', ctaPrimary: '进入 NovaOS', ctaSecondary: '联系销售', qrTitle: 'WhatsApp 咨询', qrText: '扫码通过 WhatsApp 联系 NovaStudio', socialText: '社媒渠道',
     groups: [
-      { title: '产品', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '产品与服务', href: '/products' }, { label: '解决方案', href: '/solutions' }] },
-      { title: '资源', links: [{ label: '资源中心', href: '/resources' }, { label: '媒体包', href: '/media-kit' }, { label: '学院', href: '/academy' }] },
-      { title: '企业', links: [{ label: '关于我们', href: '/company' }, { label: '案例', href: '/cases' }, { label: '联系', href: '/contact' }] },
+      { title: '产品', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '产品与服务', href: '/products' }, { label: '解决方案', href: '/solutions' }, { label: 'AI 视频工作流', href: '/products' }] },
+      { title: '资源', links: [{ label: '资源中心', href: '/resources' }, { label: '媒体包', href: '/media-kit' }, { label: '学院', href: '/academy' }, { label: 'GEO 文章', href: '/resources' }] },
+      { title: '企业', links: [{ label: '关于我们', href: '/company' }, { label: '案例', href: '/cases' }, { label: '联系', href: '/contact' }, { label: '隐私与条款', href: '/privacy' }] },
     ],
   },
   ja: {
     contact: 'お問い合わせ', emailLabel: '企業メール', addressLabel: '事業所在地', consultation: '相談する', privacy: 'プライバシー', legal: '利用規約', copyright: '© 2026 NovaStudio. NovaOS は高成長企業向けの AI Marketing OS です。',
     body: 'NovaStudio は GEO/AEO、コンテンツ、AI動画ワークフロー、配信、リード獲得のための NovaOS を構築しています。', ctaTitle: 'AIマーケティング運用レイヤーを構築しますか？', ctaBody: 'NovaOS でキャンペーン、コンテンツ、AI検索可視性、動画ワークフロー、配信、リード獲得を管理します。', ctaPrimary: 'NovaOS に入る', ctaSecondary: '営業に相談', qrTitle: 'WhatsApp 相談', qrText: 'WhatsApp で NovaStudio に連絡', socialText: 'ソーシャル',
     groups: [
-      { title: '製品', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '製品とサービス', href: '/products' }, { label: 'ソリューション', href: '/solutions' }] },
-      { title: 'リソース', links: [{ label: 'リソース', href: '/resources' }, { label: 'メディアキット', href: '/media-kit' }, { label: 'アカデミー', href: '/academy' }] },
-      { title: '企業', links: [{ label: '会社情報', href: '/company' }, { label: '事例', href: '/cases' }, { label: 'お問い合わせ', href: '/contact' }] },
+      { title: '製品', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '製品とサービス', href: '/products' }, { label: 'ソリューション', href: '/solutions' }, { label: 'AI動画ワークフロー', href: '/products' }] },
+      { title: 'リソース', links: [{ label: 'リソース', href: '/resources' }, { label: 'メディアキット', href: '/media-kit' }, { label: 'アカデミー', href: '/academy' }, { label: 'GEO 記事', href: '/resources' }] },
+      { title: '企業', links: [{ label: '会社情報', href: '/company' }, { label: '事例', href: '/cases' }, { label: 'お問い合わせ', href: '/contact' }, { label: '規約', href: '/privacy' }] },
     ],
   },
   ko: {
     contact: '문의', emailLabel: '기업 이메일', addressLabel: '사업장 주소', consultation: '상담하기', privacy: '개인정보', legal: '이용약관', copyright: '© 2026 NovaStudio. NovaOS는 고성장 기업을 위한 AI Marketing OS입니다.',
     body: 'NovaStudio는 GEO/AEO, 콘텐츠, AI 영상 워크플로, 게시, 리드 확보를 위한 NovaOS를 구축합니다.', ctaTitle: 'AI 마케팅 운영 레이어를 구축할 준비가 되었나요?', ctaBody: 'NovaOS로 캠페인, 콘텐츠, AI 검색 가시성, 영상 워크플로, 게시, 리드 확보를 관리하세요.', ctaPrimary: 'NovaOS 보기', ctaSecondary: '영업 문의', qrTitle: 'WhatsApp 상담', qrText: 'WhatsApp으로 NovaStudio에 문의하세요', socialText: '소셜 채널',
     groups: [
-      { title: '제품', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '제품 및 서비스', href: '/products' }, { label: '솔루션', href: '/solutions' }] },
-      { title: '리소스', links: [{ label: '리소스 허브', href: '/resources' }, { label: '미디어 키트', href: '/media-kit' }, { label: '아카데미', href: '/academy' }] },
-      { title: '기업', links: [{ label: '회사 정보', href: '/company' }, { label: '사례', href: '/cases' }, { label: '문의', href: '/contact' }] },
+      { title: '제품', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '제품 및 서비스', href: '/products' }, { label: '솔루션', href: '/solutions' }, { label: 'AI 영상 워크플로', href: '/products' }] },
+      { title: '리소스', links: [{ label: '리소스 허브', href: '/resources' }, { label: '미디어 키트', href: '/media-kit' }, { label: '아카데미', href: '/academy' }, { label: 'GEO 글', href: '/resources' }] },
+      { title: '기업', links: [{ label: '회사 정보', href: '/company' }, { label: '사례', href: '/cases' }, { label: '문의', href: '/contact' }, { label: '개인정보 및 약관', href: '/privacy' }] },
     ],
   },
 } as const;
@@ -73,7 +73,7 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0"><button type="button" onClick={onOpenModal} className="rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-blue-100">{c.ctaPrimary}</button><a href="/contact" className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10">{c.ctaSecondary}</a></div>
         </div>
         <div className="rounded-[2.5rem] border border-blue-100 bg-white/90 p-6 shadow-2xl shadow-blue-900/10 backdrop-blur-xl lg:p-8">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_1.45fr_0.85fr]">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_1.45fr_0.85fr] lg:items-center">
             <div>
               <BrandLogo />
               <p className="mt-6 max-w-sm text-base leading-7 text-slate-600">{c.body}</p>
@@ -83,10 +83,10 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
               <p className="mt-2 max-w-sm text-sm leading-6 text-slate-600">{businessAddress}</p>
               <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold"><a href="/contact" className="rounded-full bg-blue-700 px-4 py-2 text-white">{c.consultation}</a><button type="button" onClick={onOpenModal} className="rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-blue-700">NovaOS</button></div>
             </div>
-            <div className="grid gap-8 sm:grid-cols-3">
+            <div className="self-center grid gap-8 sm:grid-cols-3">
               {c.groups.map((group) => <div key={group.title}><h3 className="text-base font-semibold text-slate-950">{group.title}</h3><div className="mt-5 grid gap-3">{group.links.map((link) => <a key={link.label} href={link.href} className="text-sm leading-6 text-slate-500 transition hover:text-blue-700">{link.label}</a>)}</div></div>)}
             </div>
-            <div>
+            <div className="self-center">
               <h3 className="text-base font-semibold text-slate-950">{c.qrTitle}</h3>
               <div className="mt-5 rounded-[1.5rem] border border-blue-100 bg-white p-4 text-center shadow-sm shadow-blue-900/5"><div className="flex justify-center"><WhatsAppQrImage /></div><p className="mx-auto mt-3 max-w-48 text-xs leading-5 text-slate-500">{c.qrText}</p></div>
               <p className="mt-7 text-sm font-semibold text-slate-950">{c.socialText}</p>
