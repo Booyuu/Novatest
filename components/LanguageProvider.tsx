@@ -18,12 +18,6 @@ function isLang(value: string | null): value is Lang {
   return value === 'en' || value === 'zh' || value === 'ja' || value === 'ko';
 }
 
-function getInitialLanguage(): Lang {
-  if (typeof window === 'undefined') return 'en';
-  const stored = window.localStorage.getItem(storageKey);
-  return isLang(stored) ? stored : 'en';
-}
-
 export const copy = {
   en: {
     nav: { products: 'Products', solutions: 'Solutions', cases: 'Cases', novaos: 'NovaOS', marketplace: 'Marketplace', academy: 'Academy', resources: 'Resources', company: 'Company', contact: 'Contact', cta: 'Book a Strategy Call' },
@@ -138,7 +132,7 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(getInitialLanguage);
+  const [lang, setLangState] = useState<Lang>('en');
 
   const setLang = (nextLang: Lang) => {
     setLangState(nextLang);
@@ -146,6 +140,18 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = nextLang;
     document.documentElement.dataset.lang = nextLang;
   };
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem(storageKey);
+    if (isLang(stored)) {
+      setLangState(stored);
+      document.documentElement.lang = stored;
+      document.documentElement.dataset.lang = stored;
+      return;
+    }
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem(storageKey, lang);
