@@ -9,48 +9,40 @@ const businessEmail = 'hello@novastudio.world';
 
 const footerCopy = {
   en: {
-    contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', more: 'Popular entries', privacy: 'Privacy Policy', legal: 'Service Terms', copyright: '© 2026 NovaStudio. NovaOS is the AI Marketing OS for high-growth businesses.',
+    contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', privacy: 'Privacy Policy', legal: 'Service Terms', copyright: '© 2026 NovaStudio. NovaOS is the AI Marketing OS for high-growth businesses.',
     body: 'NovaStudio builds NovaOS for AI marketing operations, GEO/AEO, content, AI video workflows, publishing and lead capture.', ctaTitle: 'Ready to build your AI marketing operating layer?', ctaBody: 'Use NovaOS to plan campaigns, generate content, improve AI search visibility, create video workflows, publish content and capture leads.', ctaPrimary: 'Enter NovaOS', ctaSecondary: 'Contact Sales', qrTitle: 'WhatsApp Consultation', qrText: 'Scan to contact NovaStudio on WhatsApp', socialText: 'Social channels',
     groups: [
-      { title: 'Products', links: ['NovaOS Core', 'GEO / AEO Engine', 'AI Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture Kit', 'Growth Dashboard', 'Marketplace'] },
-      { title: 'Solutions', links: ['Fintech & Payments', 'Web3 & Crypto', 'AI & B2B SaaS', 'SMEs', 'Education', 'Clinics & Local Services', 'Retail & Consumer', 'Professional Services'] },
-      { title: 'Resources', links: ['Resource Hub', 'Media Kit', 'What is GEO?', 'GEO vs SEO vs AEO', 'Brand Entity Cleanup', 'AI Video Workflow'] },
-      { title: 'Enterprise', links: ['About NovaStudio', 'Cases', 'Contact', 'Partner Network', 'Singapore / APAC'] },
+      { title: 'Product', links: [{ label: 'NovaOS', href: '/novaos' }, { label: 'Products & Services', href: '/products' }, { label: 'Solutions', href: '/solutions' }] },
+      { title: 'Resources', links: [{ label: 'Resource Hub', href: '/resources' }, { label: 'Media Kit', href: '/media-kit' }, { label: 'Academy', href: '/academy' }] },
+      { title: 'Enterprise', links: [{ label: 'About', href: '/company' }, { label: 'Cases', href: '/cases' }, { label: 'Contact', href: '/contact' }] },
     ],
-    recommended: ['GEO Audit', 'Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture', 'Media Kit', 'Academy', 'Creator Center', 'AI Workflow'],
   },
   zh: {
-    contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', more: '热门入口', privacy: '隐私政策', legal: '服务条款', copyright: '© 2026 NovaStudio. NovaOS 是面向高增长企业的 AI Marketing OS。',
+    contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', privacy: '隐私政策', legal: '服务条款', copyright: '© 2026 NovaStudio. NovaOS 是面向高增长企业的 AI Marketing OS。',
     body: 'NovaStudio 打造 NovaOS，用于 AI 营销运营、GEO/AEO、内容、AI 视频工作流、内容发布和线索获取。', ctaTitle: '准备搭建你的 AI 营销操作层了吗？', ctaBody: '用 NovaOS 完成活动策划、内容生成、AI 搜索优化、视频工作流、内容发布和线索获取。', ctaPrimary: '进入 NovaOS', ctaSecondary: '联系销售', qrTitle: 'WhatsApp 咨询', qrText: '扫码通过 WhatsApp 联系 NovaStudio', socialText: '社媒渠道',
     groups: [
-      { title: '产品', links: ['NovaOS 核心', 'GEO / AEO 引擎', 'AI 内容引擎', 'AI 视频工作流', '内容发布中心', '线索获取工具包', '增长仪表盘', '市场资产'] },
-      { title: '解决方案', links: ['金融科技与支付', 'Web3 与加密', 'AI 与 B2B SaaS', '中小企业', '教育培训', '诊所与本地服务', '零售与消费', '专业服务'] },
-      { title: '资源', links: ['资源中心', '媒体包', '什么是 GEO？', 'GEO vs SEO vs AEO', '品牌实体清理', 'AI 视频工作流'] },
-      { title: '企业', links: ['了解 NovaStudio', '案例', '联系我们', '合作网络', '新加坡 / APAC'] },
+      { title: '产品', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '产品与服务', href: '/products' }, { label: '解决方案', href: '/solutions' }] },
+      { title: '资源', links: [{ label: '资源中心', href: '/resources' }, { label: '媒体包', href: '/media-kit' }, { label: '学院', href: '/academy' }] },
+      { title: '企业', links: [{ label: '关于我们', href: '/company' }, { label: '案例', href: '/cases' }, { label: '联系', href: '/contact' }] },
     ],
-    recommended: ['GEO 诊断', '内容引擎', 'AI 视频工作流', '内容发布', '线索获取', '媒体包', '学院', '创作者中心', 'AI 工作流'],
   },
   ja: {
-    contact: 'お問い合わせ', emailLabel: '企業メール', addressLabel: '事業所在地', consultation: '相談する', more: '人気リンク', privacy: 'プライバシー', legal: '利用規約', copyright: '© 2026 NovaStudio. NovaOS は高成長企業向けの AI Marketing OS です。',
+    contact: 'お問い合わせ', emailLabel: '企業メール', addressLabel: '事業所在地', consultation: '相談する', privacy: 'プライバシー', legal: '利用規約', copyright: '© 2026 NovaStudio. NovaOS は高成長企業向けの AI Marketing OS です。',
     body: 'NovaStudio は GEO/AEO、コンテンツ、AI動画ワークフロー、配信、リード獲得のための NovaOS を構築しています。', ctaTitle: 'AIマーケティング運用レイヤーを構築しますか？', ctaBody: 'NovaOS でキャンペーン、コンテンツ、AI検索可視性、動画ワークフロー、配信、リード獲得を管理します。', ctaPrimary: 'NovaOS に入る', ctaSecondary: '営業に相談', qrTitle: 'WhatsApp 相談', qrText: 'WhatsApp で NovaStudio に連絡', socialText: 'ソーシャル',
     groups: [
-      { title: '製品', links: ['NovaOS Core', 'GEO / AEO Engine', 'AI Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture Kit', 'Growth Dashboard', 'Marketplace'] },
-      { title: 'ソリューション', links: ['Fintech & Payments', 'Web3 & Crypto', 'AI & B2B SaaS', 'SMEs', 'Education', 'Clinics & Local Services', 'Retail & Consumer', 'Professional Services'] },
-      { title: 'リソース', links: ['Resource Hub', 'Media Kit', 'What is GEO?', 'GEO vs SEO vs AEO', 'Brand Entity Cleanup', 'AI Video Workflow'] },
-      { title: '企業', links: ['About NovaStudio', 'Cases', 'Contact', 'Partner Network', 'Singapore / APAC'] },
+      { title: '製品', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '製品とサービス', href: '/products' }, { label: 'ソリューション', href: '/solutions' }] },
+      { title: 'リソース', links: [{ label: 'リソース', href: '/resources' }, { label: 'メディアキット', href: '/media-kit' }, { label: 'アカデミー', href: '/academy' }] },
+      { title: '企業', links: [{ label: '会社情報', href: '/company' }, { label: '事例', href: '/cases' }, { label: 'お問い合わせ', href: '/contact' }] },
     ],
-    recommended: ['GEO Audit', 'Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture', 'Media Kit', 'Academy', 'Creator Center', 'AI Workflow'],
   },
   ko: {
-    contact: '문의', emailLabel: '기업 이메일', addressLabel: '사업장 주소', consultation: '상담하기', more: '인기 링크', privacy: '개인정보', legal: '이용약관', copyright: '© 2026 NovaStudio. NovaOS는 고성장 기업을 위한 AI Marketing OS입니다.',
+    contact: '문의', emailLabel: '기업 이메일', addressLabel: '사업장 주소', consultation: '상담하기', privacy: '개인정보', legal: '이용약관', copyright: '© 2026 NovaStudio. NovaOS는 고성장 기업을 위한 AI Marketing OS입니다.',
     body: 'NovaStudio는 GEO/AEO, 콘텐츠, AI 영상 워크플로, 게시, 리드 확보를 위한 NovaOS를 구축합니다.', ctaTitle: 'AI 마케팅 운영 레이어를 구축할 준비가 되었나요?', ctaBody: 'NovaOS로 캠페인, 콘텐츠, AI 검색 가시성, 영상 워크플로, 게시, 리드 확보를 관리하세요.', ctaPrimary: 'NovaOS 보기', ctaSecondary: '영업 문의', qrTitle: 'WhatsApp 상담', qrText: 'WhatsApp으로 NovaStudio에 문의하세요', socialText: '소셜 채널',
     groups: [
-      { title: '제품', links: ['NovaOS Core', 'GEO / AEO Engine', 'AI Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture Kit', 'Growth Dashboard', 'Marketplace'] },
-      { title: '솔루션', links: ['Fintech & Payments', 'Web3 & Crypto', 'AI & B2B SaaS', 'SMEs', 'Education', 'Clinics & Local Services', 'Retail & Consumer', 'Professional Services'] },
-      { title: '리소스', links: ['Resource Hub', 'Media Kit', 'What is GEO?', 'GEO vs SEO vs AEO', 'Brand Entity Cleanup', 'AI Video Workflow'] },
-      { title: '기업', links: ['About NovaStudio', 'Cases', 'Contact', 'Partner Network', 'Singapore / APAC'] },
+      { title: '제품', links: [{ label: 'NovaOS', href: '/novaos' }, { label: '제품 및 서비스', href: '/products' }, { label: '솔루션', href: '/solutions' }] },
+      { title: '리소스', links: [{ label: '리소스 허브', href: '/resources' }, { label: '미디어 키트', href: '/media-kit' }, { label: '아카데미', href: '/academy' }] },
+      { title: '기업', links: [{ label: '회사 정보', href: '/company' }, { label: '사례', href: '/cases' }, { label: '문의', href: '/contact' }] },
     ],
-    recommended: ['GEO Audit', 'Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture', 'Media Kit', 'Academy', 'Creator Center', 'AI Workflow'],
   },
 } as const;
 
@@ -68,20 +60,6 @@ function SocialIcon({ icon }: { icon: (typeof socials)[number]['icon'] }) {
   return <svg viewBox="0 0 24 24" className="h-5 w-5"><path fill="currentColor" d="M9.2 4C5.2 4 2 6.7 2 10c0 1.9 1.1 3.6 2.8 4.7L4 17.5l3.1-1.6c.7.1 1.4.2 2.1.2 4 0 7.2-2.7 7.2-6S13.2 4 9.2 4Zm-2.5 5.1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm4.7 1.8c3.2.2 5.6 2.4 5.6 5.1 0 1.5-.8 2.9-2.1 3.8l.6 2.2-2.5-1.3c-.6.1-1.2.2-1.8.2-3.5 0-6.3-2.3-6.3-5.1v-.1c3.7-.2 6.6-2.6 6.6-5.6v-.2Z" /></svg>;
 }
 
-function linkHref(groupTitle: string, link: string) {
-  const text = `${groupTitle} ${link}`;
-  if (/media kit|媒体包|メディア|미디어/i.test(text)) return '/media-kit';
-  if (/resource|资源|リソース|리소스|what is geo|brand entity|品牌实体|video workflow/i.test(text)) return '/resources';
-  if (/case|案例/i.test(text)) return '/cases';
-  if (/contact|联系|お問い合わせ|문의/i.test(text)) return '/contact';
-  if (/partner|合作/i.test(text)) return '/contact';
-  if (/solution|解决|ソリューション|솔루션|fintech|web3|retail|education|clinic|SME/i.test(text)) return '/solutions';
-  if (/enterprise|company|企业|公司|about|了解|singapore|APAC/i.test(text)) return '/company';
-  if (/NovaOS Core/i.test(link)) return '/novaos';
-  if (/NovaOS|生态|Ecosystem/i.test(groupTitle)) return '#';
-  return '/products';
-}
-
 export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
   const { lang } = useLanguage();
   const c = footerCopy[lang];
@@ -95,7 +73,7 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0"><button type="button" onClick={onOpenModal} className="rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-blue-100">{c.ctaPrimary}</button><a href="/contact" className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10">{c.ctaSecondary}</a></div>
         </div>
         <div className="rounded-[2.5rem] border border-blue-100 bg-white/90 p-6 shadow-2xl shadow-blue-900/10 backdrop-blur-xl lg:p-8">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_2fr_0.9fr]">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_1.45fr_0.85fr]">
             <div>
               <BrandLogo />
               <p className="mt-6 max-w-sm text-base leading-7 text-slate-600">{c.body}</p>
@@ -105,8 +83,8 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
               <p className="mt-2 max-w-sm text-sm leading-6 text-slate-600">{businessAddress}</p>
               <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold"><a href="/contact" className="rounded-full bg-blue-700 px-4 py-2 text-white">{c.consultation}</a><button type="button" onClick={onOpenModal} className="rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-blue-700">NovaOS</button></div>
             </div>
-            <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-              {c.groups.map((group) => <div key={group.title}><h3 className="text-base font-semibold text-slate-950">{group.title}</h3><div className="mt-5 grid gap-3">{group.links.map((link) => { const href = linkHref(group.title, link); return <a key={link} href={href} onClick={(event) => { if (href === '#') { event.preventDefault(); onOpenModal(); } }} className="text-sm leading-6 text-slate-500 transition hover:text-blue-700">{link}</a>; })}</div></div>)}
+            <div className="grid gap-8 sm:grid-cols-3">
+              {c.groups.map((group) => <div key={group.title}><h3 className="text-base font-semibold text-slate-950">{group.title}</h3><div className="mt-5 grid gap-3">{group.links.map((link) => <a key={link.label} href={link.href} className="text-sm leading-6 text-slate-500 transition hover:text-blue-700">{link.label}</a>)}</div></div>)}
             </div>
             <div>
               <h3 className="text-base font-semibold text-slate-950">{c.qrTitle}</h3>
@@ -115,7 +93,6 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
               <div className="mt-4 flex flex-nowrap items-center gap-2 overflow-x-auto pb-1">{socials.map((item) => <a key={item.label} href={item.href} aria-label={item.label} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-slate-950 text-white shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:bg-blue-700"><SocialIcon icon={item.icon} /></a>)}</div>
             </div>
           </div>
-          <div className="mt-10 border-t border-blue-100 pt-8"><p className="font-semibold text-slate-800">{c.more}</p><div className="mt-4 flex flex-wrap gap-2">{c.recommended.map((item) => <a key={item} href={linkHref('', item)} className="rounded-full border border-blue-100 bg-[#f8fbff] px-4 py-2 text-sm text-slate-500 transition hover:border-blue-300 hover:bg-white hover:text-blue-700">{item}</a>)}</div></div>
         </div>
         <div className="flex flex-col gap-4 px-2 pt-8 text-sm text-slate-500 lg:flex-row lg:items-center lg:justify-between"><p>{c.copyright}</p><div className="flex flex-wrap gap-5"><a href="/privacy" className="hover:text-blue-700">{c.privacy}</a><a href="/privacy#terms" className="hover:text-blue-700">{c.legal}</a></div></div>
       </div>
