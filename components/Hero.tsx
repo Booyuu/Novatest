@@ -4,10 +4,10 @@ import { AIAssistantBar } from '@/components/AIAssistantBar';
 import { useLanguage } from '@/components/LanguageProvider';
 
 const orbitModules = {
-  en: ['Brand Brain', 'Campaign Builder', 'Content Engine', 'Lead Capture Kit', 'GEO / AEO', 'Marketplace', 'Academy'],
-  zh: ['品牌大脑', '活动构建器', '内容引擎', '线索获取', 'GEO / AEO', '市场资产', '学院'],
-  ja: ['ブランドブレイン', 'キャンペーン', 'コンテンツ', 'リード獲得', 'GEO / AEO', 'マーケット', 'アカデミー'],
-  ko: ['브랜드 브레인', '캠페인 빌더', '콘텐츠 엔진', '리드 캡처', 'GEO / AEO', '마켓', '아카데미'],
+  en: ['GEO Audit', 'Content Plan', 'AI Video', 'Publishing', 'Lead Capture', 'Dashboard', 'Marketplace'],
+  zh: ['GEO 诊断', '内容计划', 'AI 视频', '内容发布', '线索获取', '仪表盘', '市场资产'],
+  ja: ['GEO 診断', 'Content Plan', 'AI Video', 'Publishing', 'Lead Capture', 'Dashboard', 'Marketplace'],
+  ko: ['GEO 진단', 'Content Plan', 'AI Video', 'Publishing', 'Lead Capture', 'Dashboard', 'Marketplace'],
 } as const;
 
 export function Hero({ onOpenModal }: { onOpenModal: () => void }) {
