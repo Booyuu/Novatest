@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/components/LanguageProvider';
 
 const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
@@ -10,47 +10,62 @@ const modalCopy = {
     eyebrow: 'NovaOS access', title: 'Welcome back!', subtitle: 'Please enter your details', illustrationTitle: 'NovaOS login',
     google: 'Sign in with Google', apple: 'Sign in with Apple', phone: 'Phone number', country: 'Country / region', code: 'Verification code', sendCode: 'Send code', submit: 'Sign in to NovaOS', close: 'Close',
     terms: 'No account yet?', register: 'Create access', remember: 'Remember me', forgot: 'Forgot access?', privacy: 'Privacy', termsLink: 'Terms', connect: 'Connect',
-    mascotReady: 'Ready', mascotTyping: 'Following your input', mascotCover: 'Code privacy mode', mascotCheck: 'Code looks short',
+    mascotReady: 'Move your mouse — they will follow', mascotTyping: 'Looking at the input', mascotCover: 'Looking away for privacy', mascotCheck: 'Code looks short',
   },
   zh: {
     eyebrow: 'NovaOS 入口', title: '欢迎回来！', subtitle: '请填写登录信息', illustrationTitle: '登录',
     google: '使用 Google 登录', apple: '使用 Apple 登录', phone: '手机号', country: '国家 / 地区', code: '验证码', sendCode: '发送验证码', submit: '进入 NovaOS', close: '关闭',
     terms: '还没有账号？', register: '立即注册', remember: '记住 30 天', forgot: '忘记权限？', privacy: '隐私政策', termsLink: '服务条款', connect: '接入',
-    mascotReady: '准备好了', mascotTyping: '正在看你的输入', mascotCover: '验证码隐私模式', mascotCheck: '验证码还不完整',
+    mascotReady: '移动鼠标，他们会跟着看', mascotTyping: '正在看你的输入', mascotCover: '验证码隐私模式，集体看向左边', mascotCheck: '验证码还不完整',
   },
   ja: {
     eyebrow: 'NovaOS access', title: 'おかえりなさい', subtitle: 'ログイン情報を入力してください', illustrationTitle: 'NovaOS login',
     google: 'Google でログイン', apple: 'Apple でログイン', phone: '電話番号', country: '国 / 地域', code: '認証コード', sendCode: 'コードを送信', submit: 'NovaOS に入る', close: '閉じる',
     terms: 'アカウントがありませんか？', register: 'アクセス作成', remember: '30日間記憶', forgot: 'アクセスを忘れた？', privacy: 'Privacy', termsLink: 'Terms', connect: 'Connect',
-    mascotReady: 'Ready', mascotTyping: 'Following your input', mascotCover: 'Code privacy mode', mascotCheck: 'Code looks short',
+    mascotReady: 'Move your mouse — they will follow', mascotTyping: 'Looking at the input', mascotCover: 'Looking away for privacy', mascotCheck: 'Code looks short',
   },
   ko: {
     eyebrow: 'NovaOS access', title: '다시 오신 것을 환영합니다', subtitle: '로그인 정보를 입력하세요', illustrationTitle: 'NovaOS login',
     google: 'Google로 로그인', apple: 'Apple로 로그인', phone: '전화번호', country: '국가 / 지역', code: '인증 코드', sendCode: '코드 보내기', submit: 'NovaOS 보기', close: '닫기',
     terms: '계정이 없나요?', register: '접근 만들기', remember: '30일 기억', forgot: '접근을 잊으셨나요?', privacy: 'Privacy', termsLink: 'Terms', connect: 'Connect',
-    mascotReady: 'Ready', mascotTyping: 'Following your input', mascotCover: 'Code privacy mode', mascotCheck: 'Code looks short',
+    mascotReady: 'Move your mouse — they will follow', mascotTyping: 'Looking at the input', mascotCover: 'Looking away for privacy', mascotCheck: 'Code looks short',
   },
 } as const;
 
 type ModalCopy = (typeof modalCopy)[keyof typeof modalCopy];
 const countries = ['+65 Singapore', '+86 China', '+852 Hong Kong', '+886 Taiwan', '+81 Japan', '+82 Korea', '+1 United States', '+44 United Kingdom', '+61 Australia', '+971 UAE'];
 type ActiveField = 'idle' | 'phone' | 'code';
+type MouseVector = { x: number; y: number };
 
-function Character({ className, color, height, width, rounded = 'rounded-t-[5rem]', eyeShift, coverEyes = false, sad = false }: { className: string; color: string; height: string; width: string; rounded?: string; eyeShift: number; coverEyes?: boolean; sad?: boolean }) {
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function Character({ className, color, height, width, rounded = 'rounded-t-[5rem]', mouseVector, activeField, sad = false, intensity = 1 }: { className: string; color: string; height: string; width: string; rounded?: string; mouseVector: MouseVector; activeField: ActiveField; sad?: boolean; intensity?: number }) {
+  const isPhone = activeField === 'phone';
+  const isCode = activeField === 'code';
+  const eyeX = isCode ? -10 : isPhone ? 8 : mouseVector.x * intensity;
+  const eyeY = isCode ? 0 : isPhone ? 1 : mouseVector.y * intensity;
+  const bodyX = isCode ? -8 : isPhone ? 5 : mouseVector.x * 0.45 * intensity;
+  const bodyY = isCode ? 1 : mouseVector.y * 0.22 * intensity;
+  const bodyRotate = isCode ? -4 : isPhone ? 2 : mouseVector.x * 0.35 * intensity;
+
   return (
-    <div className={`absolute bottom-0 ${width} ${height} ${rounded} ${color} transition-transform duration-300 ${className}`}>
-      <span className="absolute left-[30%] top-[26%] h-3 w-3 rounded-full bg-slate-800 transition-transform duration-300" style={{ transform: `translateX(${eyeShift}px)` }} />
-      <span className="absolute right-[30%] top-[26%] h-3 w-3 rounded-full bg-slate-800 transition-transform duration-300" style={{ transform: `translateX(${eyeShift}px)` }} />
-      <span className={`absolute left-1/2 top-[47%] h-1 w-12 -translate-x-1/2 rounded-full bg-slate-800/80 transition-transform ${sad ? 'rotate-180' : ''}`} />
-      <span className={`absolute left-[18%] top-[24%] h-8 w-8 rounded-full bg-white/70 transition-all duration-300 ${coverEyes ? 'translate-x-7 translate-y-1 opacity-95' : '-translate-x-7 translate-y-7 opacity-0'}`} />
-      <span className={`absolute right-[18%] top-[24%] h-8 w-8 rounded-full bg-white/70 transition-all duration-300 ${coverEyes ? '-translate-x-7 translate-y-1 opacity-95' : 'translate-x-7 translate-y-7 opacity-0'}`} />
+    <div className={`absolute bottom-0 ${className}`}>
+      <div
+        className={`${width} ${height} ${rounded} ${color} relative shadow-xl shadow-slate-900/10 transition-transform duration-300 ease-out`}
+        style={{ transform: `translate(${bodyX}px, ${bodyY}px) rotate(${bodyRotate}deg)` }}
+      >
+        <span className="absolute left-[30%] top-[26%] h-3 w-3 rounded-full bg-slate-800 transition-transform duration-200 ease-out" style={{ transform: `translate(${eyeX}px, ${eyeY}px)` }} />
+        <span className="absolute right-[30%] top-[26%] h-3 w-3 rounded-full bg-slate-800 transition-transform duration-200 ease-out" style={{ transform: `translate(${eyeX}px, ${eyeY}px)` }} />
+        <span className={`absolute left-1/2 top-[47%] h-1 w-12 -translate-x-1/2 rounded-full bg-slate-800/80 transition-all duration-300 ${sad ? 'top-[52%] rotate-180' : ''}`} />
+      </div>
     </div>
   );
 }
 
-function LoginIllustration({ activeField, codeShort, copy }: { activeField: ActiveField; codeShort: boolean; copy: ModalCopy }) {
+function LoginIllustration({ activeField, codeShort, copy, mouseVector }: { activeField: ActiveField; codeShort: boolean; copy: ModalCopy; mouseVector: MouseVector }) {
   const isCode = activeField === 'code';
-  const eyeShift = activeField === 'phone' ? 7 : isCode ? -5 : 0;
   const status = codeShort ? copy.mascotCheck : isCode ? copy.mascotCover : activeField === 'phone' ? copy.mascotTyping : copy.mascotReady;
 
   return (
@@ -62,10 +77,10 @@ function LoginIllustration({ activeField, codeShort, copy }: { activeField: Acti
 
       <div className="absolute left-1/2 top-[48%] h-[29rem] w-[34rem] -translate-x-1/2 -translate-y-1/2">
         <div className="absolute inset-x-10 bottom-0 h-1 rounded-full bg-slate-900/10" />
-        <Character className="left-20 z-20" color="bg-[#ffa36f]" height="h-44" width="w-56" eyeShift={eyeShift} coverEyes={false} sad={codeShort} />
-        <Character className="left-44 z-10 -translate-y-20 rotate-2" color="bg-[#6d43f2]" height="h-72" width="w-44" rounded="rounded-t-3xl" eyeShift={eyeShift} coverEyes={isCode} sad={codeShort} />
-        <Character className="left-64 z-30 -translate-y-6" color="bg-[#2d2f32]" height="h-60" width="w-36" rounded="rounded-t-xl" eyeShift={eyeShift} coverEyes={isCode} sad={codeShort} />
-        <Character className="right-10 z-20" color="bg-[#eadf55]" height="h-48" width="w-40" eyeShift={eyeShift} coverEyes={isCode} sad={codeShort} />
+        <Character className="left-20 z-20" color="bg-[#ffa36f]" height="h-44" width="w-56" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={0.8} />
+        <Character className="left-44 z-10 -translate-y-20 rotate-2" color="bg-[#6d43f2]" height="h-72" width="w-44" rounded="rounded-t-3xl" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={1.1} />
+        <Character className="left-64 z-30 -translate-y-6" color="bg-[#2d2f32]" height="h-60" width="w-36" rounded="rounded-t-xl" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={1} />
+        <Character className="right-10 z-20" color="bg-[#eadf55]" height="h-48" width="w-40" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={0.9} />
       </div>
 
       <div className={`absolute left-1/2 top-[73%] -translate-x-1/2 rounded-full border border-white/40 bg-white/45 px-5 py-2 text-sm font-semibold text-slate-700 shadow-lg shadow-slate-900/5 backdrop-blur-xl ${codeShort ? 'nova-shake' : ''}`}>{status}</div>
@@ -87,6 +102,7 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
   const [activeField, setActiveField] = useState<ActiveField>('idle');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
+  const [mouseVector, setMouseVector] = useState<MouseVector>({ x: 0, y: 0 });
 
   const codeShort = code.length > 0 && code.length < 6;
 
@@ -136,6 +152,13 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
     window.alert('NovaOS auth provider placeholder. Connect Google, Apple and SMS verification provider here.');
   }
 
+  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = clamp(((event.clientX - rect.left) / rect.width - 0.5) * 18, -9, 9);
+    const y = clamp(((event.clientY - rect.top) / rect.height - 0.5) * 10, -5, 5);
+    setMouseVector({ x, y });
+  }
+
   if (!open) return null;
 
   return (
@@ -148,11 +171,13 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
         role="dialog"
         aria-modal="true"
         aria-labelledby="novaos-login-title"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setMouseVector({ x: 0, y: 0 })}
         className="relative grid w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/20 bg-white shadow-2xl shadow-slate-950/30 outline-none lg:grid-cols-[1.08fr_1fr]"
       >
         <button type="button" onClick={onClose} className="absolute right-5 top-5 z-20 rounded-full border border-slate-200 bg-white/85 px-3 py-2 text-sm font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-950" aria-label={copy.close}>{copy.close}</button>
 
-        <LoginIllustration activeField={activeField} codeShort={codeShort} copy={copy} />
+        <LoginIllustration activeField={activeField} codeShort={codeShort} copy={copy} mouseVector={mouseVector} />
 
         <form onSubmit={handleSubmit} className="flex min-h-[650px] items-center justify-center p-8 lg:p-12">
           <div className="w-full max-w-[28rem]">
