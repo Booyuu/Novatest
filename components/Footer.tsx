@@ -3,36 +3,39 @@
 import { BrandLogo } from '@/components/BrandLogo';
 import { useLanguage } from '@/components/LanguageProvider';
 
+const businessAddress = '41 Woodlands Avenue 9, #05-00, Republic Polytechnic, Singapore 737728';
+const businessEmail = 'hello@novastudio.world';
+
 const footerCopy = {
   en: {
-    contact: 'Contact', emailLabel: 'Business inquiries', consultation: 'Consultation', demo: 'Book Demo', follow: 'WhatsApp Consultation', more: 'Popular entries', privacy: 'Privacy Policy', legal: 'Legal Statement', copyright: '© 2026 NovaStudio. Enterprise front door for NovaOS, the AI Marketing OS for high-growth businesses.',
-    body: 'NovaStudio helps companies move from scattered content to repeatable AI-powered marketing operations.',
+    contact: 'Contact', emailLabel: 'Enterprise email', addressLabel: 'Business address', consultation: 'Consultation', demo: 'Book Demo', follow: 'WhatsApp Consultation', more: 'Popular entries', privacy: 'Privacy Policy', legal: 'Legal Statement', copyright: '© 2026 NovaStudio. Enterprise front door for NovaOS, the AI Marketing OS for high-growth businesses.',
+    body: 'NovaStudio builds NovaOS for AI marketing operations, GEO/AEO, content, AI video workflows, publishing and lead capture.',
     ctaTitle: 'Ready to build your AI marketing operating layer?',
-    ctaBody: 'Use NovaStudio as the front door and NovaOS as the system behind campaigns, content, leads, marketplace assets and customer growth workflows.',
-    ctaPrimary: 'Enter NovaOS', ctaSecondary: 'Contact NovaStudio',
+    ctaBody: 'Use NovaOS to plan campaigns, generate content, improve AI search visibility, create video workflows, publish content and capture leads.',
+    ctaPrimary: 'Enter NovaOS', ctaSecondary: 'Contact Sales',
     qrTitle: 'WhatsApp Consultation', qrText: 'Scan to contact NovaStudio on WhatsApp', socialText: 'Social channels',
     groups: [
-      { title: 'Products', links: ['NovaOS Core', 'AI Campaign Builder', 'Brand Brain', 'Content Engine', 'Lead Capture Kit', 'GEO / AEO Engine', 'Compliance Copy Checker', 'Growth Dashboard'] },
+      { title: 'Products', links: ['NovaOS Core', 'GEO / AEO Engine', 'AI Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture Kit', 'Growth Dashboard', 'Marketplace'] },
       { title: 'Solutions', links: ['Fintech & Payments', 'Web3 & Crypto', 'AI & B2B SaaS', 'SMEs', 'Education', 'Clinics & Local Services', 'Retail & Consumer', 'Professional Services'] },
       { title: 'NovaOS Ecosystem', links: ['Template Marketplace', 'Creator Rewards', 'Academy', 'Case Challenges', 'Points & Credits', 'Certified Creators'] },
       { title: 'Company', links: ['About NovaStudio', 'Cases', 'Resources', 'Contact', 'Partner Network', 'Singapore / APAC'] },
     ],
-    recommended: ['Campaign Builder', 'Brand Brain', 'Content Engine', 'Lead Capture Kit', 'GEO / AEO', 'Compliance Checker', 'Growth Dashboard', 'Academy', 'Creator Center', 'AI Workflow'],
+    recommended: ['GEO Audit', 'Content Engine', 'AI Video Workflow', 'Publishing Hub', 'Lead Capture', 'Growth Dashboard', 'Academy', 'Creator Center', 'AI Workflow'],
   },
   zh: {
-    contact: '联系', emailLabel: '商务咨询', consultation: '咨询方案', demo: '预约沟通', follow: 'WhatsApp 咨询', more: '热门入口', privacy: '隐私保护', legal: '法律声明', copyright: '© 2026 NovaStudio. NovaStudio 是 NovaOS 的企业级前门；NovaOS 是面向高增长企业的 AI Marketing OS。',
-    body: 'NovaStudio 帮企业从零散内容，升级为可复制的 AI 营销运营系统。',
+    contact: '联系', emailLabel: '企业邮箱', addressLabel: '企业地址', consultation: '咨询方案', demo: '预约沟通', follow: 'WhatsApp 咨询', more: '热门入口', privacy: '隐私保护', legal: '法律声明', copyright: '© 2026 NovaStudio. NovaStudio 是 NovaOS 的企业级前门；NovaOS 是面向高增长企业的 AI Marketing OS。',
+    body: 'NovaStudio 打造 NovaOS，用于 AI 营销运营、GEO/AEO、内容、AI 视频工作流、内容发布和线索获取。',
     ctaTitle: '准备搭建你的 AI 营销操作层了吗？',
-    ctaBody: '用 NovaStudio 做企业级前门，用 NovaOS 承载活动、内容、线索、市场资产和客户增长工作流。',
-    ctaPrimary: '进入 NovaOS', ctaSecondary: '联系 NovaStudio',
+    ctaBody: '用 NovaOS 完成活动策划、内容生成、AI 搜索优化、视频工作流、内容发布和线索获取。',
+    ctaPrimary: '进入 NovaOS', ctaSecondary: '联系销售',
     qrTitle: 'WhatsApp 咨询', qrText: '扫码通过 WhatsApp 联系 NovaStudio', socialText: '社媒渠道',
     groups: [
-      { title: '产品', links: ['NovaOS 核心', 'AI 活动构建器', '品牌大脑', '内容引擎', '线索获取工具包', 'GEO / AEO 引擎', '合规文案检查', '增长仪表盘'] },
+      { title: '产品', links: ['NovaOS 核心', 'GEO / AEO 引擎', 'AI 内容引擎', 'AI 视频工作流', '内容发布中心', '线索获取工具包', '增长仪表盘', '市场资产'] },
       { title: '解决方案', links: ['金融科技与支付', 'Web3 与加密', 'AI 与 B2B SaaS', '中小企业', '教育培训', '诊所与本地服务', '零售与消费', '专业服务'] },
       { title: 'NovaOS 生态', links: ['模板市场', '创作者奖励', '学院', '案例挑战', '积分与额度', '认证创作者'] },
       { title: '公司', links: ['了解 NovaStudio', '案例', '资源', '联系我们', '合作网络', '新加坡 / APAC'] },
     ],
-    recommended: ['活动构建器', '品牌大脑', '内容引擎', '线索获取', 'GEO / AEO', '合规检查', '增长仪表盘', '学院', '创作者中心', 'AI 工作流'],
+    recommended: ['GEO 诊断', '内容引擎', 'AI 视频工作流', '内容发布', '线索获取', '增长仪表盘', '学院', '创作者中心', 'AI 工作流'],
   },
   ja: null,
   ko: null,
@@ -94,13 +97,15 @@ export function Footer({ onOpenModal }: { onOpenModal: () => void }) {
           </div>
         </div>
 
-        <div className="rounded-[2.5rem] border border-blue-100 bg-white/82 p-6 shadow-2xl shadow-blue-900/10 backdrop-blur-xl lg:p-8">
+        <div className="rounded-[2.5rem] border border-blue-100 bg-white/90 p-6 shadow-2xl shadow-blue-900/10 backdrop-blur-xl lg:p-8">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_2fr_0.9fr]">
             <div>
               <BrandLogo />
               <p className="mt-6 max-w-sm text-base leading-7 text-slate-600">{c.body}</p>
               <p className="mt-7 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">{c.emailLabel}</p>
-              <a href="mailto:hello@novastudio.world" className="mt-2 block break-words text-2xl font-semibold tracking-tight text-slate-950 transition hover:text-blue-700">hello@novastudio.world</a>
+              <a href={`mailto:${businessEmail}`} className="mt-2 block break-words text-2xl font-semibold tracking-tight text-slate-950 transition hover:text-blue-700">{businessEmail}</a>
+              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">{c.addressLabel}</p>
+              <p className="mt-2 max-w-sm text-sm leading-6 text-slate-600">{businessAddress}</p>
               <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
                 <a href="/contact" className="rounded-full bg-blue-700 px-4 py-2 text-white">{c.consultation}</a>
                 <button type="button" onClick={onOpenModal} className="rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-blue-700">NovaOS</button>
