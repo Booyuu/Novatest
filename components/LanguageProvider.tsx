@@ -45,7 +45,7 @@ export const copy = {
     footer: { body: 'NovaStudio builds NovaOS, the AI Marketing OS for GEO, content, AI video workflows, publishing and lead capture.' },
   },
   zh: {
-    nav: { products: '产品与服务', solutions: '行业解决方案', cases: '案例', novaos: 'NovaOS', marketplace: '市场', academy: '学院', resources: '资源', company: '公司', contact: '联系', cta: '立即咨询' },
+    nav: { products: '产品与服务', solutions: '行业解决方案', cases: '案例', novaos: 'NovaOS', marketplace: '市场', academy: '学院', resources: '资源', company: '企业', contact: '联系', cta: '立即咨询' },
     hero: {
       badge: 'NovaOS 已上线：AI 营销运营系统',
       title: 'NovaOS：给增长团队用的 AI Marketing OS',
@@ -159,7 +159,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.dataset.lang = lang;
   }, [lang]);
 
-  const value = useMemo(() => ({ lang, setLang, label: labels[lang], t: copy[lang], labels }), [lang]);
+  const value = useMemo(() => ({ lang, setLang, label: labels[lang], labels, t: copy[lang] }), [lang]);
+
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
