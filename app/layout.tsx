@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
+import { homeFaqSchema } from '@/components/HomeFAQ';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import './globals.css';
 
 const siteUrl = 'https://www.novastudio.world';
 const faviconUrl = `${siteUrl}/favicon.png`;
+const ogImageUrl = `${siteUrl}/opengraph-image`;
 const businessEmail = 'hello@novastudio.world';
 const streetAddress = '41 Woodlands Avenue 9, #05-00, Republic Polytechnic';
 const postalCode = '737728';
@@ -101,7 +103,7 @@ const novaOsSoftwareSchema = {
   alternateName: ['NovaOS AI Marketing OS', 'NovaOS for AI Marketing Operations', 'NovaOS Marketing Operating System'],
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
-  url: siteUrl,
+  url: `${siteUrl}/novaos`,
   creator: { '@id': `${siteUrl}/#organization` },
   description: 'NovaOS by NovaStudio is an AI Marketing Operating System for Brand Brain, Campaign Builder, Content Engine, Lead Capture Kit, GEO/AEO Engine, Compliance Copy Checker, Growth Dashboard, Marketplace, Academy and Creator Center workflows.',
   disambiguatingDescription: 'NovaOS by NovaStudio is a web-based AI marketing operating system. It is not a computer operating system, not the historical Nova operating system, not LED control software, and not a workstation GUI.',
@@ -143,7 +145,7 @@ const geoServiceSchema = {
   ],
 };
 
-const structuredData = [organizationSchema, websiteSchema, novaOsSoftwareSchema, geoServiceSchema];
+const structuredData = [organizationSchema, websiteSchema, novaOsSoftwareSchema, geoServiceSchema, homeFaqSchema];
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -173,13 +175,13 @@ export const metadata: Metadata = {
     title: 'NovaStudio',
     description: 'NovaStudio builds NovaOS for campaigns, content, GEO/AEO, lead capture and customer growth workflows.',
     siteName: 'NovaStudio',
-    images: [faviconUrl],
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: 'NovaStudio NovaOS AI Marketing OS' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'NovaStudio',
     description: 'NovaStudio builds NovaOS, the AI Marketing OS for high-growth businesses.',
-    images: [faviconUrl],
+    images: [ogImageUrl],
   },
 };
 
