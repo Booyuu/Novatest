@@ -77,3 +77,14 @@ export const whatWeDoCards = [
 ] as const;
 
 export const productModules = [
+  'Brand Brain',
+  'AI Campaign Builder',
+  'Content Engine',
+  'Lead Capture Kit',
+  'GEO / AEO Engine',
+  'Compliance Copy Checker',
+  'Growth Dashboard',
+  'Marketplace',
+  'Academy',
+  'Creator Center',
+] as const;
