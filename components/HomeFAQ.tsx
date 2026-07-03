@@ -1,40 +1,41 @@
 'use client';
 
+import { useState } from 'react';
 import { useLanguage } from '@/components/LanguageProvider';
 
 const faqCopy = {
   en: {
     eyebrow: 'FAQ',
-    title: 'Real questions buyers ask before using an AI Marketing OS.',
-    subtitle: 'These answers are written for users, search engines and AI answer systems, so NovaStudio and NovaOS can be understood clearly.',
+    title: 'Questions buyers usually ask before using NovaOS.',
+    subtitle: 'Short, direct answers for real users, search engines and AI answer systems.',
     faqs: [
       ['What is NovaOS?', 'NovaOS is the AI Marketing OS built by NovaStudio. It helps teams organize brand memory, plan campaigns, generate content, improve GEO/AEO visibility, design AI video workflows, publish content and capture leads.'],
-      ['Is NovaOS a normal content generator?', 'No. A normal generator creates isolated text. NovaOS is designed as an operating layer that connects strategy, content, AI-search visibility, publishing, lead capture and growth reporting.'],
+      ['Is NovaOS a normal content generator?', 'No. A normal generator creates isolated text. NovaOS connects strategy, content, AI-search visibility, publishing, lead capture and growth reporting.'],
       ['Can NovaOS help with GEO or AI search visibility?', 'Yes. NovaOS includes GEO/AEO workflows for brand entity clarity, FAQ structures, comparison content, answer-ready pages, schema planning and AI visibility tracking.'],
-      ['Can NovaOS create AI video workflows?', 'NovaOS is designed to organize the video workflow: brief, script, storyboard, voiceover direction, subtitles, compliance notes, platform cutdowns and publishing plan.'],
+      ['Can NovaOS create AI video workflows?', 'NovaOS organizes the video workflow: brief, script, storyboard, voiceover direction, subtitles, compliance notes, platform cutdowns and publishing plan.'],
       ['Is NovaStudio the same as NovaStar or LED display software?', 'No. This NovaStudio is the company building NovaOS, an AI Marketing OS. It is unrelated to NovaStar LED control software, LED media players or workstation GUI tools with similar names.'],
-      ['Who is NovaOS for?', 'NovaOS is built for growth teams, founders, agencies and businesses in fintech, Web3, AI SaaS, education, local services, retail and professional services that need repeatable AI marketing operations.'],
-      ['How do I start?', 'You can explore the NovaOS product page, read the resource hub, open the NovaOS access modal or contact NovaStudio sales for a strategy discussion.'],
+      ['Who is NovaOS for?', 'NovaOS is built for growth teams, founders, agencies and businesses that need repeatable AI marketing operations.'],
+      ['How do I start?', 'Explore the NovaOS product page, read the resource hub, open the NovaOS access modal or contact NovaStudio sales.'],
     ],
   },
   zh: {
     eyebrow: '常见问题',
-    title: '客户在使用 AI Marketing OS 前最可能会问的问题。',
-    subtitle: '这些回答同时面向真实用户、搜索引擎和 AI 回答系统，帮助 NovaStudio 与 NovaOS 被准确理解。',
+    title: '客户在使用 NovaOS 前最常问的问题。',
+    subtitle: '用更短、更直接的回答，方便真实用户、搜索引擎和 AI 回答系统理解。',
     faqs: [
       ['NovaOS 是什么？', 'NovaOS 是 NovaStudio 打造的 AI Marketing OS，帮助团队管理品牌资料、策划活动、生成内容、提升 GEO/AEO 可见度、规划 AI 视频工作流、发布内容并获取线索。'],
-      ['NovaOS 只是普通内容生成器吗？', '不是。普通生成器只生成单独的文字，NovaOS 更像营销运营层，把策略、内容、AI 搜索可见度、发布、线索获取和增长报告连接起来。'],
+      ['NovaOS 只是普通内容生成器吗？', '不是。普通生成器只生成单独文字，NovaOS 更像营销运营层，把策略、内容、AI 搜索可见度、发布、线索获取和增长报告连接起来。'],
       ['NovaOS 可以帮助 GEO 或 AI 搜索曝光吗？', '可以。NovaOS 包含 GEO/AEO 工作流，用于品牌实体清晰度、FAQ 结构、对比内容、AI 可读页面、结构化数据和 AI 可见度跟踪。'],
       ['NovaOS 可以做 AI 视频工作流吗？', '可以。NovaOS 不是只生成视频，而是组织视频流程：brief、脚本、分镜、配音方向、字幕、合规备注、平台裁剪和发布计划。'],
       ['NovaStudio 和 NovaStar 或 LED 软件是一回事吗？', '不是。这里的 NovaStudio 是打造 NovaOS 的 AI 营销运营企业，和 NovaStar LED 控制软件、LED 播放器或同名工作站工具没有关系。'],
-      ['NovaOS 适合谁？', 'NovaOS 适合增长团队、创始人、代理商，以及金融科技、Web3、AI SaaS、教育、本地服务、零售和专业服务等需要可复用营销运营的企业。'],
-      ['我应该怎么开始？', '可以先查看 NovaOS 产品页和资源中心，也可以打开 NovaOS 入口或联系 NovaStudio 销售沟通策略。'],
+      ['NovaOS 适合谁？', 'NovaOS 适合增长团队、创始人、代理商，以及需要可复用 AI 营销运营的企业。'],
+      ['我应该怎么开始？', '可以先查看 NovaOS 产品页和资源中心，也可以打开 NovaOS 入口或联系 NovaStudio 销售。'],
     ],
   },
   ja: {
     eyebrow: 'FAQ',
-    title: 'AI Marketing OS を使う前によくある質問。',
-    subtitle: 'ユーザー、検索エンジン、AI回答システムが NovaStudio と NovaOS を正しく理解できるように構成しています。',
+    title: 'NovaOS 導入前によくある質問。',
+    subtitle: 'ユーザー、検索エンジン、AI回答システムが理解しやすい短い回答です。',
     faqs: [
       ['NovaOS とは？', 'NovaOS は NovaStudio が構築する AI Marketing OS です。ブランド情報、キャンペーン、コンテンツ、GEO/AEO、AI動画ワークフロー、配信、リード獲得を管理します。'],
       ['普通のコンテンツ生成ツールですか？', 'いいえ。NovaOS は単発の文章生成ではなく、戦略、コンテンツ、AI検索可視性、配信、リード獲得、レポートをつなぐ運用レイヤーです。'],
@@ -47,8 +48,8 @@ const faqCopy = {
   },
   ko: {
     eyebrow: 'FAQ',
-    title: 'AI Marketing OS 사용 전 고객이 자주 묻는 질문입니다.',
-    subtitle: '사용자, 검색엔진, AI 답변 시스템이 NovaStudio와 NovaOS를 명확하게 이해하도록 구성했습니다.',
+    title: 'NovaOS 사용 전 자주 묻는 질문입니다.',
+    subtitle: '사용자, 검색엔진, AI 답변 시스템이 이해하기 쉬운 짧은 답변입니다.',
     faqs: [
       ['NovaOS란 무엇인가요?', 'NovaOS는 NovaStudio가 만드는 AI Marketing OS입니다. 브랜드 메모리, 캠페인, 콘텐츠, GEO/AEO, AI 영상 워크플로, 게시, 리드 확보를 관리합니다.'],
       ['일반 콘텐츠 생성기인가요?', '아닙니다. NovaOS는 단일 텍스트 생성기가 아니라 전략, 콘텐츠, AI 검색 가시성, 게시, 리드 확보, 성장 보고를 연결하는 운영 레이어입니다.'],
@@ -66,21 +67,29 @@ const schemaFaqs = faqCopy.en.faqs;
 export function HomeFAQ() {
   const { lang } = useLanguage();
   const copy = faqCopy[lang];
+  const [openIndex, setOpenIndex] = useState(0);
+
   return (
     <section className="px-5 py-20 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-[1500px]">
-        <div className="max-w-3xl">
+      <div className="mx-auto max-w-[1100px]">
+        <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">{copy.eyebrow}</p>
-          <h2 className="mt-4 text-5xl font-semibold tracking-[-0.055em] text-slate-950">{copy.title}</h2>
-          <p className="mt-5 text-lg leading-8 text-slate-600">{copy.subtitle}</p>
+          <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-5xl">{copy.title}</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">{copy.subtitle}</p>
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
-          {copy.faqs.map(([question, answer]) => (
-            <article key={question} className="rounded-[2rem] border border-blue-100 bg-white p-6 shadow-lg shadow-blue-900/6">
-              <h3 className="text-xl font-semibold text-slate-950">{question}</h3>
-              <p className="mt-4 leading-8 text-slate-600">{answer}</p>
-            </article>
-          ))}
+        <div className="mt-10 overflow-hidden rounded-[2rem] border border-blue-100 bg-white shadow-xl shadow-blue-900/8">
+          {copy.faqs.map(([question, answer], index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div key={question} className="border-b border-blue-100 last:border-b-0">
+                <button type="button" onClick={() => setOpenIndex(isOpen ? -1 : index)} className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition hover:bg-blue-50/60 lg:px-8">
+                  <span className="text-lg font-semibold text-slate-950">{question}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-xl font-semibold text-blue-700">{isOpen ? '−' : '+'}</span>
+                </button>
+                {isOpen ? <div className="px-6 pb-6 text-base leading-8 text-slate-600 lg:px-8">{answer}</div> : null}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
