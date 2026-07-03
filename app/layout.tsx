@@ -35,7 +35,7 @@ const organizationSchema = {
       availableLanguage: ['English', 'Chinese', 'Japanese', 'Korean'],
     },
   ],
-  description: 'NovaStudio is the enterprise front door for NovaOS, an AI Marketing Operating System for campaigns, content, GEO/AEO, lead capture and customer growth workflows.',
+  description: 'NovaStudio builds NovaOS, an AI Marketing Operating System for campaigns, content, GEO/AEO, lead capture and customer growth workflows.',
   disambiguatingDescription: 'This NovaStudio is an AI marketing operations company connected to NovaOS by NovaStudio. It is not NovaStar LED control software, not an LED display media player, not an AMD workstation GUI, and not a general local workstation application.',
   foundingLocation: {
     '@type': 'Place',
@@ -82,7 +82,7 @@ const websiteSchema = {
   alternateName: 'NovaOS by NovaStudio',
   publisher: { '@id': `${siteUrl}/#organization` },
   inLanguage: ['en', 'zh', 'ja', 'ko'],
-  description: 'Official website for NovaStudio, the enterprise front door for NovaOS AI Marketing OS.',
+  description: 'Official website for NovaStudio and NovaOS AI Marketing OS.',
   about: [
     'NovaOS by NovaStudio',
     'AI Marketing Operating System',
@@ -148,10 +148,10 @@ const structuredData = [organizationSchema, websiteSchema, novaOsSoftwareSchema,
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'NovaStudio | NovaOS AI Marketing Operating System',
+    default: 'NovaStudio',
     template: '%s | NovaStudio',
   },
-  description: 'NovaStudio is the enterprise front door for NovaOS by NovaStudio, an AI Marketing Operating System for campaigns, content, GEO/AEO, lead capture and customer growth workflows. This NovaStudio is unrelated to LED control software or workstation GUI products with similar names.',
+  description: 'NovaStudio builds NovaOS, an AI Marketing Operating System for campaigns, content, GEO/AEO, lead capture and customer growth workflows. This NovaStudio is unrelated to LED control software or workstation GUI products with similar names.',
   keywords: ['NovaStudio', 'NovaOS by NovaStudio', 'NovaOS AI Marketing OS', 'AI Marketing OS', 'AI marketing operations', 'GEO', 'AEO', 'Generative Engine Optimization', 'Answer Engine Optimization', 'AI campaign builder', 'AI content engine', 'lead capture system', 'brand entity cleanliness', 'AI visibility monitoring'],
   alternates: {
     canonical: '/',
@@ -170,15 +170,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: siteUrl,
-    title: 'NovaStudio | NovaOS AI Marketing Operating System',
-    description: 'NovaStudio connects NovaOS modules for campaigns, content, GEO/AEO, lead capture and customer growth workflows.',
+    title: 'NovaStudio',
+    description: 'NovaStudio builds NovaOS for campaigns, content, GEO/AEO, lead capture and customer growth workflows.',
     siteName: 'NovaStudio',
     images: [faviconUrl],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NovaStudio | NovaOS AI Marketing Operating System',
-    description: 'NovaStudio is the enterprise front door for NovaOS, the AI Marketing OS for high-growth businesses.',
+    title: 'NovaStudio',
+    description: 'NovaStudio builds NovaOS, the AI Marketing OS for high-growth businesses.',
     images: [faviconUrl],
   },
 };
