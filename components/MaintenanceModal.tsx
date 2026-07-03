@@ -1,113 +1,96 @@
 'use client';
 
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import type { MouseEvent } from 'react';
 import { useLanguage } from '@/components/LanguageProvider';
 
 const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 const modalCopy = {
   en: {
-    eyebrow: 'NovaOS access', title: 'Welcome back!', subtitle: 'Please enter your details', illustrationTitle: 'NovaOS login',
+    eyebrow: 'NovaOS access', title: 'Welcome back!', subtitle: 'Please enter your details', illustrationTitle: 'NovaOS',
+    leftTitle: 'AI Marketing OS for growth teams',
+    leftBody: 'Use NovaOS to turn GEO, content, AI video workflow, publishing and lead capture into one operating system.',
+    previewTitle: 'NovaOS workspace', previewBody: 'Campaigns · Content · GEO · Leads',
     google: 'Sign in with Google', apple: 'Sign in with Apple', phone: 'Phone number', country: 'Country / region', code: 'Verification code', sendCode: 'Send code', submit: 'Sign in to NovaOS', close: 'Close',
     terms: 'No account yet?', register: 'Create access', remember: 'Remember me', forgot: 'Forgot access?', privacy: 'Privacy', termsLink: 'Terms', connect: 'Connect',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms',
-    mascotReady: 'Move your mouse — they will follow', mascotTyping: 'Looking at the input', mascotCover: 'Looking left for privacy', mascotCheck: 'Code looks short',
+    modules: ['GEO / AEO audit', 'Content engine', 'AI video workflow', 'Publishing hub', 'Lead capture CRM'],
   },
   zh: {
-    eyebrow: 'NovaOS 入口', title: '欢迎回来！', subtitle: '请填写登录信息', illustrationTitle: '登录',
+    eyebrow: 'NovaOS 入口', title: '欢迎回来！', subtitle: '请填写登录信息', illustrationTitle: 'NovaOS',
+    leftTitle: '给增长团队用的 AI Marketing OS',
+    leftBody: '用 NovaOS 把 GEO、内容、AI 视频工作流、内容发布和线索获取整合成一套营销操作系统。',
+    previewTitle: 'NovaOS 工作台', previewBody: '活动 · 内容 · GEO · 线索',
     google: '使用 Google 登录', apple: '使用 Apple 登录', phone: '手机号', country: '国家 / 地区', code: '验证码', sendCode: '发送验证码', submit: '进入 NovaOS', close: '关闭',
     terms: '还没有账号？', register: '立即注册', remember: '记住 30 天', forgot: '忘记权限？', privacy: '隐私政策', termsLink: '服务条款', connect: '接入',
     agreePrefix: '我已阅读并同意', agreeAnd: '和', privacyPolicy: 'NovaStudio 隐私政策', serviceTerms: '服务条款',
-    mascotReady: '移动鼠标，他们会跟着看', mascotTyping: '正在看你的输入', mascotCover: '验证码隐私模式，集体看向左边', mascotCheck: '验证码还不完整',
+    modules: ['GEO / AEO 诊断', '内容引擎', 'AI 视频工作流', '内容发布中心', '线索获取 CRM'],
   },
   ja: {
-    eyebrow: 'NovaOS access', title: 'おかえりなさい', subtitle: 'ログイン情報を入力してください', illustrationTitle: 'NovaOS login',
+    eyebrow: 'NovaOS access', title: 'おかえりなさい', subtitle: 'ログイン情報を入力してください', illustrationTitle: 'NovaOS',
+    leftTitle: 'AI Marketing OS for growth teams',
+    leftBody: 'Use NovaOS to turn GEO, content, AI video workflow, publishing and lead capture into one operating system.',
+    previewTitle: 'NovaOS workspace', previewBody: 'Campaigns · Content · GEO · Leads',
     google: 'Google でログイン', apple: 'Apple でログイン', phone: '電話番号', country: '国 / 地域', code: '認証コード', sendCode: 'コードを送信', submit: 'NovaOS に入る', close: '閉じる',
     terms: 'アカウントがありませんか？', register: 'アクセス作成', remember: '30日間記憶', forgot: 'アクセスを忘れた？', privacy: 'Privacy', termsLink: 'Terms', connect: 'Connect',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms',
-    mascotReady: 'Move your mouse — they will follow', mascotTyping: 'Looking at the input', mascotCover: 'Looking left for privacy', mascotCheck: 'Code looks short',
+    modules: ['GEO / AEO audit', 'Content engine', 'AI video workflow', 'Publishing hub', 'Lead capture CRM'],
   },
   ko: {
-    eyebrow: 'NovaOS access', title: '다시 오신 것을 환영합니다', subtitle: '로그인 정보를 입력하세요', illustrationTitle: 'NovaOS login',
+    eyebrow: 'NovaOS access', title: '다시 오신 것을 환영합니다', subtitle: '로그인 정보를 입력하세요', illustrationTitle: 'NovaOS',
+    leftTitle: 'AI Marketing OS for growth teams',
+    leftBody: 'Use NovaOS to turn GEO, content, AI video workflow, publishing and lead capture into one operating system.',
+    previewTitle: 'NovaOS workspace', previewBody: 'Campaigns · Content · GEO · Leads',
     google: 'Google로 로그인', apple: 'Apple로 로그인', phone: '전화번호', country: '국가 / 지역', code: '인증 코드', sendCode: '코드 보내기', submit: 'NovaOS 보기', close: '닫기',
     terms: '계정이 없나요?', register: '접근 만들기', remember: '30일 기억', forgot: '접근을 잊으셨나요?', privacy: 'Privacy', termsLink: 'Terms', connect: 'Connect',
     agreePrefix: 'I agree to the', agreeAnd: 'and', privacyPolicy: 'NovaStudio Privacy Policy', serviceTerms: 'Service Terms',
-    mascotReady: 'Move your mouse — they will follow', mascotTyping: 'Looking at the input', mascotCover: 'Looking left for privacy', mascotCheck: 'Code looks short',
+    modules: ['GEO / AEO audit', 'Content engine', 'AI video workflow', 'Publishing hub', 'Lead capture CRM'],
   },
 } as const;
 
 type ModalCopy = (typeof modalCopy)[keyof typeof modalCopy];
 const countries = ['+65 Singapore', '+86 China', '+852 Hong Kong', '+886 Taiwan', '+81 Japan', '+82 Korea', '+1 United States', '+44 United Kingdom', '+61 Australia', '+971 UAE'];
-type ActiveField = 'idle' | 'phone' | 'code';
-type MouseVector = { x: number; y: number };
-type EyeMode = 'dark' | 'white';
 
-function clamp(value: number, min: number, max: number) {
-  return Math.min(max, Math.max(min, value));
-}
-
-function Eye({ side, mode, eyeX, eyeY }: { side: 'left' | 'right'; mode: EyeMode; eyeX: number; eyeY: number }) {
-  const sideClass = side === 'left' ? 'left-[29%]' : 'right-[29%]';
-  if (mode === 'white') {
-    return (
-      <span className={`absolute ${sideClass} top-[25%] h-5 w-5 overflow-hidden rounded-full bg-white shadow-sm transition-transform duration-200 ease-out`}>
-        <span className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-900 transition-transform duration-200 ease-out" style={{ transform: `translate(calc(-50% + ${eyeX * 0.36}px), calc(-50% + ${eyeY * 0.34}px))` }} />
-      </span>
-    );
-  }
-
-  return <span className={`absolute ${sideClass} top-[27%] h-3.5 w-3.5 rounded-full bg-slate-800 transition-transform duration-200 ease-out`} style={{ transform: `translate(${eyeX * 0.75}px, ${eyeY * 0.55}px)` }} />;
-}
-
-function Character({ className, color, height, width, rounded = 'rounded-t-[5rem]', mouseVector, activeField, sad = false, intensity = 1, eyeMode = 'dark' }: { className: string; color: string; height: string; width: string; rounded?: string; mouseVector: MouseVector; activeField: ActiveField; sad?: boolean; intensity?: number; eyeMode?: EyeMode }) {
-  const isPhone = activeField === 'phone';
-  const isCode = activeField === 'code';
-  const eyeX = isCode ? -12 : isPhone ? 8 : mouseVector.x * intensity;
-  const eyeY = isCode ? -1 : isPhone ? 1 : mouseVector.y * intensity;
-  const bodyX = isCode ? -10 : isPhone ? 5 : mouseVector.x * 0.42 * intensity;
-  const bodyY = isCode ? 0 : mouseVector.y * 0.18 * intensity;
-  const bodyRotate = isCode ? -5 : isPhone ? 2 : mouseVector.x * 0.32 * intensity;
-
+function NovaOsIntroPanel({ copy }: { copy: ModalCopy }) {
   return (
-    <div className={`absolute bottom-0 ${className}`}>
-      <div
-        className={`${width} ${height} ${rounded} ${color} relative shadow-xl shadow-slate-900/10 transition-transform duration-300 ease-out`}
-        style={{ transform: `translate(${bodyX}px, ${bodyY}px) rotate(${bodyRotate}deg)` }}
-      >
-        <Eye side="left" mode={eyeMode} eyeX={eyeX} eyeY={eyeY} />
-        <Eye side="right" mode={eyeMode} eyeX={eyeX} eyeY={eyeY} />
-        <span className={`absolute left-1/2 top-[47%] h-1 w-12 -translate-x-1/2 rounded-full bg-slate-800/80 transition-all duration-300 ${sad ? 'top-[52%] rotate-180' : ''}`} />
-      </div>
-    </div>
-  );
-}
+    <div className="relative hidden min-h-[650px] overflow-hidden bg-[radial-gradient(circle_at_30%_18%,rgba(59,130,246,0.28),transparent_22rem),radial-gradient(circle_at_72%_78%,rgba(125,92,255,0.20),transparent_24rem),linear-gradient(135deg,#eef3ff_0%,#e7e7f2_48%,#f6f8ff_100%)] p-10 lg:block">
+      <div className="absolute inset-0 bg-grid-lines bg-[length:56px_56px] opacity-35" />
+      <div className="relative flex h-full flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-white/50 text-blue-700 shadow-sm backdrop-blur-xl">✦</span>
+            <span>{copy.illustrationTitle}</span>
+          </div>
+          <h3 className="mt-12 max-w-md text-5xl font-semibold tracking-[-0.06em] text-slate-950">{copy.leftTitle}</h3>
+          <p className="mt-5 max-w-md text-base leading-8 text-slate-600">{copy.leftBody}</p>
+        </div>
 
-function LoginIllustration({ activeField, codeShort, copy, mouseVector }: { activeField: ActiveField; codeShort: boolean; copy: ModalCopy; mouseVector: MouseVector }) {
-  const isCode = activeField === 'code';
-  const status = codeShort ? copy.mascotCheck : isCode ? copy.mascotCover : activeField === 'phone' ? copy.mascotTyping : copy.mascotReady;
+        <div className="relative mx-auto my-10 w-full max-w-[30rem] rounded-[2rem] border border-white/70 bg-white/70 p-5 shadow-2xl shadow-blue-900/10 backdrop-blur-xl">
+          <div className="rounded-[1.4rem] bg-slate-950 p-5 text-white shadow-xl shadow-slate-950/15">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">{copy.previewTitle}</p>
+                <p className="mt-2 text-sm text-slate-300">{copy.previewBody}</p>
+              </div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 font-bold">OS</div>
+            </div>
+            <div className="mt-6 grid gap-3">
+              {copy.modules.slice(0, 4).map((item, index) => (
+                <div key={item} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/8 px-4 py-3">
+                  <span className="text-sm text-slate-200">{item}</span>
+                  <span className="rounded-full bg-blue-500/20 px-2.5 py-1 text-xs font-semibold text-blue-200">0{index + 1}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="absolute -bottom-7 -right-6 rounded-2xl border border-blue-100 bg-white px-4 py-3 text-sm font-semibold text-blue-700 shadow-xl shadow-blue-900/10">GEO · Content · Leads</div>
+        </div>
 
-  return (
-    <div className="relative hidden min-h-[650px] overflow-hidden bg-[#dedee8] lg:block">
-      <div className="absolute left-10 top-10 flex items-center gap-3 text-sm font-semibold text-white/95">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10">✦</span>
-        <span>{copy.illustrationTitle}</span>
-      </div>
-
-      <div className="absolute left-1/2 top-[50%] h-[29rem] w-[34rem] -translate-x-1/2 -translate-y-1/2">
-        <div className="absolute inset-x-10 bottom-0 h-1 rounded-full bg-slate-900/10" />
-        <Character className="left-16 z-20" color="bg-[#ffa36f]" height="h-44" width="w-56" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={0.8} eyeMode="dark" />
-        <Character className="left-40 z-10 -translate-y-28 rotate-2" color="bg-[#6d43f2]" height="h-80" width="w-52" rounded="rounded-t-3xl" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={1.08} eyeMode="white" />
-        <Character className="left-60 z-30 -translate-y-12 rotate-1" color="bg-[#2d2f32]" height="h-64" width="w-44" rounded="rounded-t-xl" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={1} eyeMode="white" />
-        <Character className="right-8 z-20 -translate-y-1" color="bg-[#eadf55]" height="h-48" width="w-44" mouseVector={mouseVector} activeField={activeField} sad={codeShort} intensity={0.9} eyeMode="dark" />
-      </div>
-
-      <div className={`absolute left-1/2 top-[74%] -translate-x-1/2 rounded-full border border-white/40 bg-white/45 px-5 py-2 text-sm font-semibold text-slate-700 shadow-lg shadow-slate-900/5 backdrop-blur-xl ${codeShort ? 'nova-shake' : ''}`}>{status}</div>
-
-      <div className="absolute bottom-8 left-10 flex gap-8 text-sm font-medium text-slate-500">
-        <a href="/privacy">{copy.privacy}</a>
-        <a href="/privacy#terms">{copy.termsLink}</a>
-        <a href="/contact">{copy.connect}</a>
+        <div className="flex gap-8 text-sm font-medium text-slate-500">
+          <a href="/privacy">{copy.privacy}</a>
+          <a href="/privacy#terms">{copy.termsLink}</a>
+          <a href="/contact">{copy.connect}</a>
+        </div>
       </div>
     </div>
   );
@@ -118,13 +101,9 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const { lang } = useLanguage();
   const copy = modalCopy[lang];
-  const [activeField, setActiveField] = useState<ActiveField>('idle');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
   const [agreed, setAgreed] = useState(false);
-  const [mouseVector, setMouseVector] = useState<MouseVector>({ x: 0, y: 0 });
-
-  const codeShort = code.length > 0 && code.length < 6;
 
   useEffect(() => {
     if (!open) return;
@@ -163,7 +142,6 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = originalOverflow;
       previousFocusRef.current?.focus();
-      setActiveField('idle');
     };
   }, [open, onClose]);
 
@@ -171,13 +149,6 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
     event.preventDefault();
     if (!agreed) return;
     window.alert('NovaOS auth provider placeholder. Connect Google, Apple and SMS verification provider here.');
-  }
-
-  function handleMouseMove(event: MouseEvent<HTMLDivElement>) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = clamp(((event.clientX - rect.left) / rect.width - 0.5) * 18, -9, 9);
-    const y = clamp(((event.clientY - rect.top) / rect.height - 0.5) * 10, -5, 5);
-    setMouseVector({ x, y });
   }
 
   if (!open) return null;
@@ -192,13 +163,11 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
         role="dialog"
         aria-modal="true"
         aria-labelledby="novaos-login-title"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={() => setMouseVector({ x: 0, y: 0 })}
         className="relative grid w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/20 bg-white shadow-2xl shadow-slate-950/30 outline-none lg:grid-cols-[1.08fr_1fr]"
       >
         <button type="button" onClick={onClose} className="absolute right-5 top-5 z-20 rounded-full border border-slate-200 bg-white/85 px-3 py-2 text-sm font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-950" aria-label={copy.close}>{copy.close}</button>
 
-        <LoginIllustration activeField={activeField} codeShort={codeShort} copy={copy} mouseVector={mouseVector} />
+        <NovaOsIntroPanel copy={copy} />
 
         <form onSubmit={handleSubmit} className="flex min-h-[650px] items-center justify-center p-8 lg:p-12">
           <div className="w-full max-w-[28rem]">
@@ -218,12 +187,12 @@ export function MaintenanceModal({ open, onClose }: { open: boolean; onClose: ()
               </label>
               <label className="grid gap-2 text-sm font-semibold text-slate-700">
                 {copy.phone}
-                <input value={phone} onFocus={() => setActiveField('phone')} onBlur={() => setActiveField('idle')} onChange={(event) => setPhone(event.target.value)} type="tel" inputMode="tel" className="border-0 border-b border-slate-200 px-0 py-3 text-slate-700 outline-none transition focus:border-blue-500" />
+                <input value={phone} onChange={(event) => setPhone(event.target.value)} type="tel" inputMode="tel" className="border-0 border-b border-slate-200 px-0 py-3 text-slate-700 outline-none transition focus:border-blue-500" />
               </label>
               <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
                 <label className="grid gap-2 text-sm font-semibold text-slate-700">
                   {copy.code}
-                  <input value={code} maxLength={6} onFocus={() => setActiveField('code')} onBlur={() => setActiveField('idle')} onChange={(event) => setCode(event.target.value.replace(/\D/g, '').slice(0, 6))} inputMode="numeric" className="border-0 border-b border-slate-200 px-0 py-3 text-slate-700 outline-none transition focus:border-blue-500" />
+                  <input value={code} maxLength={6} onChange={(event) => setCode(event.target.value.replace(/\D/g, '').slice(0, 6))} inputMode="numeric" className="border-0 border-b border-slate-200 px-0 py-3 text-slate-700 outline-none transition focus:border-blue-500" />
                 </label>
                 <button type="button" className="self-end rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-50">{copy.sendCode}</button>
               </div>
