@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Fortune Daily",
+    "slug": "fortune-daily",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "fortunedaily",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "plugins": [
+      "expo-router",
+      [
+        "expo-notifications",
+        {
+          "defaultChannel": "daily-fortune"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.fortunedaily"
+    },
+    "android": {
+      "package": "com.yourcompany.fortunedaily"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    }
+  }
+}
